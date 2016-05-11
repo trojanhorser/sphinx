@@ -183,3 +183,8 @@ This function displays the form if it was hidden. It accepts the form to display
 .. literalinclude:: forms_example.html
        :language: javascript
        :lines: 21
+
+panel();
+~~~~~~~
+- output are panel
+- button panel

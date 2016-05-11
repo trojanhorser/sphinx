@@ -86,3 +86,9 @@ This removes records from a database table based on a specific criteria.
        :lines: 125-126
 
 .. note:: All CRUD functions update the "sqlerr" global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.
+
+sqlUpdateObject()
+~~~~~~~~~~~~~~~~~
+
+sqlValueOf()
+~~~~~~~~~~~~
