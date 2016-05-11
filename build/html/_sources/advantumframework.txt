@@ -15,6 +15,7 @@ It several components which are outlined below:
 
    datadictionary
    fields
+   buttons
    forms
    stringfunctions
    crudfunctions

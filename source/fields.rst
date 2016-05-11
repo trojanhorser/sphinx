@@ -260,3 +260,9 @@ editTime(time);
 
 validTime(time);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+valueOf('gpcmt')
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+editDate(valueOf('rcpdate'),'m'))
+~~~~~~~~~~~~~~~~~~~~~~~~~~
