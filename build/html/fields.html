@@ -89,9 +89,9 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Fields</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#javascript-library-dependency-to-be-included">Javascript library dependency  to be included</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#custom-attribute-description">Custom Attribute Description</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#focuson-connam">focusOn(&#8216;connam&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#protect-concde">protect(&#8216;concde&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changevar">changeVar();</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#focuson-field">focusOn(field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protect-field">protect(field,....);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changevar-field-value-fieldtype">changeVar(field,value,fieldType);</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fieldhtml-field-rcpdate">fieldHTML(&#8216;field=rcpdate&#8217;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hideelement">hideElement</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showelement">showElement</a></li>
@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
 </ul>
 </li>
 </ul>
@@ -374,19 +375,91 @@ Each of these attributes are explained below:</p>
 <h3>Field Functions<a class="headerlink" href="#field-functions" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
-<div class="section" id="focuson-connam">
-<h2>focusOn(&#8216;connam&#8217;);<a class="headerlink" href="#focuson-connam" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="focuson-field">
+<h2>focusOn(field)<a class="headerlink" href="#focuson-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>focusOn</strong> function gives focus to a specified html field.</p>
+<ul class="simple">
+<li>Focus can be given to a single field element. The example below uses the field name
+<strong>&#8216;customerid&#8217;</strong> as the field to focus on.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">focusOn</span><span class="p">(</span><span class="s1">&#39;customerid&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="protect-concde">
-<h2>protect(&#8216;concde&#8217;);<a class="headerlink" href="#protect-concde" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Text can also be highlighted by passsing <strong>&#8216;*highlight&#8217;</strong> or <strong>&#8216;*hi*&#8217;</strong> as a second parameter as shown in the example below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">focusOn</span><span class="p">(</span><span class="s1">&#39;customerid&#39;</span><span class="p">,</span><span class="s1">&#39;*highlight&#39;</span><span class="p">)</span>
+<span class="cm">/** OR **/</span>
+<span class="nx">focusOn</span><span class="p">(</span><span class="s1">&#39;customerid&#39;</span><span class="p">,</span><span class="s1">&#39;*hi&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="changevar">
-<h2>changeVar();<a class="headerlink" href="#changevar" title="Permalink to this headline">¶</a></h2>
-<p>changeVar(&#8216;gpcmt&#8217;,&#8217;Charge Description&#8217;);
-changeVar(&#8216;rcpamt&#8217;,&#8217;$7k656&#8217;);
-changeVar(&#8216;rcpdate&#8217;,&#8216;20150901&#8217;,&#8217;<a href="#id1"><span class="problematic" id="id2">*</span></a>date&#8217;); // or changeVar(&#8216;rcpdate&#8217;,&#8216;01092015&#8217;) since the default date format is ddmmyyyyy
-changeVar(&#8216;rcptime&#8217;,1);
-changeVar(&#8216;gpcmt&#8217;,valueOf(&#8216;chgdesc&#8217;));</p>
+</div>
+<div class="section" id="protect-field">
+<h2>protect(field,....);<a class="headerlink" href="#protect-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>protect</strong> function prevents fields from being edited by the user.</p>
+<ul class="simple">
+<li>A single field can be protected by specifying the field name. In the example below &#8220;companyname&#8221;</li>
+</ul>
+<p>is used as shown below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;cmpname&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Multiple fields can also be protected by specifying multiple fields as shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;cmpname&#39;</span><span class="p">,</span><span class="s1">&#39;cmpaddr1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changevar-field-value-fieldtype">
+<h2>changeVar(field,value,fieldType);<a class="headerlink" href="#changevar-field-value-fieldtype" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>changeVar</strong> function changes the <strong>value</strong> of a specified <strong>field</strong>.</p>
+<ul class="simple">
+<li>In the example below the field <strong>&#8216;description&#8217;</strong> is changed to <strong>&#8216;Description Has Changed&#8217;</strong></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="s1">&#39;Description Has Changed&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The changeVar function also has the ability to detect which the <strong>field type</strong> and modify the data assigned to match the field type.
+In the example below the field <strong>&#8216;salary&#8217;</strong> which is numeric is assigned the value <strong>&#8216;$7k656&#8217;</strong>. The value <strong>&#8216;$7k656&#8217;</strong> will be changed
+to <strong>7656</strong> automatically by the change var function</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span><span class="s1">&#39;$7k656&#39;</span><span class="p">);</span>
+<span class="nx">newValue</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+
+<span class="cm">/**</span>
+<span class="cm"> newValue will be 7656</span>
+<span class="cm">**/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The value of <strong>date fields</strong> can also be changed. This is done by passing in <strong>&#8216;*date&#8217;</strong> as the third parameter as shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcpdate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;*date&#39;</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm"> OR</span>
+<span class="cm">*/</span>
+<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcpdate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The format of the date passed must be the same as the default format.
+For example is the default date is dd/mm/yyyy then a date in that format must be passed as the value.</p>
+</div>
+<ul class="simple">
+<li>Numeric fields can also be set by passing in a number as the <strong>value</strong> parameter as shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcptime&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Fields can be set with the value of other fields by using the <strong>valueOf</strong> function as shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;gpcmt&#39;</span><span class="p">,</span><span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;chgdesc&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="fieldhtml-field-rcpdate">
 <h2>fieldHTML(&#8216;field=rcpdate&#8217;)<a class="headerlink" href="#fieldhtml-field-rcpdate" title="Permalink to this headline">¶</a></h2>
@@ -412,8 +485,8 @@ protect(&#8216;id1&#8217;,&#8217;id2&#8217;,....);
 <p>neverShow(&#8216;id1&#8217;,&#8217;id2&#8217;);</p>
 </div>
 <div class="section" id="focuson-rcpamt-hi">
-<h2>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id3"><span class="problematic" id="id4">*</span></a>hi&#8217;);<a class="headerlink" href="#focuson-rcpamt-hi" title="Permalink to this headline">¶</a></h2>
-<p>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id5"><span class="problematic" id="id6">*</span></a>hi&#8217;);</p>
+<h2>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id1"><span class="problematic" id="id2">*</span></a>hi&#8217;);<a class="headerlink" href="#focuson-rcpamt-hi" title="Permalink to this headline">¶</a></h2>
+<p>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id3"><span class="problematic" id="id4">*</span></a>hi&#8217;);</p>
 </div>
 <div class="section" id="popupmsg-plese-enter-a-value-greater-than-67777-rcpamt">
 <h2>popUpMsg(&#8216;Plese enter a value greater than 67777&#8217;,&#8217;rcpamt&#8217;);<a class="headerlink" href="#popupmsg-plese-enter-a-value-greater-than-67777-rcpamt" title="Permalink to this headline">¶</a></h2>
@@ -428,7 +501,7 @@ protect(&#8216;id1&#8217;,&#8217;id2&#8217;,....);
 <h2>innerText=contentOf(div/span);<a class="headerlink" href="#innertext-contentof-div-span" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="innerhtml-contentof-div-span-html">
-<h2>innerHTML=contentOf(div/span,&#8217;<a href="#id7"><span class="problematic" id="id8">*</span></a>html&#8217;);<a class="headerlink" href="#innerhtml-contentof-div-span-html" title="Permalink to this headline">¶</a></h2>
+<h2>innerHTML=contentOf(div/span,&#8217;<a href="#id5"><span class="problematic" id="id6">*</span></a>html&#8217;);<a class="headerlink" href="#innerhtml-contentof-div-span-html" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="isblank-value-returns-true-of-false">
 <h2>isBlank(value); //returns true of false;<a class="headerlink" href="#isblank-value-returns-true-of-false" title="Permalink to this headline">¶</a></h2>

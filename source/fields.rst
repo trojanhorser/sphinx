@@ -201,8 +201,8 @@ The **focusOn** function gives focus to a specified html field.
    focusOn('customerid','*hi')
 
   
-protect(field,....);
-~~~~~~~~~~~~~~~~~~~
+protect(fieldOne,fieldTwo,....);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **protect** function prevents fields from being edited by the user.
 
@@ -211,15 +211,35 @@ is used as shown below:
 
 .. code-block:: javascript
 
-   protect('cmpname');
+   protect('companyname');
 
 - Multiple fields can also be protected by specifying multiple fields as shown below:
  
 .. code-block:: javascript
 
-   protect('cmpname','cmpaddr1');
+   protect('companyname','companyaddress');
 
 
+unProtect(fieldOne,fieldTwo,....);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **unProtect** function takes a field from a protected state to an editable state. 
+
+- A single field can be un-protected by specifying the field name. In the example below "companyname"
+is used as shown below:
+
+.. code-block:: javascript
+
+   unProtect('firsname');
+
+- Multiple fields can also be un-protected by specifying multiple fields as shown below:
+ 
+.. code-block:: javascript
+
+   unProtect('firsname','lastname');
+
+
+      
 changeVar(field,value,fieldType);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -248,21 +268,26 @@ The **changeVar** function changes the **value** of a specified **field**.
 
 .. code-block:: javascript
 
-   changeVar('rcpdate','20150901','*date'); 
+   changeVar('startDate','20150901','*date'); 
    /*
     OR
    */
-   changeVar('rcpdate','20150901')
+   changeVar('startDate','20150901')
 
 .. note:: The format of the date passed must be the same as the default format.
            For example is the default date is dd/mm/yyyy then a date in that format must be passed as the value.
 
-- Numeric fields can also be set by passing in a number as the **value** parameter as shown below:		   
+- Time fields can also be set by passing in the time in time format defined
 
 .. code-block:: javascript
+	
+   /* For millitary time 21:00 HRS*/
+   changeVar('startTime',2100);
+   
+    /* For standard time 9:00 PM*/
+   changeVar('startTime',900);
 
-   changeVar('rcptime',1);
-
+   
 - Fields can be set with the value of other fields by using the **valueOf** function as shown below:		   
 
 .. code-block:: javascript
@@ -270,31 +295,78 @@ The **changeVar** function changes the **value** of a specified **field**.
    changeVar('gpcmt',valueOf('chgdesc'));
 
 
-fieldHTML('field=rcpdate')
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// alert(fieldHTML('field=rcpdate'));
+fieldHTML('field=<fielName>')
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-hideElement
-~~~~~~~~~~~~
-//hideElement('newbilno','notindic'....);
+The **fieldHTML** function outputs the html which is used to render a field. 
 
-showElement
-~~~~~~~~~~~~
-showElement('newbilno','notindic'....);
+- The following example shows how to retrieve the html for the **starttime** field:
 
-hideElement
-protect('id1','id2',....);
-~~~~~~~~~~~~
+.. code-block:: html
+   <!-- Field definition -->
+   <span field=starttime type=time></span>
 
-unProtect
-~~~~~~~~~~~~
-unProtect('id1','id2',...);
+.. code-block:: javascript
 
-neverShow('id1','id2');
-~~~~~~~~~~~~~~~~~~~~~~~~
+   var html = fieldHTML('field=starttime')
+	/*
+		Value of html is:
+		<INPUT maxLength=20 size=22 name=starttime fldType="char" length="20"> 
+	*/
 
-neverShow('id1','id2');
+hideElement(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The **hideElement** function hides the field(s) specified.
+
+- The following example shows how to hide one field:
+
+.. code-block:: javascript
+	
+   hideElement('username')
+   
+- The following example shows how to hide multiple fields:
+
+.. code-block:: javascript
+	
+   hideElement('username','password')
+   
+
+showElement(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **showElement** function shows the field(s) specified.
+
+- The following example shows how to make a single field visible:
+
+.. code-block:: javascript
+	
+   showElement('salary')
+   
+- The following example shows how to make multiple fields visisble:
+
+.. code-block:: javascript
+	
+   showElement('tax','salary')
+
+
+neverShow(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **neverShow** function hides specified field permanently. Even if the **showElement** function is called on fields they will never be diplayed.
+
+- The following example shows how to permanently hide one field:
+
+.. code-block:: javascript
+	
+   neverShow('username')
+   
+- The following example shows how to permanently hide multiple fields:
+
+.. code-block:: javascript
+	
+   hideElement('username','password')
+     
 
 //focusOn('rcpamt','*hi');
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
