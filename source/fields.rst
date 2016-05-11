@@ -185,3 +185,78 @@ focusOn('connam');
 
 protect('concde');
 ~~~~~~~~~~~~~~~~~~~
+
+changeVar();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+changeVar('gpcmt','Charge Description');
+changeVar('rcpamt','$7k656');
+changeVar('rcpdate','20150901','*date'); // or changeVar('rcpdate','01092015') since the default date format is ddmmyyyyy
+changeVar('rcptime',1);
+changeVar('gpcmt',valueOf('chgdesc'));
+
+
+fieldHTML('field=rcpdate')
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// alert(fieldHTML('field=rcpdate'));
+
+hideElement
+~~~~~~~~~~~~
+//hideElement('newbilno','notindic'....);
+
+showElement
+~~~~~~~~~~~~
+showElement('newbilno','notindic'....);
+
+hideElement
+protect('id1','id2',....);
+~~~~~~~~~~~~
+
+unProtect
+~~~~~~~~~~~~
+unProtect('id1','id2',...);
+
+neverShow('id1','id2');
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+neverShow('id1','id2');
+
+
+//focusOn('rcpamt','*hi');
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+//focusOn('rcpamt','*hi');
+
+popUpMsg('Plese enter a value greater than 67777','rcpamt');
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changeContent(div/span id,value);
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changeContent('newdiv','<b>Hello There</b>');
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+innerText=contentOf(div/span);
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+innerHTML=contentOf(div/span,'*html');
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+isBlank(value); //returns true of false;
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+editDate(date,format) // format='d','m',y' default=Y
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+alert(editDate('20190101',datefmt));
+
+validDate(date) // returns true of false default=Y
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+validDate('20160231'));
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+editTime(time);
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+validTime(time);
+~~~~~~~~~~~~~~~~~~~~~~~~~~
