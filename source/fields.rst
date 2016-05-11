@@ -180,19 +180,94 @@ Each of these attributes are explained below:
 Field Functions
 ----------------
 
-focusOn('connam');
+focusOn(field)
+~~~~~~~~~~~~~~~~~~~~
+
+The **focusOn** function gives focus to a specified html field.
+
+- Focus can be given to a single field element. The example below uses the field name
+  **'customerid'** as the field to focus on.
+
+.. code-block:: javascript
+
+   focusOn('customerid')
+
+- Text can also be highlighted by passsing **'*highlight'** or **'*hi*'** as a second parameter as shown in the example below:
+
+.. code-block:: javascript
+
+   focusOn('customerid','*highlight')
+   /** OR **/
+   focusOn('customerid','*hi')
+
+  
+protect(field,....);
 ~~~~~~~~~~~~~~~~~~~
 
-protect('concde');
-~~~~~~~~~~~~~~~~~~~
+The **protect** function prevents fields from being edited by the user.
 
-changeVar();
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-changeVar('gpcmt','Charge Description');
-changeVar('rcpamt','$7k656');
-changeVar('rcpdate','20150901','*date'); // or changeVar('rcpdate','01092015') since the default date format is ddmmyyyyy
-changeVar('rcptime',1);
-changeVar('gpcmt',valueOf('chgdesc'));
+- A single field can be protected by specifying the field name. In the example below "companyname"
+is used as shown below:
+
+.. code-block:: javascript
+
+   protect('cmpname');
+
+- Multiple fields can also be protected by specifying multiple fields as shown below:
+ 
+.. code-block:: javascript
+
+   protect('cmpname','cmpaddr1');
+
+
+changeVar(field,value,fieldType);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **changeVar** function changes the **value** of a specified **field**.
+
+- In the example below the field **'description'** is changed to **'Description Has Changed'**
+
+.. code-block:: javascript
+
+   changeVar('description','Description Has Changed');
+
+- The changeVar function also has the ability to detect which the **field type** and modify the data assigned to match the field type. 
+  In the example below the field **'salary'** which is numeric is assigned the value **'$7k656'**. The value **'$7k656'** will be changed
+  to **7656** automatically by the change var function  
+
+.. code-block:: javascript
+
+   changeVar('salary','$7k656');
+   newValue = valueOf('salary')
+   
+   /**
+    newValue will be 7656
+   **/
+
+- The value of **date fields** can also be changed. This is done by passing in **'*date'** as the third parameter as shown below:
+
+.. code-block:: javascript
+
+   changeVar('rcpdate','20150901','*date'); 
+   /*
+    OR
+   */
+   changeVar('rcpdate','20150901')
+
+.. note:: The format of the date passed must be the same as the default format.
+           For example is the default date is dd/mm/yyyy then a date in that format must be passed as the value.
+
+- Numeric fields can also be set by passing in a number as the **value** parameter as shown below:		   
+
+.. code-block:: javascript
+
+   changeVar('rcptime',1);
+
+- Fields can be set with the value of other fields by using the **valueOf** function as shown below:		   
+
+.. code-block:: javascript
+
+   changeVar('gpcmt',valueOf('chgdesc'));
 
 
 fieldHTML('field=rcpdate')

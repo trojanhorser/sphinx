@@ -19,3 +19,4 @@ It several components which are outlined below:
    forms
    stringfunctions
    crudfunctions
+   alerts

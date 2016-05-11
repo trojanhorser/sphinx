@@ -184,6 +184,9 @@ This function displays the form if it was hidden. It accepts the form to display
        :language: javascript
        :lines: 21
 
+closeForm();
+~~~~~~~~~~~~~~
+
 panel();
 ~~~~~~~
 - output are panel
