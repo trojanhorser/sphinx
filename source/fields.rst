@@ -353,7 +353,7 @@ The **showElement** function shows the field(s) specified.
 neverShow(fieldOne,fieldTwo,..);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **neverShow** function hides specified field permanently. Even if the **showElement** function is called on fields they will never be diplayed.
+The **neverShow** function hides a specified field permanently. Even if the **showElement** function is called on fields they will never be diplayed.
 
 - The following example shows how to permanently hide one field:
 
@@ -368,48 +368,246 @@ The **neverShow** function hides specified field permanently. Even if the **show
    hideElement('username','password')
      
 
-//focusOn('rcpamt','*hi');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-//focusOn('rcpamt','*hi');
+popUpMsg(message,field);
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-popUpMsg('Plese enter a value greater than 67777','rcpamt');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **popUpMsg** function shows a message below a specified field.
 
-changeContent(div/span id,value);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The following example shows how to display the **popUpMsg** for the **'receipt'** field. 
 
-changeContent('newdiv','<b>Hello There</b>');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: javascript
+	
+   popUpMsg('Plese enter a value greater than 0','receipt');
 
-innerText=contentOf(div/span);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-innerHTML=contentOf(div/span,'*html');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+changeContent(element,htmlText);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-isBlank(value); //returns true of false;
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **changeContent** function changes the inner html for a specific element. 
 
-editDate(date,format) // format='d','m',y' default=Y
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The example below shows how to change the content of a **div**.
 
-alert(editDate('20190101',datefmt));
+.. code-block:: html
+   
+   <div id='first'> First Text </div>
+	
+.. code-block:: javascript
+	
+   changeContent('first',"Second Text");
+	/*
+		HTML will be changed to:
+		<div id='first'> Second Text </div>
+	*/
+   
 
-validDate(date) // returns true of false default=Y
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentOf(element);
+~~~~~~~~~~~~~~~~~~~~
 
-validDate('20160231'));
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **contentOf** function returns the inner text/html for a specific element. 
 
+- The example below shows how to return the text content of a **div**.
+
+.. code-block:: html
+
+    <div id='first'> <b>First Text<b> </div>
+
+.. code-block:: javascript
+	
+   var innerText = contentOf('first');
+	/*
+		value of innerText will be:
+		
+		First Text
+	*/
+
+- The HTML content of an element can also be retrieved by using the **"*html"** parameter, as shown in the example below:
+
+.. code-block:: html
+
+   <div id='first'> <b>First Text<b> </div>
+
+.. code-block:: javascript
+	
+   var innerHtml = contentOf('first','*html');
+	/*
+		value of innerHtml will be:
+		
+		<b> First Text </b>
+	*/
+
+	
+- The example below shows how to replace the inner html of one element with another using the **changeContent** function:
+
+.. code-block:: html
+   
+   <div id='first'> First Text </div>
+   <div id='second'> Second Text </div>
+	
+.. code-block:: javascript
+	
+   changeContent('first',contentOf('second'));
+	/*
+		HTML will be changed to:
+		<div id='first'> Second Text </div>
+	*/
+
+isBlank(value)
+~~~~~~~~~~~~~~
+
+The **isBlank** function returns a boolean value (true/false) if the string value passed is empty. An
+example of its use is shown below:
+
+.. code-block:: javascript
+	
+	var firstName = valueOf('firstname');
+	
+	if(isBlank(firstName)){	
+		popUpMsg('Plese enter first name','firstname');
+	}
+
+editDate(date,format)
+~~~~~~~~~~~~~~~~~~~~~
+
+The **editDate** function converts the **date** passed to it in the specfied format. 
+If no dateformat is specified it uses the default format 'Y'.
+
+- The example below shows how to use **editDate** without the date format parameter:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901')
+	
+	/*
+		The value of dateOne will be:
+		
+		2015/09/01
+	*/
+
+- The example below shows how to use **editDate** with the date format parameter  **'Y'**:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901','Y')
+	
+	/*
+		The value of dateOne will be:
+		
+		2015/09/01
+	*/
+
+- The example below shows how to use **editDate** with the date format parameter  **'d'**:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901','d')
+	
+	/*
+		The value of dateOne will be:
+		
+		01/09/2015
+	*/
+
+	
+validDate(date,format)
+~~~~~~~~~~~~~~~~~~~~~
+
+The **validDate** function returns a boolean value (true/false) if the date is valid. 
+If no date format is specified it uses the default format 'Y'.
+
+- The example below shows how to use **validDate** without the date format parameter:
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901')
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
+
+- The example below shows how to use **validDate** with the date format parameter 'D' (dd/mm/yyy):
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901','D')
+	
+	/*
+		The value of result will be:
+		
+		result = false;
+	*/
+
+- The example below shows how to use **validDate** with the date format parameter 'Y' (yyyy/mm/dd):
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901','Y')
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
 
 editTime(time);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+
+The **editDate** function converts the **time** passed to the specfied format. 
+
+- Examples of usage are shown below:
+
+.. code-block:: javascript
+	
+	var result = editTime(2000)
+	
+	/*
+		The value of result will be:
+		
+		result = 02:00;
+	*/
+
 
 validTime(time);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
-valueOf('gpcmt')
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **validTime** function returns true or false if the **time** is valid.
 
-editDate(valueOf('rcpdate'),'m'))
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- An example with a valid time is shown below:
+
+.. code-block:: javascript
+	
+	var result = validTime(2000)
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
+
+- An example with an invalid time is shown below:
+
+.. code-block:: javascript
+	
+	var result = validTime(2500)
+	
+	/*
+		The value of result will be:
+		
+		result = false;
+	*/
+
+valueOf(field);
+~~~~~~~~~~~~~~~
+
+The **valueOf** function returns the value of a specified field. An example is shown below:
+
+.. code-block:: javascript
+	
+	var result = valueOf('username')
+	
+	/*
+		The value of result will be:
+		
+		result = 'myUsername';
+	*/

@@ -201,8 +201,8 @@ The **focusOn** function gives focus to a specified html field.
    focusOn('customerid','*hi')
 
   
-protect(field,....);
-~~~~~~~~~~~~~~~~~~~
+protect(fieldOne,fieldTwo,....);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **protect** function prevents fields from being edited by the user.
 
@@ -211,15 +211,35 @@ is used as shown below:
 
 .. code-block:: javascript
 
-   protect('cmpname');
+   protect('companyname');
 
 - Multiple fields can also be protected by specifying multiple fields as shown below:
  
 .. code-block:: javascript
 
-   protect('cmpname','cmpaddr1');
+   protect('companyname','companyaddress');
 
 
+unProtect(fieldOne,fieldTwo,....);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **unProtect** function takes a field from a protected state to an editable state. 
+
+- A single field can be un-protected by specifying the field name. In the example below "companyname"
+is used as shown below:
+
+.. code-block:: javascript
+
+   unProtect('firsname');
+
+- Multiple fields can also be un-protected by specifying multiple fields as shown below:
+ 
+.. code-block:: javascript
+
+   unProtect('firsname','lastname');
+
+
+      
 changeVar(field,value,fieldType);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -248,21 +268,26 @@ The **changeVar** function changes the **value** of a specified **field**.
 
 .. code-block:: javascript
 
-   changeVar('rcpdate','20150901','*date'); 
+   changeVar('startDate','20150901','*date'); 
    /*
     OR
    */
-   changeVar('rcpdate','20150901')
+   changeVar('startDate','20150901')
 
 .. note:: The format of the date passed must be the same as the default format.
            For example is the default date is dd/mm/yyyy then a date in that format must be passed as the value.
 
-- Numeric fields can also be set by passing in a number as the **value** parameter as shown below:		   
+- Time fields can also be set by passing in the time in time format defined
 
 .. code-block:: javascript
+	
+   /* For millitary time 21:00 HRS*/
+   changeVar('startTime',2100);
+   
+    /* For standard time 9:00 PM*/
+   changeVar('startTime',900);
 
-   changeVar('rcptime',1);
-
+   
 - Fields can be set with the value of other fields by using the **valueOf** function as shown below:		   
 
 .. code-block:: javascript
@@ -270,74 +295,319 @@ The **changeVar** function changes the **value** of a specified **field**.
    changeVar('gpcmt',valueOf('chgdesc'));
 
 
-fieldHTML('field=rcpdate')
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// alert(fieldHTML('field=rcpdate'));
+fieldHTML('field=<fielName>')
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-hideElement
-~~~~~~~~~~~~
-//hideElement('newbilno','notindic'....);
+The **fieldHTML** function outputs the html which is used to render a field. 
 
-showElement
-~~~~~~~~~~~~
-showElement('newbilno','notindic'....);
+- The following example shows how to retrieve the html for the **starttime** field:
 
-hideElement
-protect('id1','id2',....);
-~~~~~~~~~~~~
+.. code-block:: html
+   <!-- Field definition -->
+   <span field=starttime type=time></span>
 
-unProtect
-~~~~~~~~~~~~
-unProtect('id1','id2',...);
+.. code-block:: javascript
 
-neverShow('id1','id2');
+   var html = fieldHTML('field=starttime')
+	/*
+		Value of html is:
+		<INPUT maxLength=20 size=22 name=starttime fldType="char" length="20"> 
+	*/
+
+hideElement(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **hideElement** function hides the field(s) specified.
+
+- The following example shows how to hide one field:
+
+.. code-block:: javascript
+	
+   hideElement('username')
+   
+- The following example shows how to hide multiple fields:
+
+.. code-block:: javascript
+	
+   hideElement('username','password')
+   
+
+showElement(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **showElement** function shows the field(s) specified.
+
+- The following example shows how to make a single field visible:
+
+.. code-block:: javascript
+	
+   showElement('salary')
+   
+- The following example shows how to make multiple fields visisble:
+
+.. code-block:: javascript
+	
+   showElement('tax','salary')
+
+
+neverShow(fieldOne,fieldTwo,..);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **neverShow** function hides a specified field permanently. Even if the **showElement** function is called on fields they will never be diplayed.
+
+- The following example shows how to permanently hide one field:
+
+.. code-block:: javascript
+	
+   neverShow('username')
+   
+- The following example shows how to permanently hide multiple fields:
+
+.. code-block:: javascript
+	
+   hideElement('username','password')
+     
+
+popUpMsg(message,field);
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-neverShow('id1','id2');
+The **popUpMsg** function shows a message below a specified field.
+
+- The following example shows how to display the **popUpMsg** for the **'receipt'** field. 
+
+.. code-block:: javascript
+	
+   popUpMsg('Plese enter a value greater than 0','receipt');
 
 
-//focusOn('rcpamt','*hi');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-//focusOn('rcpamt','*hi');
+changeContent(element,htmlText);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-popUpMsg('Plese enter a value greater than 67777','rcpamt');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **changeContent** function changes the inner html for a specific element. 
 
-changeContent(div/span id,value);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The example below shows how to change the content of a **div**.
 
-changeContent('newdiv','<b>Hello There</b>');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: html
+   
+   <div id='first'> First Text </div>
+	
+.. code-block:: javascript
+	
+   changeContent('first',"Second Text");
+	/*
+		HTML will be changed to:
+		<div id='first'> Second Text </div>
+	*/
+   
 
-innerText=contentOf(div/span);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentOf(element);
+~~~~~~~~~~~~~~~~~~~~
 
-innerHTML=contentOf(div/span,'*html');
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **contentOf** function returns the inner text/html for a specific element. 
 
-isBlank(value); //returns true of false;
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The example below shows how to return the text content of a **div**.
 
-editDate(date,format) // format='d','m',y' default=Y
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: html
 
-alert(editDate('20190101',datefmt));
+    <div id='first'> <b>First Text<b> </div>
 
-validDate(date) // returns true of false default=Y
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: javascript
+	
+   var innerText = contentOf('first');
+	/*
+		value of innerText will be:
+		
+		First Text
+	*/
 
-validDate('20160231'));
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The HTML content of an element can also be retrieved by using the **"*html"** parameter, as shown in the example below:
 
+.. code-block:: html
+
+   <div id='first'> <b>First Text<b> </div>
+
+.. code-block:: javascript
+	
+   var innerHtml = contentOf('first','*html');
+	/*
+		value of innerHtml will be:
+		
+		<b> First Text </b>
+	*/
+
+	
+- The example below shows how to replace the inner html of one element with another using the **changeContent** function:
+
+.. code-block:: html
+   
+   <div id='first'> First Text </div>
+   <div id='second'> Second Text </div>
+	
+.. code-block:: javascript
+	
+   changeContent('first',contentOf('second'));
+	/*
+		HTML will be changed to:
+		<div id='first'> Second Text </div>
+	*/
+
+isBlank(value)
+~~~~~~~~~~~~~~
+
+The **isBlank** function returns a boolean value (true/false) if the string value passed is empty. An
+example of its use is shown below:
+
+.. code-block:: javascript
+	
+	var firstName = valueOf('firstname');
+	
+	if(isBlank(firstName)){	
+		popUpMsg('Plese enter first name','firstname');
+	}
+
+editDate(date,format)
+~~~~~~~~~~~~~~~~~~~~~
+
+The **editDate** function converts the **date** passed to it in the specfied format. 
+If no dateformat is specified it uses the default format 'Y'.
+
+- The example below shows how to use **editDate** without the date format parameter:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901')
+	
+	/*
+		The value of dateOne will be:
+		
+		2015/09/01
+	*/
+
+- The example below shows how to use **editDate** with the date format parameter  **'Y'**:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901','Y')
+	
+	/*
+		The value of dateOne will be:
+		
+		2015/09/01
+	*/
+
+- The example below shows how to use **editDate** with the date format parameter  **'d'**:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901','d')
+	
+	/*
+		The value of dateOne will be:
+		
+		01/09/2015
+	*/
+
+	
+validDate(date,format) // returns true of false default=Y
+~~~~~~~~~~~~~~~~~~~~~
+
+The **validDate** function returns a boolean value (true/false) if the date is valid. 
+If no date format is specified it uses the default format 'Y'.
+
+- The example below shows how to use **validDate** without the date format parameter:
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901')
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
+
+- The example below shows how to use **validDate** with the date format parameter 'D' (dd/mm/yyy):
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901','D')
+	
+	/*
+		The value of result will be:
+		
+		result = false;
+	*/
+
+- The example below shows how to use **validDate** with the date format parameter 'Y' (yyyy/mm/dd):
+
+.. code-block:: javascript
+	
+	var result = validDate('20150901','Y')
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
 
 editTime(time);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+
+The **editDate** function converts the **time** passed to the specfied format. 
+
+- Examples of usage are shown below:
+
+.. code-block:: javascript
+	
+	var result = editTime(2000)
+	
+	/*
+		The value of result will be:
+		
+		result = 02:00;
+	*/
+
 
 validTime(time);
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
-valueOf('gpcmt')
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+The **validTime** function returns true or false if the **time** is valid.
 
-editDate(valueOf('rcpdate'),'m'))
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+- An example with a valid time is shown below:
+
+.. code-block:: javascript
+	
+	var result = validTime(2000)
+	
+	/*
+		The value of result will be:
+		
+		result = true;
+	*/
+
+- An example with an invalid time is shown below:
+
+.. code-block:: javascript
+	
+	var result = validTime(2500)
+	
+	/*
+		The value of result will be:
+		
+		result = false;
+	*/
+
+valueOf(field);
+~~~~~~~~~~~~~~~
+
+The **valueOf** function returns the value of a specified field. An example is shown below:
+
+.. code-block:: javascript
+	
+	var result = valueOf('username')
+	
+	/*
+		The value of result will be:
+		
+		result = 'myUsername';
+	*/

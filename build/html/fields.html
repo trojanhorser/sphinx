@@ -90,27 +90,22 @@
 <li class="toctree-l4"><a class="reference internal" href="#javascript-library-dependency-to-be-included">Javascript library dependency  to be included</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#custom-attribute-description">Custom Attribute Description</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#focuson-field">focusOn(field)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#protect-field">protect(field,....);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protect-fieldone-fieldtwo">protect(fieldOne,fieldTwo,....);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unprotect-fieldone-fieldtwo">unProtect(fieldOne,fieldTwo,....);</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#changevar-field-value-fieldtype">changeVar(field,value,fieldType);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fieldhtml-field-rcpdate">fieldHTML(&#8216;field=rcpdate&#8217;)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hideelement">hideElement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#showelement">showElement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#unprotect">unProtect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nevershow-id1-id2">neverShow(&#8216;id1&#8217;,&#8217;id2&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#focuson-rcpamt-hi">//focusOn(&#8216;rcpamt&#8217;,&#8217;*hi&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#popupmsg-plese-enter-a-value-greater-than-67777-rcpamt">popUpMsg(&#8216;Plese enter a value greater than 67777&#8217;,&#8217;rcpamt&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changecontent-div-span-id-value">changeContent(div/span id,value);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changecontent-newdiv-b-hello-there-b">changeContent(&#8216;newdiv&#8217;,&#8217;&lt;b&gt;Hello There&lt;/b&gt;&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#innertext-contentof-div-span">innerText=contentOf(div/span);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#innerhtml-contentof-div-span-html">innerHTML=contentOf(div/span,&#8217;*html&#8217;);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#isblank-value-returns-true-of-false">isBlank(value); //returns true of false;</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#editdate-date-format-format-d-m-y-default-y">editDate(date,format) // format=&#8217;d&#8217;,&#8217;m&#8217;,y&#8217; default=Y</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#validdate-date-returns-true-of-false-default-y">validDate(date) // returns true of false default=Y</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#validdate-20160231">validDate(&#8216;20160231&#8217;));</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fieldhtml-field-fielname">fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hideelement-fieldone-fieldtwo">hideElement(fieldOne,fieldTwo,..);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showelement-fieldone-fieldtwo">showElement(fieldOne,fieldTwo,..);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nevershow-fieldone-fieldtwo">neverShow(fieldOne,fieldTwo,..);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#popupmsg-message-field">popUpMsg(message,field);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changecontent-element-htmltext">changeContent(element,htmlText);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contentof-element">contentOf(element);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isblank-value">isBlank(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editdate-date-format">editDate(date,format)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#validdate-date-format-returns-true-of-false-default-y">validDate(date,format) // returns true of false default=Y</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#edittime-time">editTime(time);</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#validtime-time">validTime(time);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#valueof-gpcmt">valueOf(&#8216;gpcmt&#8217;)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#editdate-valueof-rcpdate-m">editDate(valueOf(&#8216;rcpdate&#8217;),&#8217;m&#8217;))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#valueof-field">valueOf(field);</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
@@ -394,20 +389,37 @@ Each of these attributes are explained below:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="protect-field">
-<h2>protect(field,....);<a class="headerlink" href="#protect-field" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="protect-fieldone-fieldtwo">
+<h2>protect(fieldOne,fieldTwo,....);<a class="headerlink" href="#protect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>protect</strong> function prevents fields from being edited by the user.</p>
 <ul class="simple">
 <li>A single field can be protected by specifying the field name. In the example below &#8220;companyname&#8221;</li>
 </ul>
 <p>is used as shown below:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;cmpname&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;companyname&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Multiple fields can also be protected by specifying multiple fields as shown below:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;cmpname&#39;</span><span class="p">,</span><span class="s1">&#39;cmpaddr1&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;companyname&#39;</span><span class="p">,</span><span class="s1">&#39;companyaddress&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unprotect-fieldone-fieldtwo">
+<h2>unProtect(fieldOne,fieldTwo,....);<a class="headerlink" href="#unprotect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>unProtect</strong> function takes a field from a protected state to an editable state.</p>
+<ul class="simple">
+<li>A single field can be un-protected by specifying the field name. In the example below &#8220;companyname&#8221;</li>
+</ul>
+<p>is used as shown below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">unProtect</span><span class="p">(</span><span class="s1">&#39;firsname&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Multiple fields can also be un-protected by specifying multiple fields as shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">unProtect</span><span class="p">(</span><span class="s1">&#39;firsname&#39;</span><span class="p">,</span><span class="s1">&#39;lastname&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -436,11 +448,11 @@ to <strong>7656</strong> automatically by the change var function</li>
 <ul class="simple">
 <li>The value of <strong>date fields</strong> can also be changed. This is done by passing in <strong>&#8216;*date&#8217;</strong> as the third parameter as shown below:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcpdate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;*date&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;*date&#39;</span><span class="p">);</span>
 <span class="cm">/*</span>
 <span class="cm"> OR</span>
 <span class="cm">*/</span>
-<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcpdate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
+<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -449,9 +461,13 @@ to <strong>7656</strong> automatically by the change var function</li>
 For example is the default date is dd/mm/yyyy then a date in that format must be passed as the value.</p>
 </div>
 <ul class="simple">
-<li>Numeric fields can also be set by passing in a number as the <strong>value</strong> parameter as shown below:</li>
+<li>Time fields can also be set by passing in the time in time format defined</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;rcptime&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="cm">/* For millitary time 21:00 HRS*/</span>
+<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startTime&#39;</span><span class="p">,</span><span class="mi">2100</span><span class="p">);</span>
+
+ <span class="cm">/* For standard time 9:00 PM*/</span>
+<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startTime&#39;</span><span class="p">,</span><span class="mi">900</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -461,72 +477,291 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </pre></div>
 </div>
 </div>
-<div class="section" id="fieldhtml-field-rcpdate">
-<h2>fieldHTML(&#8216;field=rcpdate&#8217;)<a class="headerlink" href="#fieldhtml-field-rcpdate" title="Permalink to this headline">¶</a></h2>
-<p>// alert(fieldHTML(&#8216;field=rcpdate&#8217;));</p>
+<div class="section" id="fieldhtml-field-fielname">
+<h2>fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)<a class="headerlink" href="#fieldhtml-field-fielname" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>fieldHTML</strong> function outputs the html which is used to render a field.</p>
+<ul class="simple">
+<li>The following example shows how to retrieve the html for the <strong>starttime</strong> field:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">fieldHTML</span><span class="p">(</span><span class="s1">&#39;field=starttime&#39;</span><span class="p">)</span>
+     <span class="cm">/*</span>
+<span class="cm">             Value of html is:</span>
+<span class="cm">             &lt;INPUT maxLength=20 size=22 name=starttime fldType=&quot;char&quot; length=&quot;20&quot;&gt;</span>
+<span class="cm">     */</span>
+</pre></div>
 </div>
-<div class="section" id="hideelement">
-<h2>hideElement<a class="headerlink" href="#hideelement" title="Permalink to this headline">¶</a></h2>
-<p>//hideElement(&#8216;newbilno&#8217;,&#8217;notindic&#8217;....);</p>
 </div>
-<div class="section" id="showelement">
-<h2>showElement<a class="headerlink" href="#showelement" title="Permalink to this headline">¶</a></h2>
-<p>showElement(&#8216;newbilno&#8217;,&#8217;notindic&#8217;....);</p>
-<p>hideElement
-protect(&#8216;id1&#8217;,&#8217;id2&#8217;,....);
-~~~~~~~~~~~~</p>
+<div class="section" id="hideelement-fieldone-fieldtwo">
+<h2>hideElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#hideelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>hideElement</strong> function hides the field(s) specified.</p>
+<ul class="simple">
+<li>The following example shows how to hide one field:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="unprotect">
-<h2>unProtect<a class="headerlink" href="#unprotect" title="Permalink to this headline">¶</a></h2>
-<p>unProtect(&#8216;id1&#8217;,&#8217;id2&#8217;,...);</p>
+<ul class="simple">
+<li>The following example shows how to hide multiple fields:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="nevershow-id1-id2">
-<h2>neverShow(&#8216;id1&#8217;,&#8217;id2&#8217;);<a class="headerlink" href="#nevershow-id1-id2" title="Permalink to this headline">¶</a></h2>
-<p>neverShow(&#8216;id1&#8217;,&#8217;id2&#8217;);</p>
 </div>
-<div class="section" id="focuson-rcpamt-hi">
-<h2>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id1"><span class="problematic" id="id2">*</span></a>hi&#8217;);<a class="headerlink" href="#focuson-rcpamt-hi" title="Permalink to this headline">¶</a></h2>
-<p>//focusOn(&#8216;rcpamt&#8217;,&#8217;<a href="#id3"><span class="problematic" id="id4">*</span></a>hi&#8217;);</p>
+<div class="section" id="showelement-fieldone-fieldtwo">
+<h2>showElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#showelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>showElement</strong> function shows the field(s) specified.</p>
+<ul class="simple">
+<li>The following example shows how to make a single field visible:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="popupmsg-plese-enter-a-value-greater-than-67777-rcpamt">
-<h2>popUpMsg(&#8216;Plese enter a value greater than 67777&#8217;,&#8217;rcpamt&#8217;);<a class="headerlink" href="#popupmsg-plese-enter-a-value-greater-than-67777-rcpamt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The following example shows how to make multiple fields visisble:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="changecontent-div-span-id-value">
-<h2>changeContent(div/span id,value);<a class="headerlink" href="#changecontent-div-span-id-value" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="changecontent-newdiv-b-hello-there-b">
-<h2>changeContent(&#8216;newdiv&#8217;,&#8217;&lt;b&gt;Hello There&lt;/b&gt;&#8217;);<a class="headerlink" href="#changecontent-newdiv-b-hello-there-b" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nevershow-fieldone-fieldtwo">
+<h2>neverShow(fieldOne,fieldTwo,..);<a class="headerlink" href="#nevershow-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>neverShow</strong> function hides a specified field permanently. Even if the <strong>showElement</strong> function is called on fields they will never be diplayed.</p>
+<ul class="simple">
+<li>The following example shows how to permanently hide one field:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">neverShow</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="innertext-contentof-div-span">
-<h2>innerText=contentOf(div/span);<a class="headerlink" href="#innertext-contentof-div-span" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The following example shows how to permanently hide multiple fields:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="innerhtml-contentof-div-span-html">
-<h2>innerHTML=contentOf(div/span,&#8217;<a href="#id5"><span class="problematic" id="id6">*</span></a>html&#8217;);<a class="headerlink" href="#innerhtml-contentof-div-span-html" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="isblank-value-returns-true-of-false">
-<h2>isBlank(value); //returns true of false;<a class="headerlink" href="#isblank-value-returns-true-of-false" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="popupmsg-message-field">
+<h2>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>popUpMsg</strong> function shows a message below a specified field.</p>
+<ul class="simple">
+<li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;receipt&#8217;</strong> field.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;Plese enter a value greater than 0&#39;</span><span class="p">,</span><span class="s1">&#39;receipt&#39;</span><span class="p">);</span>
+</pre></div>
 </div>
-<div class="section" id="editdate-date-format-format-d-m-y-default-y">
-<h2>editDate(date,format) // format=&#8217;d&#8217;,&#8217;m&#8217;,y&#8217; default=Y<a class="headerlink" href="#editdate-date-format-format-d-m-y-default-y" title="Permalink to this headline">¶</a></h2>
-<p>alert(editDate(&#8216;20190101&#8217;,datefmt));</p>
 </div>
-<div class="section" id="validdate-date-returns-true-of-false-default-y">
-<h2>validDate(date) // returns true of false default=Y<a class="headerlink" href="#validdate-date-returns-true-of-false-default-y" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changecontent-element-htmltext">
+<h2>changeContent(element,htmlText);<a class="headerlink" href="#changecontent-element-htmltext" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>changeContent</strong> function changes the inner html for a specific element.</p>
+<ul class="simple">
+<li>The example below shows how to change the content of a <strong>div</strong>.</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> First Text <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
 </div>
-<div class="section" id="validdate-20160231">
-<h2>validDate(&#8216;20160231&#8217;));<a class="headerlink" href="#validdate-20160231" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s2">&quot;Second Text&quot;</span><span class="p">);</span>
+     <span class="cm">/*</span>
+<span class="cm">             HTML will be changed to:</span>
+<span class="cm">             &lt;div id=&#39;first&#39;&gt; Second Text &lt;/div&gt;</span>
+<span class="cm">     */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="contentof-element">
+<h2>contentOf(element);<a class="headerlink" href="#contentof-element" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>contentOf</strong> function returns the inner text/html for a specific element.</p>
+<ul class="simple">
+<li>The example below shows how to return the text content of a <strong>div</strong>.</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>First Text<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">innerText</span> <span class="o">=</span> <span class="nx">contentOf</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">);</span>
+     <span class="cm">/*</span>
+<span class="cm">             value of innerText will be:</span>
+
+<span class="cm">             First Text</span>
+<span class="cm">     */</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The HTML content of an element can also be retrieved by using the <strong>&#8220;*html&#8221;</strong> parameter, as shown in the example below:</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>First Text<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">innerHtml</span> <span class="o">=</span> <span class="nx">contentOf</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;*html&#39;</span><span class="p">);</span>
+     <span class="cm">/*</span>
+<span class="cm">             value of innerHtml will be:</span>
+
+<span class="cm">             &lt;b&gt; First Text &lt;/b&gt;</span>
+<span class="cm">     */</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to replace the inner html of one element with another using the <strong>changeContent</strong> function:</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> First Text <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;second&#39;</span><span class="p">&gt;</span> Second Text <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="nx">contentOf</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="p">));</span>
+     <span class="cm">/*</span>
+<span class="cm">             HTML will be changed to:</span>
+<span class="cm">             &lt;div id=&#39;first&#39;&gt; Second Text &lt;/div&gt;</span>
+<span class="cm">     */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isblank-value">
+<h2>isBlank(value)<a class="headerlink" href="#isblank-value" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>isBlank</strong> function returns a boolean value (true/false) if the string value passed is empty. An
+example of its use is shown below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">firstName</span><span class="p">)){</span>
+        <span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;Plese enter first name&#39;</span><span class="p">,</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="editdate-date-format">
+<h2>editDate(date,format)<a class="headerlink" href="#editdate-date-format" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>editDate</strong> function converts the <strong>date</strong> passed to it in the specfied format.
+If no dateformat is specified it uses the default format &#8216;Y&#8217;.</p>
+<ul class="simple">
+<li>The example below shows how to use <strong>editDate</strong> without the date format parameter:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of dateOne will be:</span>
+
+<span class="cm">        2015/09/01</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;Y&#8217;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of dateOne will be:</span>
+
+<span class="cm">        2015/09/01</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;d&#8217;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of dateOne will be:</span>
+
+<span class="cm">        01/09/2015</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="validdate-date-format-returns-true-of-false-default-y">
+<h2>validDate(date,format) // returns true of false default=Y<a class="headerlink" href="#validdate-date-format-returns-true-of-false-default-y" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>validDate</strong> function returns a boolean value (true/false) if the date is valid.
+If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
+<ul class="simple">
+<li>The example below shows how to use <strong>validDate</strong> without the date format parameter:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = true;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;D&#8217; (dd/mm/yyy):</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = false;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;Y&#8217; (yyyy/mm/dd):</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = true;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="edittime-time">
 <h2>editTime(time);<a class="headerlink" href="#edittime-time" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>editDate</strong> function converts the <strong>time</strong> passed to the specfied format.</p>
+<ul class="simple">
+<li>Examples of usage are shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">editTime</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = 02:00;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="validtime-time">
 <h2>validTime(time);<a class="headerlink" href="#validtime-time" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>validTime</strong> function returns true or false if the <strong>time</strong> is valid.</p>
+<ul class="simple">
+<li>An example with a valid time is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validTime</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = true;</span>
+<span class="cm">*/</span>
+</pre></div>
 </div>
-<div class="section" id="valueof-gpcmt">
-<h2>valueOf(&#8216;gpcmt&#8217;)<a class="headerlink" href="#valueof-gpcmt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>An example with an invalid time is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validTime</span><span class="p">(</span><span class="mi">2500</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = false;</span>
+<span class="cm">*/</span>
+</pre></div>
 </div>
-<div class="section" id="editdate-valueof-rcpdate-m">
-<h2>editDate(valueOf(&#8216;rcpdate&#8217;),&#8217;m&#8217;))<a class="headerlink" href="#editdate-valueof-rcpdate-m" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="valueof-field">
+<h2>valueOf(field);<a class="headerlink" href="#valueof-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>valueOf</strong> function returns the value of a specified field. An example is shown below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be:</span>
+
+<span class="cm">        result = &#39;myUsername&#39;;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </div>
 </div>
 
