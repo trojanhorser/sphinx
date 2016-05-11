@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fields &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Forms" href="forms.html"/>
+        <link rel="prev" title="Data Dictionary" href="datadictionary.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fields</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#javascript-library-dependency-to-be-included">Javascript library dependency  to be included</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-attribute-description">Custom Attribute Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#focuson-connam">focusOn(&#8216;connam&#8217;);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protect-concde">protect(&#8216;concde&#8217;);</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">Fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Fields</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/fields.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="fields">
+<h1>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="javascript-library-dependency-to-be-included">
+<h2>Javascript library dependency  to be included<a class="headerlink" href="#javascript-library-dependency-to-be-included" title="Permalink to this headline">¶</a></h2>
+<p>In order  for data bound fields to be parsed the following librariese must be included:</p>
+<blockquote>
+<div><div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/JavaScript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;../pcstools/standardjs.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/JavaScript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;../pcstools/standardsq.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/JavaScript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;startup.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/JavaScript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;datadictionary.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="section" id="custom-attribute-description">
+<h2>Custom Attribute Description<a class="headerlink" href="#custom-attribute-description" title="Permalink to this headline">¶</a></h2>
+<p>A form field consists of a <strong>span</strong> html tag with custom attributes.
+These attributes are parsed to produce the HTML which is ultimately rendered by the web application.
+These attributes are described in detail below:</p>
+<p>1. <strong>ref</strong> - The <em>ref</em> attribute is used to reference a field from the data dictionary.
+When a field is referenced it uses the attributes defined in the data dictionary to generate the html filed.
+The example below uses <em>bilno</em> as the referenced field:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">label</span><span class="o">=</span><span class="s">Bill</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>2. <strong>type</strong> - The <em>type</em> attribute determines the data type that the filed will accept. There are four data types; character,numeric, date and time.
+Each of these attributes are explained below:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><em>character</em> - The charater attribute allows all alphanumeric characters to be accept by the html field. An example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><em>numeric</em> - The numeric attribute allows only numeric values to accepted by the html field. It produces an alert when input is invalid. An example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">nolabel</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><em>date</em> - The date attribute formats the html field into three sepperate sections; <strong>year</strong>, <strong>month</strong> and <strong>day</strong>. The order of these sections will vary based on the format specified in the application. An example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">fieldclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><em>time</em> - The time attribute formats the html field in two sections, <strong>minutes</strong> and <strong>seconds</strong>. An example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first"><strong>length</strong> - This length attribute specifies the maximum length of a field, according to the field type. If the length specified is greater than 80 then html text area will be rendered instead of an input field. Validation is also added if the user exceeds the maxiimum length of the field.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">bilno</span> <span class="na">length</span><span class="o">=</span><span class="s">160</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>decimal</strong> - The decimal place field is used to indicate the decimal place for numeric fields. An example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">rcpamt</span>  <span class="na">decimal</span><span class="o">=</span><span class="s">4</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>editcode</strong> -  Specifies the format in which input may be accepted.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">name</span> <span class="na">editcode</span><span class="o">=</span><span class="s">J</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>fieldclass</strong> - Specifies a stylesheet (CSS) class name to determine how the field is formatted.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">fieldclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>label</strong> - Specifies the text for the label that will be displayed along with the field. Overrides the label text set in the data dictionary.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">label</span><span class="o">=</span><span class="s">Bill</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nolabel</strong> - Instructs program not to show a label for the field.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">nolabel</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>search</strong> - Causes a search icon to appear beside the field that triggers the execution of a specified function.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">username</span> <span class="na">search</span><span class="o">=</span><span class="s">&#39;find()&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>labelclass</strong> - Specifies a stylesheet (CSS) class name to determine how the field&#8217;s label is formatted.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>labelwidth</strong> - Specifies a custom width for the label, overriding any width that may have been set for the field&#8217;s label in the DD.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelwidth</span><span class="o">=</span><span class="s">90</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>upper</strong> - Causes the aphabetic characters displayed in a field to be capitalized. Also capitalizes characters entered by the user.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">upper</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>output</strong> - Displays the field&#8217;s content as text in a disabled control (similar to readonly, but has a different appearance).</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">output</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>textarea</strong> - Represents the field as a free-text entry area with a vertical scrollbar. Additional attributes (rows and cols) can be specified as well.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p class="first"><strong>rows</strong> - Applies only to field with attribute &#8216;textarea&#8217;. Specifies number of lines shown in the viewable area of the field at one time.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">rows</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>cols</strong> - Applies only to field with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the <strong>rows</strong> and <strong>cols</strong> attributes only apply to textarea fields and will be ignored for <strong>date</strong> and <strong>time</strong> fields.</p>
+</div>
+<ol class="arabic" start="17">
+<li><p class="first"><strong>nocalendar</strong> - Causes a date field to be displayed without the default calendar icon and the associated date-picking functionality it offers. {Calendar not to be displayed for date field}</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">date</span> <span class="na">nocalendar</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>select</strong> - Field create as a select field. Use a string of ordered pairs to show the values/text.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>readonly</strong> - Prevents the field&#8217;s content from being edited by the user.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>editmask</strong> - Specifies a prescribed data entry pattern that will be enforced when the user attempts to make entries in the field.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">amount</span> <span class="na">editmask</span><span class="o">=</span><span class="s">&#39;&amp;&amp;&amp;&amp;(   )  -   &#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>required</strong> - Marks a field for mandatory entry</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">date</span> <span class="na">required</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="field-functions">
+<h3>Field Functions<a class="headerlink" href="#field-functions" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="focuson-connam">
+<h2>focusOn(&#8216;connam&#8217;);<a class="headerlink" href="#focuson-connam" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="protect-concde">
+<h2>protect(&#8216;concde&#8217;);<a class="headerlink" href="#protect-concde" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="forms.html" class="btn btn-neutral float-right" title="Forms" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="datadictionary.html" class="btn btn-neutral" title="Data Dictionary" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

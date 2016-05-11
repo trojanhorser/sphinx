@@ -1,0 +1,91 @@
+<hta:windowState="maximize">
+
+<html>
+<head><title>Lesson3-Example</title></head>
+<body onload=exeFunction('loadUp()')>
+<script type='text/JavaScript' src='../pcstools/standardjs.js'></script>
+<script type='text/JavaScript' src='../pcstools/standardsq.js'></script>
+<script type="text/JavaScript" src="startup.js"></script>
+<script type="text/JavaScript" src="datadictionary.js"></script>
+<link rel=stylesheet type='text/css' href='../pcstools/standardss.css'></link>
+
+<script>
+function loadUp() {
+ focusOn('inconcde');
+
+}
+
+function newData() {
+  clearForm('form1');
+  unProtect('concde');
+  displayForm('form1');
+  focusOn('concde');
+}
+
+
+function getData() {
+ sqltxt="select concde,connam,conadd,conadd2,conadd3,conadd4,conadd5,conemail from wsconsgn where concde="+valueOf('inconcde').sqlWrap();
+ if (!sqlSelect(sqltxt,'$data',1)) {
+      alert(sqlerr);
+	  return false;
+  }
+  if ($data.rcdcnt==0) {
+     alert('No data found');
+	 focusOn('inconcde');
+	 return false
+ }
+ changeVar('concde',$data.concde[0]);
+ changeVar('connam',$data.connam[0]);
+ changeVar('conadd',$data.conadd[0]);
+ changeVar('conadd2',$data.conadd2[0]);
+ changeVar('conadd3',$data.conadd3[0]);
+ changeVar('conadd4',$data.conadd4[0]);
+ changeVar('conadd5',$data.conadd5[0]);
+ changeVar('conemail',$data.conemail[0]);
+ protect('concde');
+ displayForm('form1');
+ focusOn('connam');
+
+}
+</script>
+
+
+<div class=outputarea style="width:300px; height:100px">
+<br>
+<span field=inconcde ref=concde></span><br>
+<hr>
+<span button=accept onclick=getData()></span>&nbsp;
+<span button=new type=new onclick=newData()></span>
+</div>
+
+<div id="divform1" style="display:none;" class="window">
+  <!--
+    Form would be defined here
+  -->
+</div>
+
+<form name=form1>
+  <!-- Title would be defined here -->
+   <!-- Fields would be defined here -->
+</form>
+
+
+<div id=titlebar1 class="titleBar"></div>
+
+
+
+<div id="divform1" style="display:none;" class="window">
+	<form name=form1>
+	<div id=titlebar1 class="titleBar"></div>
+	<span button=exitbutton type=exit class="ximage" onclick='closeForm()'></span>
+	<span field=concde></span><br>
+	<span field=connam></span><br>
+	<span field=conadd></span><br>
+	<span field=conadd2></span><br>
+	<span field=conadd3></span><br>
+	<span field=conadd4></span><br>
+	<span field=conadd5></span><br>
+	<span field=conemail></span><br>
+</form>
+</div>
+</div>

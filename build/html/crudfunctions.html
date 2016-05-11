@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CRUD Functions &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Training" href="training.html"/>
+        <link rel="prev" title="String Functions" href="stringfunctions.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CRUD Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqlselect">sqlSelect()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlinsert">sqlInsert()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlupdate">sqlUpdate()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqldelete">sqlDelete()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>CRUD Functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/crudfunctions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="crud-functions">
+<h1>CRUD Functions<a class="headerlink" href="#crud-functions" title="Permalink to this headline">¶</a></h1>
+<p>CRUD <em>(Create, Read, Update, Delete)</em> are a set of functions used to perform database operations. These functions and how they are used is described below:</p>
+<div class="section" id="sqlselect">
+<h2>sqlSelect()<a class="headerlink" href="#sqlselect" title="Permalink to this headline">¶</a></h2>
+<p>This function is used to retrieve records from a database. It accepts three parameters:</p>
+<ol class="arabic simple">
+<li>The SQL Select text ( eg. <em>&#8220;select * from customers&#8221;</em> )</li>
+<li>The variable that data retrieved should be stored in</li>
+<li>and the amount of rows which should be returned.</li>
+</ol>
+<ul class="simple">
+<li>An example is shown below:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="kd">var</span> <span class="nx">sqltxt</span><span class="o">=</span><span class="s2">&quot;select bilno, cnsign, &#39;nothing&#39; as n from wsblhead&quot;</span><span class="p">;</span>
+<span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqltxt</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+</span>      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+	  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>If an error occurs during the sql transaction the <strong>sqlerr</strong> global variable is set with details of the error.
+An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqltxt</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+<span class="hll">      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+</span>	  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Also  the record count is retrieved from the database along with the records as show in the example below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">$data</span><span class="p">.</span><span class="nx">rcdcnt</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span> <span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sqlinsert">
+<h2>sqlInsert()<a class="headerlink" href="#sqlinsert" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlInsert</strong> function adds a record to a specific table to the database. it accepts two parameters:</p>
+<ol class="arabic simple">
+<li>The database table that will be modified.</li>
+<li>and a object with the fields that need to be inserted.</li>
+</ol>
+<p>An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nx">updobj</span><span class="o">=</span><span class="p">{};</span>
+ <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnum</span><span class="o">=</span><span class="mi">666</span><span class="p">;</span>
+ <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnam</span><span class="o">=</span><span class="s1">&#39;Mark of Beast&#39;</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlInsert</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">updobj</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sqlupdate">
+<h2>sqlUpdate()<a class="headerlink" href="#sqlupdate" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlUpdate</strong> function updates a records in a table based on a specific criteria. It accepts three parameters:</p>
+<ol class="arabic simple">
+<li>The database table that will be modified.</li>
+<li>The object with the fields that need to be updated.</li>
+<li>and the where criteria for the records which need to be updated.</li>
+</ol>
+<p>An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="nx">updobj</span><span class="o">=</span><span class="p">{};</span>
+  <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnam</span><span class="o">=</span><span class="s1">&#39;Mark of Bitch&#39;</span><span class="p">;</span>
+  <span class="nx">sqlwhere</span><span class="o">=</span><span class="s1">&#39;linnum=666&#39;</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlUpdate</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">updobj</span><span class="p">,</span><span class="nx">sqlwhere</span><span class="p">))</span> <span class="p">{</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sqldelete">
+<h2>sqlDelete()<a class="headerlink" href="#sqldelete" title="Permalink to this headline">¶</a></h2>
+<p>This removes records from a database table based on a specific criteria.</p>
+<ol class="arabic simple">
+<li>The database table that will be modified.</li>
+<li>and the where criteria for the records which need to be deleted.</li>
+</ol>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="nx">sqlwhere</span><span class="o">=</span><span class="s1">&#39;linnum=666&#39;</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlDelete</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">sqlwhere</span><span class="p">))</span> <span class="p">{</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All CRUD functions update the &#8220;sqlerr&#8221; global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stringfunctions.html" class="btn btn-neutral" title="String Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

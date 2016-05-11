@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Dictionary &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Fields" href="fields.html"/>
+        <link rel="prev" title="Advantum Web Software Development Framework" href="advantumframework.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data Dictionary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-datadictionary">Creating A Datadictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-database-from-the-datadictonary">Generating a database from the datadictonary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">Fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Data Dictionary</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/datadictionary.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="data-dictionary">
+<h1>Data Dictionary<a class="headerlink" href="#data-dictionary" title="Permalink to this headline">¶</a></h1>
+<p>The dataDictionary contains the javascript definiton for objects within a database. This includes fields, tables, views
+and triggers within a database.</p>
+<div class="section" id="advantages">
+<h2>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">¶</a></h2>
+<p>The dataDictionary has the following advantages:</p>
+<ol class="arabic simple">
+<li>It allows the database schema to be defined in javascript.</li>
+<li>It allows html fields to be generated based on the attributes of database fields/columns.</li>
+<li>It allows the database schema to be generated from the data dictionary configuration.</li>
+<li>It is database agonostic i.e it&#8217;s configuration can be applied to any relational database.</li>
+</ol>
+</div>
+<div class="section" id="creating-a-datadictionary">
+<h2>Creating A Datadictionary<a class="headerlink" href="#creating-a-datadictionary" title="Permalink to this headline">¶</a></h2>
+<p>The data dictionary configuration resides in <strong>dataDictionary.js</strong> file. Database field/column definiton is done using the <em>addDicField</em>
+function and table definiton is done using the <em>dbTableDef</em> object.</p>
+<div class="section" id="defining-database-columns-fields-with-the-adddicfield-function">
+<h3>Defining database columns/fields with the addDicField function<a class="headerlink" href="#defining-database-columns-fields-with-the-adddicfield-function" title="Permalink to this headline">¶</a></h3>
+<p>The <em>addDicField</em> function defines the attributes of fields/columns of database tables. The examples for usage are described below, however for a breif overview of the <em>addDicField</em> function click <a class="reference external" href="file:///P:/AdvantumAppLessons/documentation/JSDoc/StandardSQ/global.html#addDicField">here</a>.</p>
+</div>
+<div class="section" id="adddicfield-parameter-description">
+<h3>addDicField Parameter description<a class="headerlink" href="#adddicfield-parameter-description" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Field Name</strong> - This is the name of a field/column in the database and it is always the first parameter.
+An example using &#8220;fname&#8221; as the field name is shown below:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">addDicField</span><span class="p">(</span><span class="s1">&#39;fname:10:First Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Field Size</strong> - This represents the length for character based fields and the size for
+numeric fields and it is always the second parameter. It is used with <strong>Decimal Place</strong> parameter to
+indicate the decimal place for numeric fields. An example of its usage is shown below:</p>
+<blockquote>
+<div><p><em>In this example &#8220;10&#8221; represents the length of the firstname field:</em></p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">addDicField</span><span class="p">(</span><span class="s1">&#39;fname:10:First Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><em>In this example &#8220;13&#8221; represents the size in bytes that us used to store the number and &#8220;4&#8221;
+is the number of decimal places:</em></p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">addDicField</span><span class="p">(</span><span class="s1">&#39;qty:13,4:Quantity&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><em>To define an integer the decimal point value must be 1 as shown below:</em></p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">addDicField</span><span class="p">(</span><span class="s1">&#39;total:17,1:Total&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<dl class="docutils">
+<dt><strong>Field Description</strong> - This a meaningful label for the field primarily used for presentation</dt>
+<dd><p class="first">purposes and it is always the last parameter. In the example below &#8220;Reference&#8221; is used as the Field Label:</p>
+<blockquote class="last">
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">addDicField</span><span class="p">(</span><span class="s1">&#39;asref:13,0:Reference&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="defining-database-tables-with-the-dbtabledef-object">
+<h3>Defining database tables with the dbTableDef object<a class="headerlink" href="#defining-database-tables-with-the-dbtabledef-object" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>dbTableDef</strong> object contains the schema definition for tables within a database.
+The examples for usage are described below, however for a breif overview of the <em>dbTableDef</em> object click <a class="reference external" href="file:///P:/AdvantumAppLessons/documentation/JSDoc/StandardSQ/global.html#dbTableDef">here</a>.</p>
+<p><strong>1. Desc</strong> - This is the display name of the table in the database.</p>
+<blockquote>
+<div><p><strong>Example:(Setting the desc attribute)</strong>: This example shows how to set the <strong>desc</strong> attribute:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">desc</span><span class="o">=</span><span class="s2">&quot;User&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p><strong>2. Index</strong> - This is an array which represents one or more indices and the field(s) it is associated with. The index
+and column information is passed as a string in the following format <strong>&#8220;&lt; index name &gt;:&lt; field1, field2,. ..... &gt;&#8221;</strong>.
+Examples of how to use the index are shown below:</p>
+<blockquote>
+<div><p><strong>Example 1: (One index and one field):</strong> - In this example index &#8220;indexFirstname&#8221; is mapped to a single column &#8220;firstname&#8221;:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexFirstname:firstname&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 2: (One index and multiple fields):</strong> - In this example index &#8220;indexFullname&#8221; is mapped to the &#8220;firstname&#8221; and &#8220;lastname&#8221; columns:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexFullname:firstname,lastname&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 3: (Multiple indices):</strong> - In this example two indices, &#8220;indexFullname&#8221; and &#8220;indexMiddleName&#8221; are mapped to various fields:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexFullname:firstname,lastname&quot;</span><span class="p">;</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexMiddlename:middlename&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p><strong>3. Keyfield</strong> - This is the primary key field which is used for table. Composite keys can be created by delimmiting mutilple fields with commas. Examples are shown below:</p>
+<blockquote>
+<div><p><strong>Example 1: (Primary Key [Single field]):</strong> - This example shows a single field key is defined:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">keyfield</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 2: (Composite Key [Multiple fields]):</strong> - This example shows how a key with mutliple fields (composite key) is defined:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">keyfield</span><span class="o">=</span><span class="s2">&quot;id,username&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p><strong>4. Field</strong> - The field attribute is used to define the fields of a table. Multiple fields are sepperated by comma&#8217;s as shown in the example below:</p>
+<blockquote>
+<div><p><strong>Example: (Defining Database Fields]):</strong> - This example shows how to set the field attribute:</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="p">.</span><span class="nx">field</span><span class="o">=</span><span class="s2">&quot;id,firstname,lastname&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p><strong>5. Triggers</strong> - [TO BE DONE]</p>
+<p>After  setting the attributes of the <strong>dbTableDef</strong> object. The <a class="reference external" href="file:///P:/AdvantumAppLessons/documentation/JSDoc/StandardSQ/global.html#applyDbTableDef">applyDbTableDef</a> function must be run to apply to table configuration, an example is shown below:</p>
+<blockquote>
+<div><p><strong>Example: (executing applyDbTableDef):</strong> - This example shows how to execute the function, it is always executed after all attributes of the dbTableDef have been set:</p>
+<blockquote>
+<div><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">$dt</span><span class="o">=</span><span class="k">new</span> <span class="nx">dbTableDef</span><span class="p">(</span><span class="s2">&quot;usertable&quot;</span><span class="p">);</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">desc</span><span class="o">=</span><span class="s2">&quot;User&quot;</span><span class="p">;</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">field</span><span class="o">=</span><span class="s2">&quot;id,firstname,lastname&quot;</span><span class="p">;</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">keyfield</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">;</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexFullname:firstname,lastname&quot;</span><span class="p">;</span>
+<span class="nx">$dt</span><span class="p">.</span><span class="nx">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;indexMiddlename:middlename&quot;</span><span class="p">;</span>
+<span class="hll"><span class="nx">applyDbTableDef</span><span class="p">(</span><span class="nx">$dt</span><span class="p">);</span>
+</span></pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="generating-a-database-from-the-datadictonary">
+<h2>Generating a database from the datadictonary<a class="headerlink" href="#generating-a-database-from-the-datadictonary" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fields.html" class="btn btn-neutral float-right" title="Fields" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advantumframework.html" class="btn btn-neutral" title="Advantum Web Software Development Framework" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

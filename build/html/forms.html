@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Forms &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="String Functions" href="stringfunctions.html"/>
+        <link rel="prev" title="Fields" href="fields.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Forms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#defining-a-form">Defining A Form</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#form-utility-methods">Form Utility Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Forms</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/forms.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="forms">
+<h1>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h1>
+<p>A webform, web form or HTML form on a web page allows a
+user to enter data that is sent to a server for processing.
+Forms can resemble paper or database forms because web users fill out the forms using checkboxes,
+radio buttons, or text fields. For example, forms can be used to enter shipping or</p>
+<div class="section" id="defining-a-form">
+<h2>Defining A Form<a class="headerlink" href="#defining-a-form" title="Permalink to this headline">¶</a></h2>
+<p>A form typically consists of three sections:</p>
+<ol class="arabic simple">
+<li>parent <strong>div</strong> html element.</li>
+<li>form html element within the <strong>div</strong>.</li>
+<li>and fields within the form <strong>element</strong> <em>(to see more information regarding fields click here)</em>.</li>
+</ol>
+<p>A diagram of the form structure is shown below:</p>
+<a class="reference internal image-reference" href="_images/form_structure.png"><img alt="alternate text" src="_images/form_structure.png" style="width: 400.0px; height: 500.0px;" /></a>
+<div class="section" id="parent-div-element">
+<h3>Parent Div Element<a class="headerlink" href="#parent-div-element" title="Permalink to this headline">¶</a></h3>
+<p>The parent <strong>div</strong> typically has the following attributes <strong>id</strong> which is the identifier,
+<strong>style</strong> which is normally set to <strong>display:none</strong> and <strong>class</strong> which is always set with a
+value of <strong>&#8220;window&#8221;</strong>. An example is shown below:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;divform1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;window&quot;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!--</span>
+<span class="c">    Form would be defined here</span>
+<span class="c">  --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="form-element">
+<h3>Form Element<a class="headerlink" href="#form-element" title="Permalink to this headline">¶</a></h3>
+<p>The form element is defined only with a <a href="#id1"><span class="problematic" id="id2">**</span></a>name* attribute which is the unique identifier
+of the form and example is shown below:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">form1</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Title would be defined here --&gt;</span>
+   <span class="c">&lt;!-- Fields would be defined here --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="title">
+<h3>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
+<p>A optional <strong>title</strong> can be added to the form. It is defined using a <strong>div</strong> with an <strong>id</strong> which is the unique identifier and a
+<strong>class</strong> which must have the value <strong>&#8220;titleBar&#8221;</strong> an example is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<p>Fields are used for both input and output and are defined within the form element:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Read the <a class="reference internal" href="#fields">Fields</a> for more detailed information</p>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span>    Form would be defined here
+</pre></div>
+</div>
+<ul class="simple">
+<li>A complete example of a form in shown below:</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;divform1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;window&quot;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">form1</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">exitbutton</span> <span class="na">type</span><span class="o">=</span><span class="s">exit</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ximage&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#39;closeForm()&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">concde</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">connam</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd2</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd3</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd4</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd5</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conemail</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="form-utility-methods">
+<h2>Form Utility Methods<a class="headerlink" href="#form-utility-methods" title="Permalink to this headline">¶</a></h2>
+<p>The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:</p>
+<div class="section" id="savevar">
+<h3>saveVar();<a class="headerlink" href="#savevar" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>saveVar()</strong> function saves the current state of a form and it is always called immediately after the form has been initialized.</p>
+<ul class="simple">
+<li>It can be used to save the entire form as shown below:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">saveData</span><span class="p">(</span><span class="nx">which</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">which</span><span class="o">==</span><span class="s1">&#39;all&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">      <span class="nx">saved</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>It can also be used to save specific fields as shown below:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>      <span class="nx">saved</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;bilno&#39;</span><span class="p">,</span><span class="s1">&#39;rcpdate&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="returnchangedvar">
+<h3>returnChangedVar();<a class="headerlink" href="#returnchangedvar" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>returnChangedVar</strong> function returns all the form elements which have been changed after a the <strong>saveVar()</strong> function is called.</p>
+<ul class="simple">
+<li>If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">  <span class="nx">changedData</span><span class="o">=</span><span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
+</span>  <span class="k">for</span> <span class="p">(</span><span class="nx">field</span> <span class="k">in</span> <span class="nx">changedData</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;addVar&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;removeVar&#39;</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">           === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
+	   <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>If it is called with the <strong>array</strong> parameter it will return the array of fields which have been shown in the example below:</li>
+</ul>
+<blockquote>
+<div><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">  <span class="nx">changedData</span><span class="o">=</span><span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
+</span>  <span class="k">for</span> <span class="p">(</span><span class="nx">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">index</span><span class="o">&lt;</span><span class="nx">changedData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">field</span><span class="o">=</span><span class="nx">changedData</span><span class="p">[</span><span class="nx">p</span><span class="p">];</span>
+       <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;OR...Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">       === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="section" id="restorevar">
+<h3>restoreVar();<a class="headerlink" href="#restorevar" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>restoreVar</strong> function restores the value of fields within a form if they have been modified.</p>
+<ul class="simple">
+<li>If it is called without parameters it will restore the value of all fields in the current form:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">  <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">();</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>It can also be called with one or more fields which require restoration as shown below:</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">  <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="s1">&#39;fieldTwo&#39;</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="haschangedvar">
+<h3>hasChangedVar();<a class="headerlink" href="#haschangedvar" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>hasChangedVar</strong> function returns a boolean value if any fields have been changed:</p>
+<ul class="simple">
+<li>If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>It can also be called with with one or more field names as parameters to determine if either of them has been changed. An example is shown below:</li>
+</ul>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="savedvalueof">
+<h3>savedValueOf();<a class="headerlink" href="#savedvalueof" title="Permalink to this headline">¶</a></h3>
+<p>The savedValueOf returns the value of a field. An example of its usage is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">savedValueOf</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="displayform">
+<h3>displayForm();<a class="headerlink" href="#displayform" title="Permalink to this headline">¶</a></h3>
+<p>This function displays the form if it was hidden. It accepts the form to display as its parameter:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="nx">displayForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stringfunctions.html" class="btn btn-neutral float-right" title="String Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fields.html" class="btn btn-neutral" title="Fields" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

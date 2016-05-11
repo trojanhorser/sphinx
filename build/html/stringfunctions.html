@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>String Functions &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="CRUD Functions" href="crudfunctions.html"/>
+        <link rel="prev" title="Forms" href="forms.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">String Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#string-trim">string.trim()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-triml">string.triml()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-trimr">string.trimr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-strip">string.strip()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-sqlwrap">string.sqlWrap()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-sst">string.sst()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>String Functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/stringfunctions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="string-functions">
+<h1>String Functions<a class="headerlink" href="#string-functions" title="Permalink to this headline">¶</a></h1>
+<p>These are a set of utility functions which are used to aid in string manipulation. There usage is described below:</p>
+<div class="section" id="string-trim">
+<h2>string.trim()<a class="headerlink" href="#string-trim" title="Permalink to this headline">¶</a></h2>
+<p>This removes leading and trailing spaces from a string. An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot; string with space  &quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;string with space&quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="string-triml">
+<h2>string.triml()<a class="headerlink" href="#string-triml" title="Permalink to this headline">¶</a></h2>
+<p>This removes leading spaces from a string. An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot; string with space  &quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;string with space&quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="string-trimr">
+<h2>string.trimr()<a class="headerlink" href="#string-trimr" title="Permalink to this headline">¶</a></h2>
+<p>This removes trailing spaces from a string. An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot; string with space  &quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">trimr</span><span class="p">()</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;string with space &quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="string-strip">
+<h2>string.strip()<a class="headerlink" href="#string-strip" title="Permalink to this headline">¶</a></h2>
+<p>This removes characters specified as parameters from a string. An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot; string to be stripped &quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">strip</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;sring o e sripped&quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="string-sqlwrap">
+<h2>string.sqlWrap()<a class="headerlink" href="#string-sqlwrap" title="Permalink to this headline">¶</a></h2>
+<p>This converts the string to into a format that can be interpreted by SQL.</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;&#39;abcd&#39;&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">sqlWrap</span><span class="p">()</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;&#39;a&#39;&#39;bc&#39;&#39;d&#39;&quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="string-sst">
+<h2>string.sst()<a class="headerlink" href="#string-sst" title="Permalink to this headline">¶</a></h2>
+<p>The substring() method extracts the characters from a string based on start and end indices. An example is shown below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;string to be modified&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">sstr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="cm">/* Output will be &quot;to be modified&quot; */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crudfunctions.html" class="btn btn-neutral float-right" title="CRUD Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="forms.html" class="btn btn-neutral" title="Forms" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
