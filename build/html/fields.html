@@ -500,8 +500,8 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </pre></div>
 </div>
 </div>
-<div class="section" id="fieldhtml-field-fielname">
-<h3>fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)<a class="headerlink" href="#fieldhtml-field-fielname" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="fieldhtml-field-fieldname">
+<h3>fieldHTML(&#8216;field=&lt;fieldName&gt;&#8217;)<a class="headerlink" href="#fieldhtml-field-fieldname" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>fieldHTML</strong> function outputs the html which is used to render a field.</p>
 <ul class="simple">
 <li>The following example shows how to retrieve the html for the <strong>starttime</strong> field:</li>
@@ -516,49 +516,49 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 <div class="section" id="hideelement-fieldone-fieldtwo">
 <h3>hideElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#hideelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>hideElement</strong> function hides the field(s) specified.</p>
+<p>The <strong>hideElement</strong> function hides the element(s) specified.</p>
 <ul class="simple">
-<li>The following example shows how to hide one field:</li>
+<li>The following example shows how to hide one element:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;formOne&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The following example shows how to hide multiple fields:</li>
+<li>The following example shows how to hide multiple elements:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;divOne&#39;</span><span class="p">,</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="showelement-fieldone-fieldtwo">
 <h3>showElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#showelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>showElement</strong> function shows the field(s) specified.</p>
+<p>The <strong>showElement</strong> function shows the elements(s) specified.</p>
 <ul class="simple">
-<li>The following example shows how to make a single field visible:</li>
+<li>The following example shows how to make a single element visible:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The following example shows how to make multiple fields visisble:</li>
+<li>The following example shows how to make multiple elements visisble:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">showElement</span><span class="p">(</span><span class="s1">&#39;divOne&#39;</span><span class="p">,</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="nevershow-fieldone-fieldtwo">
 <h3>neverShow(fieldOne,fieldTwo,..);<a class="headerlink" href="#nevershow-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>neverShow</strong> function hides a specified field permanently. Even if the <strong>showElement</strong> function is called on fields they will never be diplayed.</p>
+<p>The <strong>neverShow</strong> function hides a specified element permanently. Even if the <strong>showElement</strong> function is called on elements they will never be diplayed.</p>
 <ul class="simple">
-<li>The following example shows how to permanently hide one field:</li>
+<li>The following example shows how to permanently hide one element:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">neverShow</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">neverShow</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The following example shows how to permanently hide multiple fields:</li>
+<li>The following example shows how to permanently hide multiple elements:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="s1">&#39;divOne&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -566,34 +566,35 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 <h3>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>popUpMsg</strong> function shows a message below a specified field.</p>
 <ul class="simple">
-<li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;receipt&#8217;</strong> field.</li>
+<li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;fname&#8217;</strong> field.</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;Plese enter a value greater than 0&#39;</span><span class="p">,</span><span class="s1">&#39;receipt&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstname</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">firstname</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;This is a required field!&#39;</span><span class="p">,</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
+            <span class="nx">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="changecontent-element-htmltext">
 <h3>changeContent(element,htmlText);<a class="headerlink" href="#changecontent-element-htmltext" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>changeContent</strong> function changes the inner html for a specific element.</p>
+<p>The <strong>changeContent</strong> function changes the inner contents (html or text) of an element.</p>
 <ul class="simple">
-<li>The example below shows how to change the content of a <strong>div</strong>.</li>
+<li>The example below shows how to change the content of a div named <strong>titlebar1</strong>:</li>
 </ul>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> First Text <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s2">&quot;Second Text&quot;</span><span class="p">);</span>
-     <span class="cm">/*</span>
-<span class="cm">             HTML will be changed to:</span>
-<span class="cm">             &lt;div id=&#39;first&#39;&gt; Second Text &lt;/div&gt;</span>
-<span class="cm">     */</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;titlebar1&#39;</span><span class="p">,</span><span class="s1">&#39;Create New Record&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="contentof-element">
-<h3>contentOf(element);<a class="headerlink" href="#contentof-element" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="contentof-element-type">
+<h3>contentOf(element,type);<a class="headerlink" href="#contentof-element-type" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>contentOf</strong> function returns the inner text/html for a specific element.</p>
 <ul class="simple">
-<li>The example below shows how to return the text content of a <strong>div</strong>.</li>
+<li>If a type is not provided or if you specify type as &#8220;text&#8221; or &#8220;*text&#8221;,
+the function will return the inner text of the element specified.
+The example below shows how to return the text content of a <strong>div</strong>.</li>
 </ul>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>First Text<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
@@ -607,12 +608,12 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </pre></div>
 </div>
 <ul class="simple">
-<li>The HTML content of an element can also be retrieved by using the <strong>&#8220;*html&#8221;</strong> parameter, as shown in the example below:</li>
+<li>Otherwise the HTML content of an element will be retrieved, as shown in the example below:</li>
 </ul>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;first&#39;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>First Text<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">innerHtml</span> <span class="o">=</span> <span class="nx">contentOf</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;*html&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">innerHtml</span> <span class="o">=</span> <span class="nx">contentOf</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;html&#39;</span><span class="p">);</span>
      <span class="cm">/*</span>
 <span class="cm">             value of innerHtml will be:</span>
 
@@ -639,16 +640,16 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 <h3>isBlank(value)<a class="headerlink" href="#isblank-value" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>isBlank</strong> function returns a boolean value (true/false) if the string value passed is empty. An
 example of its use is shown below:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">emptyString</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
 
-<span class="k">if</span><span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">firstName</span><span class="p">)){</span>
-        <span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;Plese enter first name&#39;</span><span class="p">,</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">emptyString</span><span class="p">)){</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;This string is empty.&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="editdate-date-format">
-<h3>editDate(date,format)<a class="headerlink" href="#editdate-date-format" title="Permalink to this headline">¶</a></h3>
+<h3>editDate(date, format)<a class="headerlink" href="#editdate-date-format" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>editDate</strong> function converts the <strong>date</strong> passed to it in the specfied format.
 If no dateformat is specified it uses the default format &#8216;Y&#8217;.</p>
 <ul class="simple">
@@ -659,31 +660,43 @@ If no dateformat is specified it uses the default format &#8216;Y&#8217;.</p>
 <span class="cm">/*</span>
 <span class="cm">        The value of dateOne will be:</span>
 
-<span class="cm">        2015/09/01</span>
+<span class="cm">        2015/09/01 (yyyy/mm/dd format)</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;Y&#8217;</strong>:</li>
+<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;Y&#8217;</strong> or <strong>&#8216;y&#8217;</strong>:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 
 <span class="cm">/*</span>
 <span class="cm">        The value of dateOne will be:</span>
 
-<span class="cm">        2015/09/01</span>
+<span class="cm">        2015/09/01 (yyyy/mm/dd format)</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;d&#8217;</strong>:</li>
+<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;D&#8217;</strong> or <strong>&#8216;d&#8217;</strong>:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
 
 <span class="cm">/*</span>
 <span class="cm">        The value of dateOne will be:</span>
 
-<span class="cm">        01/09/2015</span>
+<span class="cm">        01/09/2015 (dd/mm/yyyy format)</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>editDate</strong> with the date format parameter  <strong>&#8216;M&#8217;</strong> or <strong>&#8216;m&#8217;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dateOne</span> <span class="o">=</span> <span class="nx">editDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of dateOne will be:</span>
+
+<span class="cm">        09/01/2015 (mm/dd/yyyy format)</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>
@@ -698,26 +711,39 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
 
 <span class="cm">/*</span>
-<span class="cm">        The value of result will be:</span>
-
-<span class="cm">        result = true;</span>
+<span class="cm">        The value of result will be true (yyyy/mm/dd format)</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;D&#8217; (dd/mm/yyy):</li>
+<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;<strong>D</strong>&#8216; or &#8216;<strong>d</strong>&#8216;:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>     <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+     <span class="cm">/*</span>
+<span class="cm">             The value of result will be false (dd/mm/yyyy format)</span>
+<span class="cm">     */</span>
+
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;01092015&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+     <span class="cm">/*</span>
+<span class="cm">             The value of result will be true (dd/mm/yyyy format)</span>
+
+<span class="cm">     */</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;<strong>M</strong>&#8216; or &#8216;<strong>m</strong>&#8216;:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;09012015&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">);</span>
 
 <span class="cm">/*</span>
-<span class="cm">        The value of result will be:</span>
-
-<span class="cm">        result = false;</span>
+<span class="cm">        The value of result will be true (mm/dd/yyyy format)</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;Y&#8217; (yyyy/mm/dd):</li>
+<li>The example below shows how to use <strong>validDate</strong> with the date format parameter &#8216;<strong>Y</strong>&#8216; or &#8216;<strong>y</strong>&#8216;:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validDate</span><span class="p">(</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 
@@ -729,13 +755,13 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="edittime-time">
-<h3>editTime(time);<a class="headerlink" href="#edittime-time" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>editDate</strong> function converts the <strong>time</strong> passed to the specfied format.</p>
+<div class="section" id="edittime-time-format">
+<h3>editTime(time, format);<a class="headerlink" href="#edittime-time-format" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>editTime</strong> function converts the <strong>time</strong> passed to the specfied <strong>format</strong>.</p>
 <ul class="simple">
-<li>Examples of usage are shown below:</li>
+<li>When no format parameter is passed it will use the default time format, in this case it is standard time:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">editTime</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">editTime</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 
 <span class="cm">/*</span>
 <span class="cm">        The value of result will be:</span>
@@ -744,10 +770,30 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 <span class="cm">*/</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li>When the &#8216;S&#8217; or &#8216;s&#8217; format is specified the standard time format will be specified:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nx">editTime</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result will be 2:00 AM</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>When the &#8216;A&#8217; or &#8216;a&#8217; format is specified the army time format will be specified:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nx">editTime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of time will be 20:00</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="validtime-time">
 <h3>validTime(time);<a class="headerlink" href="#validtime-time" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>validTime</strong> function returns true or false if the <strong>time</strong> is valid.</p>
+<p>The <strong>validTime</strong> function returns true or false if the <strong>time</strong> is valid. A valid time is a numeric value in  the range 0000 (12:00 am) to 2359 (11:59 pm).</p>
 <ul class="simple">
 <li>An example with a valid time is shown below:</li>
 </ul>
@@ -775,13 +821,34 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </div>
 <div class="section" id="valueof-field">
 <h3>valueOf(field);<a class="headerlink" href="#valueof-field" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>valueOf</strong> function returns the value of a specified field. An example is shown below:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+<p>The <strong>valueOf</strong> function returns the unformated value of a specified field. An example is shown below:</p>
+<ul class="simple">
+<li>The example below shows how retrieve the value from a field called <strong>&#8216;username&#8217;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
 
 <span class="cm">/*</span>
-<span class="cm">        The value of result will be:</span>
+<span class="cm">        The value of name is &#39;john.brown&#39;;</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how retrieve for a time field where the value in the time field is diplayed as <strong>&#8220;2:00 AM&#8221;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;timefield&#39;</span><span class="p">)</span> <span class="cm">/* time is 2:00 */</span>
 
-<span class="cm">        result = &#39;myUsername&#39;;</span>
+<span class="cm">/*</span>
+<span class="cm">        The value of time is 200</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how retrieve for a date field where the value in the date field is diplayed as <strong>&#8220;2016/09/11&#8221;</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;datefield&#39;</span><span class="p">)</span> <span class="cm">/* date is 2016/09/11 */</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of date is  20160911</span>
 <span class="cm">*/</span>
 </pre></div>
 </div>

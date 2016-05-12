@@ -358,7 +358,7 @@ The **changeVar** function changes the **value** of a specified **field**.
    changeVar('gpcmt',valueOf('chgdesc'));
 
 
-fieldHTML('field=<fielName>')
+fieldHTML('field=<fieldName>')
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **fieldHTML** function outputs the html which is used to render a field. 
@@ -380,55 +380,55 @@ The **fieldHTML** function outputs the html which is used to render a field.
 hideElement(fieldOne,fieldTwo,..);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **hideElement** function hides the field(s) specified.
+The **hideElement** function hides the element(s) specified.
 
-- The following example shows how to hide one field:
+- The following example shows how to hide one element:
 
 .. code-block:: javascript
 	
-   hideElement('username')
+   hideElement('formOne')
    
-- The following example shows how to hide multiple fields:
+- The following example shows how to hide multiple elements:
 
 .. code-block:: javascript
 	
-   hideElement('username','password')
+   hideElement('divOne','fieldOne')
    
 
 showElement(fieldOne,fieldTwo,..);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **showElement** function shows the field(s) specified.
+The **showElement** function shows the elements(s) specified.
 
-- The following example shows how to make a single field visible:
+- The following example shows how to make a single element visible:
 
 .. code-block:: javascript
 	
-   showElement('salary')
+   showElement('fieldOne');
    
-- The following example shows how to make multiple fields visisble:
+- The following example shows how to make multiple elements visisble:
 
 .. code-block:: javascript
 	
-   showElement('tax','salary')
+   showElement('divOne','fieldOne');
 
 
 neverShow(fieldOne,fieldTwo,..);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **neverShow** function hides a specified field permanently. Even if the **showElement** function is called on fields they will never be diplayed.
+The **neverShow** function hides a specified element permanently. Even if the **showElement** function is called on elements they will never be diplayed.
 
-- The following example shows how to permanently hide one field:
+- The following example shows how to permanently hide one element:
 
 .. code-block:: javascript
 	
-   neverShow('username')
+   neverShow('fieldOne');
    
-- The following example shows how to permanently hide multiple fields:
+- The following example shows how to permanently hide multiple elements:
 
 .. code-block:: javascript
 	
-   hideElement('username','password')
+   hideElement('fieldOne','divOne');
      
 
 popUpMsg(message,field);
@@ -436,39 +436,38 @@ popUpMsg(message,field);
 
 The **popUpMsg** function shows a message below a specified field.
 
-- The following example shows how to display the **popUpMsg** for the **'receipt'** field. 
+- The following example shows how to display the **popUpMsg** for the **'fname'** field. 
 
 .. code-block:: javascript
 	
-   popUpMsg('Plese enter a value greater than 0','receipt');
-
+    var firstname = valueOf('fname');
+ 	
+    if (isBlank(firstname)) {
+		popUpMsg('This is a required field!','fname');
+		result = false;
+		break;
+    }     
 
 changeContent(element,htmlText);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **changeContent** function changes the inner html for a specific element. 
+The **changeContent** function changes the inner contents (html or text) of an element. 
 
-- The example below shows how to change the content of a **div**.
+- The example below shows how to change the content of a div named **titlebar1**:
 
-.. code-block:: html
-   
-   <div id='first'> First Text </div>
-	
 .. code-block:: javascript
 	
-   changeContent('first',"Second Text");
-	/*
-		HTML will be changed to:
-		<div id='first'> Second Text </div>
-	*/
+   changeContent('titlebar1','Create New Record');
    
 
-contentOf(element);
+contentOf(element,type);
 ~~~~~~~~~~~~~~~~~~~~
 
 The **contentOf** function returns the inner text/html for a specific element. 
 
-- The example below shows how to return the text content of a **div**.
+- If a type is not provided or if you specify type as "text" or "\*text", 
+  the function will return the inner text of the element specified. 
+  The example below shows how to return the text content of a **div**.
 
 .. code-block:: html
 
@@ -483,7 +482,7 @@ The **contentOf** function returns the inner text/html for a specific element.
 		First Text
 	*/
 
-- The HTML content of an element can also be retrieved by using the **"*html"** parameter, as shown in the example below:
+- Otherwise the HTML content of an element will be retrieved, as shown in the example below:
 
 .. code-block:: html
 
@@ -491,7 +490,7 @@ The **contentOf** function returns the inner text/html for a specific element.
 
 .. code-block:: javascript
 	
-   var innerHtml = contentOf('first','*html');
+   var innerHtml = contentOf('first','html');
 	/*
 		value of innerHtml will be:
 		
@@ -522,13 +521,13 @@ example of its use is shown below:
 
 .. code-block:: javascript
 	
-	var firstName = valueOf('firstname');
+	var emptyString = "";
 	
-	if(isBlank(firstName)){	
-		popUpMsg('Plese enter first name','firstname');
+	if(isBlank(emptyString)){	
+		alert("This string is empty.");
 	}
 
-editDate(date,format)
+editDate(date, format)
 ~~~~~~~~~~~~~~~~~~~~~
 
 The **editDate** function converts the **date** passed to it in the specfied format. 
@@ -543,10 +542,10 @@ If no dateformat is specified it uses the default format 'Y'.
 	/*
 		The value of dateOne will be:
 		
-		2015/09/01
+		2015/09/01 (yyyy/mm/dd format)  
 	*/
 
-- The example below shows how to use **editDate** with the date format parameter  **'Y'**:
+- The example below shows how to use **editDate** with the date format parameter  **'Y'** or **'y'**:
 
 .. code-block:: javascript
 	
@@ -555,19 +554,31 @@ If no dateformat is specified it uses the default format 'Y'.
 	/*
 		The value of dateOne will be:
 		
-		2015/09/01
+		2015/09/01 (yyyy/mm/dd format)  
 	*/
 
-- The example below shows how to use **editDate** with the date format parameter  **'d'**:
+- The example below shows how to use **editDate** with the date format parameter  **'D'** or **'d'**:
 
 .. code-block:: javascript
 	
-	var dateOne = editDate('20150901','d')
+	var dateOne = editDate('20150901','D')
 	
 	/*
 		The value of dateOne will be:
 		
-		01/09/2015
+		01/09/2015 (dd/mm/yyyy format)
+	*/
+
+- The example below shows how to use **editDate** with the date format parameter  **'M'** or **'m'**:
+
+.. code-block:: javascript
+	
+	var dateOne = editDate('20150901','M')
+	
+	/*
+		The value of dateOne will be:
+		
+		09/01/2015 (mm/dd/yyyy format)
 	*/
 
 	
@@ -584,24 +595,37 @@ If no date format is specified it uses the default format 'Y'.
 	var result = validDate('20150901')
 	
 	/*
-		The value of result will be:
-		
-		result = true;
+		The value of result will be true (yyyy/mm/dd format) 
 	*/
 
-- The example below shows how to use **validDate** with the date format parameter 'D' (dd/mm/yyy):
+- The example below shows how to use **validDate** with the date format parameter '**D**' or '**d**':
 
 .. code-block:: javascript
 	
 	var result = validDate('20150901','D')
 	
 	/*
-		The value of result will be:
+		The value of result will be false (dd/mm/yyyy format)
+	*/
+	
+   result = validDate('01092015','D')
+	
+	/*
+		The value of result will be true (dd/mm/yyyy format)
 		
-		result = false;
 	*/
 
-- The example below shows how to use **validDate** with the date format parameter 'Y' (yyyy/mm/dd):
+- The example below shows how to use **validDate** with the date format parameter '**M**' or '**m**':
+
+.. code-block:: javascript
+	
+	var result = validDate('09012015','M');
+	
+	/*
+		The value of result will be true (mm/dd/yyyy format)
+	*/
+	
+- The example below shows how to use **validDate** with the date format parameter '**Y**' or '**y**':
 
 .. code-block:: javascript
 	
@@ -613,16 +637,16 @@ If no date format is specified it uses the default format 'Y'.
 		result = true;
 	*/
 
-editTime(time);
-~~~~~~~~~~~~~~~
+editTime(time, format);
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **editDate** function converts the **time** passed to the specfied format. 
+The **editTime** function converts the **time** passed to the specfied **format**. 
 
-- Examples of usage are shown below:
+- When no format parameter is passed it will use the default time format, in this case it is standard time:
 
 .. code-block:: javascript
 	
-	var result = editTime(2000)
+	var result = editTime(200)
 	
 	/*
 		The value of result will be:
@@ -630,11 +654,32 @@ The **editDate** function converts the **time** passed to the specfied format.
 		result = 02:00;
 	*/
 
+- When the 'S' or 's' format is specified the standard time format will be specified:
+
+.. code-block:: javascript
+	
+	var time = editTime(200,'S')
+	
+	/*
+		The value of result will be 2:00 AM
+	*/
+
+- When the 'A' or 'a' format is specified the army time format will be specified:
+
+.. code-block:: javascript
+	
+	var time = editTime(2000,'A')
+	
+	/*
+		The value of time will be 20:00 
+	*/
+
+
 
 validTime(time);
 ~~~~~~~~~~~~~~~~
 
-The **validTime** function returns true or false if the **time** is valid.
+The **validTime** function returns true or false if the **time** is valid. A valid time is a numeric value in  the range 0000 (12:00 am) to 2359 (11:59 pm).
 
 - An example with a valid time is shown below:
 
@@ -663,14 +708,35 @@ The **validTime** function returns true or false if the **time** is valid.
 valueOf(field);
 ~~~~~~~~~~~~~~~
 
-The **valueOf** function returns the value of a specified field. An example is shown below:
+The **valueOf** function returns the unformated value of a specified field. An example is shown below:
+
+
+- The example below shows how retrieve the value from a field called **'username'**:
 
 .. code-block:: javascript
 	
-	var result = valueOf('username')
+	var name = valueOf('username')
 	
 	/*
-		The value of result will be:
-		
-		result = 'myUsername';
+		The value of name is 'john.brown';
+	*/
+
+- The example below shows how retrieve for a time field where the value in the time field is diplayed as **"2:00 AM"**:
+
+.. code-block:: javascript
+	
+	var time = valueOf('timefield') /* time is 2:00 */
+	
+	/*
+		The value of time is 200
+	*/
+	
+- The example below shows how retrieve for a date field where the value in the date field is diplayed as **"2016/09/11"**:
+
+.. code-block:: javascript
+	
+	var date = valueOf('datefield') /* date is 2016/09/11 */
+	
+	/*
+		The value of date is  20160911
 	*/

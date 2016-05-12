@@ -91,12 +91,13 @@
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CRUD Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sqlselect">sqlSelect()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlinsert">sqlInsert()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlupdate">sqlUpdate()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqldelete">sqlDelete()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlupdateobject">sqlUpdateObject()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlselect-sql-text-dataobject">sqlSelect(sql, text, dataObject)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlinsert-table-recordobject">sqlInsert(table,recordObject)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlupdate-table-recordobject-updatecriteria">sqlUpdate(table, recordObject, updateCriteria)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqldelete-table-deletecriteria">sqlDelete(table, deleteCriteria)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlupdateobj-element">sqlUpdateObj(element)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqlvalueof">sqlValueOf()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlwrap">sqlWrap()</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
@@ -159,8 +160,8 @@
 <div class="section" id="crud-functions">
 <h1>CRUD Functions<a class="headerlink" href="#crud-functions" title="Permalink to this headline">¶</a></h1>
 <p>CRUD <em>(Create, Read, Update, Delete)</em> are a set of functions used to perform database operations. These functions and how they are used is described below:</p>
-<div class="section" id="sqlselect">
-<h2>sqlSelect()<a class="headerlink" href="#sqlselect" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sqlselect-sql-text-dataobject">
+<h2>sqlSelect(sql, text, dataObject)<a class="headerlink" href="#sqlselect-sql-text-dataobject" title="Permalink to this headline">¶</a></h2>
 <p>This function is used to retrieve records from a database. It accepts three parameters:</p>
 <ol class="arabic simple">
 <li>The SQL Select text ( eg. <em>&#8220;select * from customers&#8221;</em> )</li>
@@ -170,92 +171,99 @@
 <ul class="simple">
 <li>An example is shown below:</li>
 </ul>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="kd">var</span> <span class="nx">sqltxt</span><span class="o">=</span><span class="s2">&quot;select bilno, cnsign, &#39;nothing&#39; as n from wsblhead&quot;</span><span class="p">;</span>
-<span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqltxt</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
-</span>      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
-	  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sqlStatement</span><span class="o">=</span><span class="s2">&quot;select bilno, cnsign, &#39;nothing&#39; as n from wsblhead&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqlStatement</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">$data</span><span class="p">.</span><span class="nx">rcdcnt</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span> <span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
-<p>If an error occurs during the sql transaction the <strong>sqlerr</strong> global variable is set with details of the error.
-An example is shown below:</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqltxt</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
-<span class="hll">      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
-</span>	  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</pre></div>
-</td></tr></table></div>
-<p>Also  the record count is retrieved from the database along with the records as show in the example below:</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">$data</span><span class="p">.</span><span class="nx">rcdcnt</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span> <span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
-</pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="sqlinsert">
-<h2>sqlInsert()<a class="headerlink" href="#sqlinsert" title="Permalink to this headline">¶</a></h2>
+<p>If an error occurs during the sql transaction the <strong>sqlerr</strong> global variable is set with details of the error.
+The <strong>$data.rcdcnt</strong> is also returned as shown in the example above.</p>
+</div>
+<div class="section" id="sqlinsert-table-recordobject">
+<h2>sqlInsert(table,recordObject)<a class="headerlink" href="#sqlinsert-table-recordobject" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>sqlInsert</strong> function adds a record to a specific table to the database. it accepts two parameters:</p>
 <ol class="arabic simple">
 <li>The database table that will be modified.</li>
 <li>and a object with the fields that need to be inserted.</li>
 </ol>
-<p>An example is shown below:</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nx">updobj</span><span class="o">=</span><span class="p">{};</span>
- <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnum</span><span class="o">=</span><span class="mi">666</span><span class="p">;</span>
- <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnam</span><span class="o">=</span><span class="s1">&#39;Mark of Beast&#39;</span><span class="p">;</span>
- <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlInsert</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">updobj</span><span class="p">))</span> <span class="p">{</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+<p>The example below creates and object using the <strong>sqlUpdateObj</strong> object which extracts fields from <strong>form1</strong> and inserts it into
+the <strong>users</strong> table:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>var tableName = &#39;users&#39;
+var insertObject = new sqlUpdateObj(&#39;*form:form1&#39;);
+        if (sqlInsert(&#39;ableName,insertObject)) {
+                alert(&#39;Record Added.&#39;);
+        } else {
+                alert(sqlerr);
+                return false;
+        }
 </pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="sqlupdate">
-<h2>sqlUpdate()<a class="headerlink" href="#sqlupdate" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>sqlUpdate</strong> function updates a records in a table based on a specific criteria. It accepts three parameters:</p>
+</div>
+<div class="section" id="sqlupdate-table-recordobject-updatecriteria">
+<h2>sqlUpdate(table, recordObject, updateCriteria)<a class="headerlink" href="#sqlupdate-table-recordobject-updatecriteria" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlUpdate</strong> function updates records in a table based on a specific criteria. It accepts three parameters:</p>
 <ol class="arabic simple">
 <li>The database table that will be modified.</li>
 <li>The object with the fields that need to be updated.</li>
 <li>and the where criteria for the records which need to be updated.</li>
 </ol>
-<p>An example is shown below:</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="nx">updobj</span><span class="o">=</span><span class="p">{};</span>
-  <span class="nx">updobj</span><span class="p">.</span><span class="nx">linnam</span><span class="o">=</span><span class="s1">&#39;Mark of Bitch&#39;</span><span class="p">;</span>
-  <span class="nx">sqlwhere</span><span class="o">=</span><span class="s1">&#39;linnum=666&#39;</span><span class="p">;</span>
- <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlUpdate</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">updobj</span><span class="p">,</span><span class="nx">sqlwhere</span><span class="p">))</span> <span class="p">{</span>
+<p>The example below updates the changed fields of a record in the <strong>container</strong> table.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">updateObject</span> <span class="o">=</span> <span class="nx">saveddata</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s2">&quot;container&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">whereCriteria</span><span class="o">=</span><span class="s2">&quot;containercode=500&quot;</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span> <span class="nx">sqlUpdate</span><span class="p">(</span><span class="nx">tableName</span><span class="p">,</span><span class="nx">updateObject</span><span class="p">,</span><span class="nx">whereCriteria</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Record Updated.&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="sqldelete">
-<h2>sqlDelete()<a class="headerlink" href="#sqldelete" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sqldelete-table-deletecriteria">
+<h2>sqlDelete(table, deleteCriteria)<a class="headerlink" href="#sqldelete-table-deletecriteria" title="Permalink to this headline">¶</a></h2>
 <p>This removes records from a database table based on a specific criteria.</p>
 <ol class="arabic simple">
 <li>The database table that will be modified.</li>
 <li>and the where criteria for the records which need to be deleted.</li>
 </ol>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="nx">sqlwhere</span><span class="o">=</span><span class="s1">&#39;linnum=666&#39;</span><span class="p">;</span>
- <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlDelete</span><span class="p">(</span><span class="s1">&#39;wsline&#39;</span><span class="p">,</span><span class="nx">sqlwhere</span><span class="p">))</span> <span class="p">{</span>
+<p>The example below deletes a record in the <strong>user</strong> table based on the criteria specified:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">whereCriteria</span> <span class="o">=</span> <span class="s2">&quot;username=john&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlDelete</span><span class="p">(</span><span class="nx">tableName</span><span class="p">,</span> <span class="nx">whereCriteria</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">All CRUD functions update the &#8220;sqlerr&#8221; global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.</p>
 </div>
 </div>
-<div class="section" id="sqlupdateobject">
-<h2>sqlUpdateObject()<a class="headerlink" href="#sqlupdateobject" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sqlupdateobj-element">
+<h2>sqlUpdateObj(element)<a class="headerlink" href="#sqlupdateobj-element" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlUpdateObj</strong> is used to automatically generate an object with the fields of a form.
+This object can then be used to in update operations.</p>
+<ul class="simple">
+<li>sqlUpdateObj can accept more than one or more fields as shown below:</li>
+</ul>
 </div>
 <div class="section" id="sqlvalueof">
 <h2>sqlValueOf()<a class="headerlink" href="#sqlvalueof" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sqlwrap">
+<h2>sqlWrap()<a class="headerlink" href="#sqlwrap" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

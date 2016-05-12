@@ -7,8 +7,8 @@ CRUD Functions
 
 CRUD *(Create, Read, Update, Delete)* are a set of functions used to perform database operations. These functions and how they are used is described below:
 
-sqlSelect()
-~~~~~~~~~~~
+sqlSelect(sql, text, dataObject)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This function is used to retrieve records from a database. It accepts three parameters:
 
@@ -18,77 +18,183 @@ This function is used to retrieve records from a database. It accepts three para
 
 - An example is shown below:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 89-93
-       :emphasize-lines: 2
+.. code-block:: javascript
+	
+	var sqlStatement="select bilno, cnsign, 'nothing' as n from wsblhead";
+	
+	if (!sqlSelect(sqlStatement,'$data',1000)) {
+		alert(sqlerr);
+		return false;
+	}
+	
+	if ($data.rcdcnt==0) {alert('No data found'); return false}
 
 If an error occurs during the sql transaction the **sqlerr** global variable is set with details of the error.
-An example is shown below:
-
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 90-92
-       :emphasize-lines: 2
-
-Also  the record count is retrieved from the database along with the records as show in the example below:
-
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 94
+The **$data.rcdcnt** is also returned as shown in the example above.
 
 
-sqlInsert()
-~~~~~~~~~~~~~
+sqlInsert(table,recordObject)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **sqlInsert** function adds a record to a specific table to the database. it accepts two parameters:
 
 1. The database table that will be modified.
 2. and a object with the fields that need to be inserted.
 
-An example is shown below:
+The example below creates and object using the **sqlUpdateObj** object which extracts fields from **form1** and inserts it into
+the **users** table:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 100-104
+.. code-block:: javascript
+	
+	var tableName = 'users'
+	var insertObject = new sqlUpdateObj('*form:form1');
+		if (sqlInsert('ableName,insertObject)) {
+			alert('Record Added.');
+		} else {
+			alert(sqlerr);
+			return false;
+		}
 
-sqlUpdate()
-~~~~~~~~~~~~
+sqlUpdate(table, recordObject, updateCriteria)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **sqlUpdate** function updates a records in a table based on a specific criteria. It accepts three parameters:
+The **sqlUpdate** function updates records in a table based on a specific criteria. It accepts three parameters:
 
 1. The database table that will be modified.
 2. The object with the fields that need to be updated.
 3. and the where criteria for the records which need to be updated.
 
-An example is shown below:
+The example below updates the changed fields of a record in the **container** table.
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 114-117
-
-sqlDelete()
-~~~~~~~~~~~
+.. code-block:: javascript
+	
+	var updateObject = saveddata.returnChangedVar();
+	
+	var tableName = "container";
+	
+	var whereCriteria="containercode=500";
+	
+	if( sqlUpdate(tableName,updateObject,whereCriteria) ) {
+		alert('Record Updated.');
+	} else {
+		alert(sqlerr);
+		return false;
+	}
+	
+sqlDelete(table, deleteCriteria)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 This removes records from a database table based on a specific criteria.
 
 1. The database table that will be modified.
 2. and the where criteria for the records which need to be deleted.
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 125-126
+
+The example below deletes a record in the **user** table based on the criteria specified:
+
+.. code-block:: javascript
+
+	var tableName = "user";
+	
+	var whereCriteria = "username=john";
+	
+	if (!sqlDelete(tableName, whereCriteria)) {
+		alert(sqlerr);
+		return false;
+	}
 
 .. note:: All CRUD functions update the "sqlerr" global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.
 
-sqlUpdateObject()
+sqlUpdateObj(element)
+~~~~~~~~~~~~~~~~~~~~~~
+
+The **sqlUpdateObj** is used to automatically generate an object from fields. 
+The object can be generated from individual fields or an entrie form.
+
+- The example below shows how the create an **sqlUpdateObj** from individual fields **(fieldOne, fieldTwo)**:
+
+.. code-block:: javascript
+	
+	var fieldObject = sqlUpdateObj('fieldOne',fieldTwo)
+	
+	/*
+		The value of the 
+		
+		fieldObject{
+			fieldOne:"value1",
+			fieldTwo:"value2",
+		} 
+	*/
+
+- The example below shows how the create an **sqlUpdateObj** from a form:
+
+.. code-block:: javascript
+	
+	var fieldObject = sqlUpdateObj('*form:form1')
+	
+	/*
+		The value of the 
+		
+		fieldObject{
+			fieldOne:"value1",
+			fieldTwo:"value2",
+			fieldThree:"value3"
+			...
+			..
+			.
+		} 
+	*/
+	
+sqlValueOf(field)
 ~~~~~~~~~~~~~~~~~
 
-sqlValueOf()
-~~~~~~~~~~~~
+The **sqlValueOf** function formats a field in valid SQL format. For numeric fields the value is not modified.
+
+- An exmaple of how it parses a text field which has a value of **"testing"** is shown below:
+
+.. code-block:: javascript
+	
+	var  result = sqlValueOf('textField');
+	
+	/*
+		The value of result is 'testing' which is a string value with single quites .
+	*
+	/
+
+- An exmaple of how it parses a numeric field which has a value of **100** is shown below:
+
+.. code-block:: javascript
+	
+	var  result = sqlValueOf('numericField');
+	
+	/*
+		The value of result is 100 which is numeric.
+	*
+	/
+
+- An exmaple of how it parses a date field which has a value of **2015/09/11** is shown below:
+
+.. code-block:: javascript
+	
+	var  result = sqlValueOf('dateField');
+	
+	/*
+		The value of result is 20150911 which is numeric .
+	*
+	/
+	
+- An exaaple of how it parses a time field which has a value of **11:00** is shown below:
+
+.. code-block:: javascript
+	
+	var  result = sqlValueOf('timeField');
+	
+	/*
+		The value of result is 1100 which is numeric .
+	*
+	/
+
+
+
+ 
+
