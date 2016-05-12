@@ -6,14 +6,15 @@ Buttons
 =======
 
 The advantum software development framework consists of many predefined buttons. Buttons are defined by creating
-a span html with a button **attribute** and **type**.
+a **span** html element with a button **attribute** and **type**.
 
 Button Types
 ------------
 
+The various button types and how they are rendered are listed below:
 
 accept
-------
+~~~~~~
 
 Accept button definiton is below:
 
@@ -27,7 +28,7 @@ Accept button definiton is below:
    :scale: 50 %
  
 add
----
+~~~~~~
 
 Add button definiton is below:
 
@@ -41,7 +42,7 @@ Add button definiton is below:
    :scale: 50 %
      
 apply
-------
+~~~~~~
 
 Apply button definiton is below:
 
@@ -56,7 +57,7 @@ Apply button definiton is below:
 
 
 back
------
+~~~~~~
 
 Back button definiton is below:
 
@@ -71,7 +72,7 @@ Back button definiton is below:
 
 
 cancel
-------
+~~~~~~
 
 Cancel button definiton is below:
 
@@ -86,7 +87,7 @@ Cancel button definiton is below:
    :scale: 50 %
    
 change
-------
+~~~~~~
 
 Change button definiton is below:
 
@@ -100,7 +101,8 @@ Change button definiton is below:
    :scale: 50 %
   
 close
-------
+~~~~~~
+
 
 Close button definiton is below:
 
@@ -114,7 +116,7 @@ Close button definiton is below:
 	:scale: 50 %
 
 delete
-------
+~~~~~~
 
 Delete button definiton is below:
 
@@ -128,7 +130,7 @@ Delete button definiton is below:
 	:scale: 50 %
 
 edit
-----
+~~~~~~
 
 Edit button definiton is below:
 
@@ -143,7 +145,7 @@ Edit button definiton is below:
 
 
 exit
-----
+~~~~~~
 
 Exit button definiton is below:
 
@@ -154,11 +156,11 @@ Exit button definiton is below:
 
 .. image:: exit.png
 	:height: 100px
-	:width: 200 px
+	:width: 100px
 	:scale: 50 %
 	
 new
----
+~~~~~~
 
 New button definiton is below:
 
@@ -167,13 +169,13 @@ New button definiton is below:
    <span button=new type=new click=addRecord()></span>
 
 .. image:: new.png
-	:height: 100px
-	:width: 200 px
+	:height: 400px
+	:width: 400 px
 	:scale: 50 %
 
 
 print
-------
+~~~~~~
 
 Print button definiton is below:
 
@@ -189,7 +191,8 @@ Print button definiton is below:
 
 
 refresh
---------
+~~~~~~
+
 
 Refresh button definiton is below:
 
@@ -206,7 +209,8 @@ Refresh button definiton is below:
 
 
 recycle
---------
+~~~~~~
+
 
 Recycle button definiton is below:
 
@@ -224,7 +228,7 @@ Recycle button definiton is below:
 
 
 save
-----
+~~~~~~
 
 Save button definiton is below:
 
@@ -238,17 +242,22 @@ Save button definiton is below:
 	:scale: 50 %
 
 
+
+Other Button Attributes
+-----------------------
+	
 text
-----
+~~~~~~
+
+This is the text which is displayed on the button. A buttons default text can be overriden using this attribute, as shown below:
 
 .. code-block:: html
 
    <span button=refreshButton type=save onclick=save() text="refresh Screen"></span>
 
-
-
 width
-------
+~~~~~~
+
 
 .. code-block:: html
 
@@ -256,7 +265,8 @@ width
 
 
 height
-------
+~~~~~~
+
 
 .. code-block:: html
 

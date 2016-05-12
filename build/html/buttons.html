@@ -89,24 +89,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Buttons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#button-types">Button Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accept">accept</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add">add</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#apply">apply</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#back">back</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cancel">cancel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change">change</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#close">close</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete">delete</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#edit">edit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#exit">exit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#new">new</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#print">print</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#refresh">refresh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recycle">recycle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#save">save</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text">text</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#width">width</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#height">height</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-button-attributes">Other Button Attributes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
@@ -172,12 +155,12 @@
 <div class="section" id="buttons">
 <h1>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h1>
 <p>The advantum software development framework consists of many predefined buttons. Buttons are defined by creating
-a span html with a button <strong>attribute</strong> and <strong>type</strong>.</p>
+a <strong>span</strong> html element with a button <strong>attribute</strong> and <strong>type</strong>.</p>
 <div class="section" id="button-types">
 <h2>Button Types<a class="headerlink" href="#button-types" title="Permalink to this headline">¶</a></h2>
-</div>
+<p>The various button types and how they are rendered are listed below:</p>
 <div class="section" id="accept">
-<h2>accept<a class="headerlink" href="#accept" title="Permalink to this headline">¶</a></h2>
+<h3>accept<a class="headerlink" href="#accept" title="Permalink to this headline">¶</a></h3>
 <p>Accept button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">acceptButton</span> <span class="na">type</span><span class="o">=</span><span class="s">accept</span> <span class="na">onclick</span><span class="o">=</span><span class="s">accept()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -185,7 +168,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/accept.png"><img alt="_images/accept.png" src="_images/accept.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="add">
-<h2>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h2>
+<h3>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
 <p>Add button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">addRecord</span> <span class="na">type</span><span class="o">=</span><span class="s">add</span> <span class="na">onclick</span><span class="o">=</span><span class="s">addRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -193,7 +176,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/add.png"><img alt="_images/add.png" src="_images/add.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="apply">
-<h2>apply<a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h2>
+<h3>apply<a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h3>
 <p>Apply button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">apply</span> <span class="na">type</span><span class="o">=</span><span class="s">apply</span> <span class="na">onclick</span><span class="o">=</span><span class="s">apply/span</span><span class="p">&gt;</span>
 </pre></div>
@@ -201,7 +184,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/apply.png"><img alt="_images/apply.png" src="_images/apply.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="back">
-<h2>back<a class="headerlink" href="#back" title="Permalink to this headline">¶</a></h2>
+<h3>back<a class="headerlink" href="#back" title="Permalink to this headline">¶</a></h3>
 <p>Back button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">backButton</span> <span class="na">type</span><span class="o">=</span><span class="s">back</span> <span class="na">onclick</span><span class="o">=</span><span class="s">goBack()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -209,7 +192,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/back.png"><img alt="_images/back.png" src="_images/back.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="cancel">
-<h2>cancel<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h2>
+<h3>cancel<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h3>
 <p>Cancel button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">cancelButton</span> <span class="na">type</span><span class="o">=</span><span class="s">cancel</span> <span class="na">onclick</span><span class="o">=</span><span class="s">goBack()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -217,7 +200,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/cancel.png"><img alt="_images/cancel.png" src="_images/cancel.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="change">
-<h2>change<a class="headerlink" href="#change" title="Permalink to this headline">¶</a></h2>
+<h3>change<a class="headerlink" href="#change" title="Permalink to this headline">¶</a></h3>
 <p>Change button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">changeButton</span> <span class="na">type</span><span class="o">=</span><span class="s">change</span> <span class="na">onclick</span><span class="o">=</span><span class="s">goBack()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -225,7 +208,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/cancel.png"><img alt="_images/cancel.png" src="_images/cancel.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="close">
-<h2>close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h2>
+<h3>close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h3>
 <p>Close button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">closeButton</span> <span class="na">type</span><span class="o">=</span><span class="s">close</span> <span class="na">onclick</span><span class="o">=</span><span class="s">changeRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -233,7 +216,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/close.png"><img alt="_images/close.png" src="_images/close.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="delete">
-<h2>delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<h3>delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
 <p>Delete button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">deleteRecord</span> <span class="na">type</span><span class="o">=</span><span class="s">delete</span> <span class="na">onclick</span><span class="o">=</span><span class="s">deleteRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -241,7 +224,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/delete.png"><img alt="_images/delete.png" src="_images/delete.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="edit">
-<h2>edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h2>
+<h3>edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h3>
 <p>Edit button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">editRecord</span> <span class="na">type</span><span class="o">=</span><span class="s">edit</span> <span class="na">onclick</span><span class="o">=</span><span class="s">editRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -249,23 +232,23 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/edit.png"><img alt="_images/edit.png" src="_images/edit.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="exit">
-<h2>exit<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h2>
+<h3>exit<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h3>
 <p>Exit button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">exitButton</span> <span class="na">type</span><span class="o">=</span><span class="s">exit</span> <span class="na">onclick</span><span class="o">=</span><span class="s">editRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/exit.png"><img alt="_images/exit.png" src="_images/exit.png" style="width: 100.0px; height: 50.0px;" /></a>
+<a class="reference internal image-reference" href="_images/exit.png"><img alt="_images/exit.png" src="_images/exit.png" style="width: 50.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="new">
-<h2>new<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h2>
+<h3>new<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h3>
 <p>New button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">new</span> <span class="na">type</span><span class="o">=</span><span class="s">new</span> <span class="na">click</span><span class="o">=</span><span class="s">addRecord()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/new.png"><img alt="_images/new.png" src="_images/new.png" style="width: 100.0px; height: 50.0px;" /></a>
+<a class="reference internal image-reference" href="_images/new.png"><img alt="_images/new.png" src="_images/new.png" style="width: 200.0px; height: 200.0px;" /></a>
 </div>
 <div class="section" id="print">
-<h2>print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
+<h3>print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
 <p>Print button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">print</span> <span class="na">type</span><span class="o">=</span><span class="s">print</span> <span class="na">onclick</span><span class="o">=</span><span class="s">print()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -273,7 +256,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/print.png"><img alt="_images/print.png" src="_images/print.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="refresh">
-<h2>refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h2>
+<h3>refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h3>
 <p>Refresh button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">refreshButton</span> <span class="na">type</span><span class="o">=</span><span class="s">refresh</span> <span class="na">onclick</span><span class="o">=</span><span class="s">reference()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -281,7 +264,7 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/refresh.png"><img alt="_images/refresh.png" src="_images/refresh.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="recycle">
-<h2>recycle<a class="headerlink" href="#recycle" title="Permalink to this headline">¶</a></h2>
+<h3>recycle<a class="headerlink" href="#recycle" title="Permalink to this headline">¶</a></h3>
 <p>Recycle button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">recycleButton</span> <span class="na">type</span><span class="o">=</span><span class="s">recycle</span> <span class="na">onclick</span><span class="o">=</span><span class="s">recycle()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -289,29 +272,34 @@ a span html with a button <strong>attribute</strong> and <strong>type</strong>.<
 <a class="reference internal image-reference" href="_images/delete.png"><img alt="_images/delete.png" src="_images/delete.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
 <div class="section" id="save">
-<h2>save<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h2>
+<h3>save<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h3>
 <p>Save button definiton is below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">saveButton</span> <span class="na">type</span><span class="o">=</span><span class="s">save</span> <span class="na">onclick</span><span class="o">=</span><span class="s">save()</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/save.png"><img alt="_images/save.png" src="_images/save.png" style="width: 100.0px; height: 50.0px;" /></a>
 </div>
+</div>
+<div class="section" id="other-button-attributes">
+<h2>Other Button Attributes<a class="headerlink" href="#other-button-attributes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="text">
-<h2>text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
+<h3>text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<p>This is the text which is displayed on the button. A buttons default text can be overriden using this attribute, as shown below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">refreshButton</span> <span class="na">type</span><span class="o">=</span><span class="s">save</span> <span class="na">onclick</span><span class="o">=</span><span class="s">save()</span> <span class="na">text</span><span class="o">=</span><span class="s">&quot;refresh Screen&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="width">
-<h2>width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<h3>width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">refreshButton</span> <span class="na">type</span><span class="o">=</span><span class="s">save</span> <span class="na">onclick</span><span class="o">=</span><span class="s">save()</span> <span class="na">text</span><span class="o">=</span><span class="s">&quot;refresh Screen&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="height">
-<h2>height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<h3>height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">refreshButton</span> <span class="na">type</span><span class="o">=</span><span class="s">save</span> <span class="na">onclick</span><span class="o">=</span><span class="s">save()</span> <span class="na">text</span><span class="o">=</span><span class="s">&quot;refresh Screen&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">20</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
