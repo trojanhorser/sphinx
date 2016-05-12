@@ -150,7 +150,7 @@ sqlValueOf(field)
 
 The **sqlValueOf** function formats a field in valid SQL format. For numeric fields the value is not modified.
 
-- An exmaple of how it parses a text field which has a value of **"testing"** is shown below:
+- An example of how it parses a text field which has a value of **"testing"** is shown below:
 
 .. code-block:: javascript
 	
@@ -161,7 +161,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	*
 	/
 
-- An exmaple of how it parses a numeric field which has a value of **100** is shown below:
+- An example of how it parses a numeric field which has a value of **100** is shown below:
 
 .. code-block:: javascript
 	
@@ -172,7 +172,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	*
 	/
 
-- An exmaple of how it parses a date field which has a value of **2015/09/11** is shown below:
+- An example of how it parses a date field which has a value of **2015/09/11** is shown below:
 
 .. code-block:: javascript
 	
@@ -183,7 +183,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	*
 	/
 	
-- An exaaple of how it parses a time field which has a value of **11:00** is shown below:
+- An example of how it parses a time field which has a value of **11:00** is shown below:
 
 .. code-block:: javascript
 	
