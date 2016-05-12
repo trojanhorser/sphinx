@@ -176,7 +176,7 @@ radio buttons, or text fields. For example, forms can be used to enter shipping 
 value of <strong>&#8220;window&#8221;</strong>. An example is shown below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;divform1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;window&quot;</span><span class="p">&gt;</span>
   <span class="c">&lt;!--</span>
-<span class="c">    Form would be defined here</span>
+<span class="c">        Form would be defined here</span>
 <span class="c">  --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
@@ -197,11 +197,9 @@ of the form and example is shown below:</p>
 <h3>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
 <p>A optional <strong>title</strong> can be added to the form. It is defined using a <strong>div</strong> with an <strong>id</strong> which is the unique identifier and a
 <strong>class</strong> which must have the value <strong>&#8220;titleBar&#8221;</strong> an example is shown below:</p>
-<blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div></blockquote>
 </div>
 <div class="section" id="fields">
 <h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
@@ -210,24 +208,27 @@ of the form and example is shown below:</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Read the <a class="reference internal" href="#fields">Fields</a> for more detailed information</p>
 </div>
-<div class="highlight-html"><div class="highlight"><pre><span></span>    Form would be defined here
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">form1</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Title would be defined here --&gt;</span>
+   <span class="c">&lt;!-- Fields would be defined here --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>A complete example of a form in shown below:</li>
 </ul>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;divform1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;window&quot;</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">form1</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">exitbutton</span> <span class="na">type</span><span class="o">=</span><span class="s">exit</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ximage&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#39;closeForm()&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">concde</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">connam</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd2</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd3</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd4</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd5</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conemail</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">form1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">titlebar1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleBar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">button</span><span class="o">=</span><span class="s">exitbutton</span> <span class="na">type</span><span class="o">=</span><span class="s">exit</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ximage&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#39;closeForm()&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">concde</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">connam</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd2</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd3</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd4</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conadd5</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">conemail</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -238,116 +239,115 @@ of the form and example is shown below:</p>
 <div class="section" id="form-utility-methods">
 <h2>Form Utility Methods<a class="headerlink" href="#form-utility-methods" title="Permalink to this headline">¶</a></h2>
 <p>The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:</p>
-<div class="section" id="savevar">
-<h3>saveVar();<a class="headerlink" href="#savevar" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>saveVar()</strong> function saves the current state of a form and it is always called immediately after the form has been initialized.</p>
+<div class="section" id="savevar-field">
+<h3>saveVar(field);<a class="headerlink" href="#savevar-field" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>saveVar()</strong> function saves the current state of a form.</p>
 <ul class="simple">
 <li>It can be used to save the entire form as shown below:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">saveddata</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">saveddata</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>It can also be used to save specific fields as shown below:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">saveddata</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">saveddata</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="returnchangedvar">
-<h3>returnChangedVar();<a class="headerlink" href="#returnchangedvar" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="savevar-prototypes">
+<h3>saveVar Prototypes<a class="headerlink" href="#savevar-prototypes" title="Permalink to this headline">¶</a></h3>
+<p>consists of three(3) main prototypes which are described below:</p>
+<ul class="simple">
+<li>returnChangedVar();</li>
+</ul>
 <p>The <strong>returnChangedVar</strong> function returns all the form elements which have been changed after a the <strong>saveVar()</strong> function is called.</p>
 <ul class="simple">
 <li>If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:</li>
 </ul>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">  <span class="nx">changedData</span><span class="o">=</span><span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
-</span>  <span class="k">for</span> <span class="p">(</span><span class="nx">field</span> <span class="k">in</span> <span class="nx">changedData</span><span class="p">)</span> <span class="p">{</span>
-       <span class="k">if</span> <span class="p">(</span><span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;addVar&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;removeVar&#39;</span><span class="p">)</span> <span class="p">{</span>
-           <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">           === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
-	   <span class="p">}</span>
-  <span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>changedData = saved.returnChangedVar();
+
+for (field in changedData) {
+
+        if (field != &#39;addVar&#39; &amp;&amp; field != &#39;removeVar&#39;) {
+           alert(&#39;Field: &#39;+field+&#39; === Value: &#39;+valueOf(field)+&#39;
+           === Saved Value:&#39;+saved.savedValueOf(field));
+        }
+}
 </pre></div>
-</td></tr></table></div>
+</div>
 <ul class="simple">
 <li>If it is called with the <strong>array</strong> parameter it will return the array of fields which have been shown in the example below:</li>
 </ul>
-<blockquote>
-<div><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">  <span class="nx">changedData</span><span class="o">=</span><span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
-</span>  <span class="k">for</span> <span class="p">(</span><span class="nx">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">index</span><span class="o">&lt;</span><span class="nx">changedData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-       <span class="nx">field</span><span class="o">=</span><span class="nx">changedData</span><span class="p">[</span><span class="nx">p</span><span class="p">];</span>
-       <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;OR...Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">       === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>changedData=saved.returnChangedVar(&#39;array&#39;);
+
+for (index=0; index&lt;changedData.length; index++) {
+   field=changedData[p];
+   alert(&#39;OR...Field: &#39;+field+&#39; === Value: &#39;+valueOf(field)+&#39;
+   === Saved Value:&#39;+saved.savedValueOf(field));
+}
 </pre></div>
-</td></tr></table></div>
-</div></blockquote>
 </div>
-<div class="section" id="restorevar">
-<h3>restoreVar();<a class="headerlink" href="#restorevar" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>restoreVar(fieldOne,fieldTwo);</li>
+</ul>
 <p>The <strong>restoreVar</strong> function restores the value of fields within a form if they have been modified.</p>
 <ul class="simple">
 <li>If it is called without parameters it will restore the value of all fields in the current form:</li>
 </ul>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
-<span class="hll">  <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">();</span>
-</span><span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>function restoreChangedData() {
+        saved.restoreVar();
+}
 </pre></div>
-</td></tr></table></div>
+</div>
 <ul class="simple">
 <li>It can also be called with one or more fields which require restoration as shown below:</li>
 </ul>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
-<span class="hll">  <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="s1">&#39;fieldTwo&#39;</span><span class="p">);</span>
-</span><span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>function restoreChangedData() {
+        saved.restoreVar(&#39;fieldOne&#39;,&#39;fieldTwo&#39;);
+}
 </pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="haschangedvar">
-<h3>hasChangedVar();<a class="headerlink" href="#haschangedvar" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>hasChangedVar(fieldOne,fieldTwo...);</li>
+</ul>
 <p>The <strong>hasChangedVar</strong> function returns a boolean value if any fields have been changed:</p>
 <ul class="simple">
 <li>If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>if (saved.hasChangedVar()) {
+        alert(&#39;Yes&#39;);
+}
 </pre></div>
 </div>
 <ul class="simple">
-<li>It can also be called with with one or more field names as parameters to determine if either of them has been changed. An example is shown below:</li>
+<li>It can also be called with with a single field to determine if it has changed.</li>
 </ul>
-<blockquote>
-<div><div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span>if (saved.hasChangedVar(&#39;fieldOne&#39;)) {
+        alert(&#39;Yes&#39;);
+}
 </pre></div>
 </div>
-</div></blockquote>
 </div>
-<div class="section" id="savedvalueof">
-<h3>savedValueOf();<a class="headerlink" href="#savedvalueof" title="Permalink to this headline">¶</a></h3>
-<p>The savedValueOf returns the value of a field. An example of its usage is shown below:</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">savedValueOf</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">);</span>
+<div class="section" id="savedvalueof-field">
+<h3>savedValueOf(field);<a class="headerlink" href="#savedvalueof-field" title="Permalink to this headline">¶</a></h3>
+<p>The savedValueOf returns the original value of a field even when it is changed in form.</p>
+<p>The example below shows that when the field <strong>userid</strong> is changed it&#8217;s original value can still be retrieved:</p>
+<div class="highlight-javascript:"><div class="highlight"><pre><span></span> /*Orignal value 100*/
+
+new saved = saveVar(&#39;userid&#39;);
+
+/* Change userid to 200*/
+
+changeVar(&#39;userid&#39;,200);
+
+alert( saveVar.savedValueOf(&#39;userid&#39;) );
+
+/*
+        Output will be 100 which is the original value
+*/
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="displayform">
 <h3>displayForm();<a class="headerlink" href="#displayform" title="Permalink to this headline">¶</a></h3>
@@ -359,7 +359,7 @@ of the form and example is shown below:</p>
 <div class="section" id="closeform-form">
 <h3>closeForm(form);<a class="headerlink" href="#closeform-form" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>closeForm</strong> function closes the form which is modal. An example of how it is used is show below:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">saveddata</span><span class="o">=</span><span class="k">new</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">closeForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

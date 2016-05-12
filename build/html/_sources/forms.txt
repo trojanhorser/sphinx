@@ -37,9 +37,13 @@ The parent **div** typically has the following attributes **id** which is the id
 **style** which is normally set to **display:none** and **class** which is always set with a
 value of **"window"**. An example is shown below:
 
-.. literalinclude:: forms_example.html
-       :language: html
-       :lines: 61-65
+.. code-block:: html
+
+	<div id="divform1" style="display:none;" class="window">
+	  <!--
+		Form would be defined here
+	  -->
+	</div>
 
 Form Element
 ~~~~~~~~~~~~
@@ -47,9 +51,12 @@ Form Element
 The form element is defined only with a **name* attribute which is the unique identifier
 of the form and example is shown below:
 
-.. literalinclude:: forms_example.html
-       :language: html
-       :lines: 67-70
+.. code-block:: html
+
+	<form name=form1>
+	  <!-- Title would be defined here -->
+	   <!-- Fields would be defined here -->
+	</form>
 
 Title
 ~~~~~~~~~~~~
@@ -57,9 +64,9 @@ Title
 A optional **title** can be added to the form. It is defined using a **div** with an **id** which is the unique identifier and a
 **class** which must have the value **"titleBar"** an example is shown below:
 
-       .. literalinclude:: forms_example.html
-              :language: html
-              :lines: 73
+.. code-block:: html
+	
+	<div id=titlebar1 class="titleBar"></div>
 
 
 Fields
@@ -69,110 +76,156 @@ Fields are used for both input and output and are defined within the form elemen
 
 .. note::  Read the `Fields`_ for more detailed information
 
-.. literalinclude:: forms_example.html
-       :language: html
-       :lines: 63
+.. code-block:: html
+
+	<form name=form1>
+	  <!-- Title would be defined here -->
+	   <!-- Fields would be defined here -->
+	</form>
+
 
 - A complete example of a form in shown below:
 
-.. literalinclude:: forms_example.html
-       :language: html
-       :lines: 77-91
+.. code-block:: html
 
+	<div id="divform1" style="display:none;" class="window">
+		<form name=form1>
+		<div id=titlebar1 class="titleBar"></div>
+		<span button=exitbutton type=exit class="ximage" onclick='closeForm()'></span>
+		<span field=concde></span><br>
+		<span field=connam></span><br>
+		<span field=conadd></span><br>
+		<span field=conadd2></span><br>
+		<span field=conadd3></span><br>
+		<span field=conadd4></span><br>
+		<span field=conadd5></span><br>
+		<span field=conemail></span><br>
+	</form>
+	</div>
+	</div>
+	
 Form Utility Methods
 --------------------
 The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:
 
-saveVar();
+saveVar(field);
 ~~~~~~~~~~
 
-The **saveVar()** function saves the current state of a form and it is always called immediately after the form has been initialized.
+The **saveVar()** function saves the current state of a form.
 
 - It can be used to save the entire form as shown below:
 
 .. code-block:: javascript
 
-   saveddata=new saveVar('*form:form1');
+   var saveddata=new saveVar('*form:form1');
 
 - It can also be used to save specific fields as shown below:
 
 .. code-block:: javascript
 
-   saveddata=new saveVar('firstname');
+   var saveddata=new saveVar('firstname');
+   
+saveVar Prototypes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+consists of three(3) main prototypes which are described below:
 
-returnChangedVar();
-~~~~~~~~~~~~~~~~~~~
+- returnChangedVar();
 
 The **returnChangedVar** function returns all the form elements which have been changed after a the **saveVar()** function is called.
 
 - If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 42-48
-       :emphasize-lines: 1
+.. code-block:: javascript:
+
+	changedData = saved.returnChangedVar();
+		
+	for (field in changedData) {
+			
+		if (field != 'addVar' && field != 'removeVar') {
+		   alert('Field: '+field+' === Value: '+valueOf(field)+'
+		   === Saved Value:'+saved.savedValueOf(field));
+		}
+	}
 
 - If it is called with the **array** parameter it will return the array of fields which have been shown in the example below:
 
- .. literalinclude:: form_functions.html
-        :linenos:
-        :language: javascript
-        :lines: 50-56
-        :emphasize-lines: 1
+.. code-block:: javascript:
 
-restoreVar();
-~~~~~~~~~~~~~
+	changedData=saved.returnChangedVar('array');
+	
+	for (index=0; index<changedData.length; index++) {
+	   field=changedData[p];
+	   alert('OR...Field: '+field+' === Value: '+valueOf(field)+'
+	   === Saved Value:'+saved.savedValueOf(field));
+	}
+
+
+- restoreVar(fieldOne,fieldTwo);
 
 The **restoreVar** function restores the value of fields within a form if they have been modified.
 
 - If it is called without parameters it will restore the value of all fields in the current form:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 58-60
-       :emphasize-lines: 2
+.. code-block:: javascript:
+	
+	function restoreChangedData() {
+		saved.restoreVar();
+	}
 
 - It can also be called with one or more fields which require restoration as shown below:
 
+.. code-block:: javascript:
+	
+	function restoreChangedData() {
+		saved.restoreVar('fieldOne','fieldTwo');
+	}
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 62-64
-       :emphasize-lines: 2
-
-hasChangedVar();
-~~~~~~~~~~~~~~~~
+- hasChangedVar(fieldOne,fieldTwo...);
 
 The **hasChangedVar** function returns a boolean value if any fields have been changed:
 
 - If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.
 
-.. literalinclude:: form_functions.html
-       :language: javascript
-       :lines: 69-71
+.. code-block:: javascript:
+
+	if (saved.hasChangedVar()) {
+		alert('Yes');
+	}
+
+- It can also be called with with a single field to determine if it has changed.
+
+.. code-block:: javascript:
+
+	if (saved.hasChangedVar('fieldOne')) {
+		alert('Yes');
+	}
 
 
-- It can also be called with with one or more field names as parameters to determine if either of them has been changed. An example is shown below:
+savedValueOf(field);
+~~~~~~~~~~~~~~~~~~~
 
- .. literalinclude:: form_functions.html
-        :language: javascript
-        :lines: 69-71
+The savedValueOf returns the original value of a field even when it is changed in form.
 
+The example below shows that when the field **userid** is changed it's original value can still be retrieved:
 
-savedValueOf();
-~~~~~~~~~~~~~~~
+.. code-block:: javascript:
+	
+	 /*Orignal value 100*/
+	 
+	new saved = saveVar('userid');
+	
+	/* Change userid to 200*/
+	
+	changeVar('userid',200); 
 
-The savedValueOf returns the value of a field. An example of its usage is shown below:
-
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 66
-
+	alert( saveVar.savedValueOf('userid') );
+	
+	/*
+		Output will be 100 which is the original value
+	*/
+	
+	
 displayForm();
 ~~~~~~~~~~~~~~
 
@@ -190,7 +243,7 @@ The **closeForm** function closes the form which is modal. An example of how it 
 
 .. code-block:: javascript
 
-   saveddata=new saveVar('firstname');
+   closeForm('form1');
 
 clearForm(form);
 ~~~~~~~~~~~~~~~

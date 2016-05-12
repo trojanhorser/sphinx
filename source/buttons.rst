@@ -6,7 +6,8 @@ Buttons
 =======
 
 The advantum software development framework consists of many predefined buttons. Buttons are defined by creating
-a **span** html element with a button **attribute** and **type**.
+a **span** html element with a button **attribute** and **type**. Only the style of the button is changed with the type attribute,
+fucntionality is added with custom javascript functions.   
 
 Button Types
 ------------
