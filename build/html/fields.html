@@ -89,23 +89,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Fields</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#javascript-library-dependency-to-be-included">Javascript library dependency  to be included</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#custom-attribute-description">Custom Attribute Description</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#focuson-field">focusOn(field)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#protect-fieldone-fieldtwo">protect(fieldOne,fieldTwo,....);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#unprotect-fieldone-fieldtwo">unProtect(fieldOne,fieldTwo,....);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changevar-field-value-fieldtype">changeVar(field,value,fieldType);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fieldhtml-field-fielname">fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hideelement-fieldone-fieldtwo">hideElement(fieldOne,fieldTwo,..);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#showelement-fieldone-fieldtwo">showElement(fieldOne,fieldTwo,..);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nevershow-fieldone-fieldtwo">neverShow(fieldOne,fieldTwo,..);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#popupmsg-message-field">popUpMsg(message,field);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changecontent-element-htmltext">changeContent(element,htmlText);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#contentof-element">contentOf(element);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#isblank-value">isBlank(value)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#editdate-date-format">editDate(date,format)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#validdate-date-format-returns-true-of-false-default-y">validDate(date,format) // returns true of false default=Y</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#edittime-time">editTime(time);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#validtime-time">validTime(time);</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#valueof-field">valueOf(field);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-functions">Field Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
@@ -191,7 +175,9 @@
 <p>A form field consists of a <strong>span</strong> html tag with custom attributes.
 These attributes are parsed to produce the HTML which is ultimately rendered by the web application.
 These attributes are described in detail below:</p>
-<p>1. <strong>ref</strong> - The <em>ref</em> attribute is used to reference a field from the data dictionary.
+<div class="section" id="ref">
+<h3><strong>ref</strong><a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h3>
+<p>The <em>ref</em> attribute is used to reference a field from the data dictionary.
 When a field is referenced it uses the attributes defined in the data dictionary to generate the html filed.
 The example below uses <em>bilno</em> as the referenced field:</p>
 <blockquote>
@@ -199,7 +185,10 @@ The example below uses <em>bilno</em> as the referenced field:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>2. <strong>type</strong> - The <em>type</em> attribute determines the data type that the filed will accept. There are four data types; character,numeric, date and time.
+</div>
+<div class="section" id="type">
+<h3><strong>type</strong><a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>The <em>type</em> attribute determines the data type that the filed will accept. There are four data types; character,numeric, date and time.
 Each of these attributes are explained below:</p>
 <blockquote>
 <div><ul>
@@ -233,145 +222,179 @@ Each of these attributes are explained below:</p>
 </li>
 </ul>
 </div></blockquote>
-<ol class="arabic" start="3">
-<li><p class="first"><strong>length</strong> - This length attribute specifies the maximum length of a field, according to the field type. If the length specified is greater than 80 then html text area will be rendered instead of an input field. Validation is also added if the user exceeds the maxiimum length of the field.</p>
+</div>
+<div class="section" id="length">
+<h3><strong>length</strong><a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
+<p>This length attribute specifies the maximum length of a field, according to the field type. If the length specified is greater than 80 then html text area will be rendered instead of an input field. Validation is also added if the user exceeds the maxiimum length of the field.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">bilno</span> <span class="na">length</span><span class="o">=</span><span class="s">160</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>decimal</strong> - The decimal place field is used to indicate the decimal place for numeric fields. An example is shown below:</p>
+</div>
+<div class="section" id="decimal">
+<h3><strong>decimal</strong><a class="headerlink" href="#decimal" title="Permalink to this headline">¶</a></h3>
+<p>The decimal place field is used to indicate the decimal place for numeric fields. An example is shown below:</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">rcpamt</span>  <span class="na">decimal</span><span class="o">=</span><span class="s">4</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>editcode</strong> -  Specifies the format in which input may be accepted.</p>
+</div>
+<div class="section" id="editcode">
+<h3><strong>editcode</strong><a class="headerlink" href="#editcode" title="Permalink to this headline">¶</a></h3>
+<p>Specifies the format in which input may be accepted.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">name</span> <span class="na">editcode</span><span class="o">=</span><span class="s">J</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>fieldclass</strong> - Specifies a stylesheet (CSS) class name to determine how the field is formatted.</p>
+</div>
+<div class="section" id="fieldclass">
+<h3><strong>fieldclass</strong><a class="headerlink" href="#fieldclass" title="Permalink to this headline">¶</a></h3>
+<p>Specifies a stylesheet (CSS) class name to determine how the field is formatted.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">fieldclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>label</strong> - Specifies the text for the label that will be displayed along with the field. Overrides the label text set in the data dictionary.</p>
+</div>
+<div class="section" id="label">
+<h3><strong>label</strong><a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h3>
+<p>Specifies the text for the label that will be displayed along with the field. Overrides the label text set in the data dictionary.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">label</span><span class="o">=</span><span class="s">Bill</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>nolabel</strong> - Instructs program not to show a label for the field.</p>
+</div>
+<div class="section" id="nolabel">
+<h3><strong>nolabel</strong><a class="headerlink" href="#nolabel" title="Permalink to this headline">¶</a></h3>
+<p>Instructs program not to show a label for the field.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">nolabel</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>search</strong> - Causes a search icon to appear beside the field that triggers the execution of a specified function.</p>
+</div>
+<div class="section" id="search">
+<h3><strong>search</strong><a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
+<p>Causes a search icon to appear beside the field that triggers the execution of a specified function.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">username</span> <span class="na">search</span><span class="o">=</span><span class="s">&#39;find()&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>labelclass</strong> - Specifies a stylesheet (CSS) class name to determine how the field&#8217;s label is formatted.</p>
+</div>
+<div class="section" id="labelclass">
+<h3><strong>labelclass</strong><a class="headerlink" href="#labelclass" title="Permalink to this headline">¶</a></h3>
+<p>Specifies a stylesheet (CSS) class name to determine how the field&#8217;s label is formatted.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>labelwidth</strong> - Specifies a custom width for the label, overriding any width that may have been set for the field&#8217;s label in the DD.</p>
+</div>
+<div class="section" id="labelwidth">
+<h3><strong>labelwidth</strong><a class="headerlink" href="#labelwidth" title="Permalink to this headline">¶</a></h3>
+<p>Specifies a custom width for the label, overriding any width that may have been set for the field&#8217;s label in the DD.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelwidth</span><span class="o">=</span><span class="s">90</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>upper</strong> - Causes the aphabetic characters displayed in a field to be capitalized. Also capitalizes characters entered by the user.</p>
+</div>
+<div class="section" id="upper">
+<h3><strong>upper</strong><a class="headerlink" href="#upper" title="Permalink to this headline">¶</a></h3>
+<p>Causes the aphabetic characters displayed in a field to be capitalized. Also capitalizes characters entered by the user.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">upper</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>output</strong> - Displays the field&#8217;s content as text in a disabled control (similar to readonly, but has a different appearance).</p>
+</div>
+<div class="section" id="output">
+<h3><strong>output</strong><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p>Displays the field&#8217;s content as text in a disabled control (similar to readonly, but has a different appearance).</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">output</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>textarea</strong> - Represents the field as a free-text entry area with a vertical scrollbar. Additional attributes (rows and cols) can be specified as well.</p>
+</div>
+<div class="section" id="textarea">
+<h3><strong>textarea</strong><a class="headerlink" href="#textarea" title="Permalink to this headline">¶</a></h3>
+<p>Represents the field as a free-text entry area with a vertical scrollbar. Additional attributes (rows and cols) can be specified as well.</p>
 <blockquote>
 <div></div></blockquote>
-</li>
-<li><p class="first"><strong>rows</strong> - Applies only to field with attribute &#8216;textarea&#8217;. Specifies number of lines shown in the viewable area of the field at one time.</p>
+</div>
+<div class="section" id="rows">
+<h3><strong>rows</strong><a class="headerlink" href="#rows" title="Permalink to this headline">¶</a></h3>
+<p>Applies only to field with attribute &#8216;textarea&#8217;. Specifies number of lines shown in the viewable area of the field at one time.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">rows</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>cols</strong> - Applies only to field with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
-</li>
-</ol>
+</div>
+<div class="section" id="cols">
+<h3><strong>cols</strong><a class="headerlink" href="#cols" title="Permalink to this headline">¶</a></h3>
+<p>Applies only to field with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">the <strong>rows</strong> and <strong>cols</strong> attributes only apply to textarea fields and will be ignored for <strong>date</strong> and <strong>time</strong> fields.</p>
 </div>
-<ol class="arabic" start="17">
-<li><p class="first"><strong>nocalendar</strong> - Causes a date field to be displayed without the default calendar icon and the associated date-picking functionality it offers. {Calendar not to be displayed for date field}</p>
+</div>
+<div class="section" id="nocalendar">
+<h3><strong>nocalendar</strong><a class="headerlink" href="#nocalendar" title="Permalink to this headline">¶</a></h3>
+<p>Causes a date field to be displayed without the default calendar icon and the associated date-picking functionality it offers. {Calendar not to be displayed for date field}</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">date</span> <span class="na">nocalendar</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>select</strong> - Field create as a select field. Use a string of ordered pairs to show the values/text.</p>
+</div>
+<div class="section" id="select">
+<h3><strong>select</strong><a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h3>
+<p>Field create as a select field. Use a string of ordered pairs to show the values/text.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>readonly</strong> - Prevents the field&#8217;s content from being edited by the user.</p>
+</div>
+<div class="section" id="readonly">
+<h3><strong>readonly</strong><a class="headerlink" href="#readonly" title="Permalink to this headline">¶</a></h3>
+<p>Prevents the field&#8217;s content from being edited by the user.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>editmask</strong> - Specifies a prescribed data entry pattern that will be enforced when the user attempts to make entries in the field.</p>
+</div>
+<div class="section" id="editmask">
+<h3><strong>editmask</strong><a class="headerlink" href="#editmask" title="Permalink to this headline">¶</a></h3>
+<p>Specifies a prescribed data entry pattern that will be enforced when the user attempts to make entries in the field.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">amount</span> <span class="na">editmask</span><span class="o">=</span><span class="s">&#39;&amp;&amp;&amp;&amp;(   )  -   &#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>required</strong> - Marks a field for mandatory entry</p>
+</div>
+<div class="section" id="required">
+<h3><strong>required</strong><a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
+<p>Marks a field for mandatory entry</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">date</span> <span class="na">required</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-</ol>
+</div>
+</div>
 <div class="section" id="field-functions">
-<h3>Field Functions<a class="headerlink" href="#field-functions" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
+<h2>Field Functions<a class="headerlink" href="#field-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="focuson-field">
-<h2>focusOn(field)<a class="headerlink" href="#focuson-field" title="Permalink to this headline">¶</a></h2>
+<h3>focusOn(field)<a class="headerlink" href="#focuson-field" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>focusOn</strong> function gives focus to a specified html field.</p>
 <ul class="simple">
 <li>Focus can be given to a single field element. The example below uses the field name
@@ -390,7 +413,7 @@ Each of these attributes are explained below:</p>
 </div>
 </div>
 <div class="section" id="protect-fieldone-fieldtwo">
-<h2>protect(fieldOne,fieldTwo,....);<a class="headerlink" href="#protect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<h3>protect(fieldOne,fieldTwo,....);<a class="headerlink" href="#protect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>protect</strong> function prevents fields from being edited by the user.</p>
 <ul class="simple">
 <li>A single field can be protected by specifying the field name. In the example below &#8220;companyname&#8221;</li>
@@ -407,7 +430,7 @@ Each of these attributes are explained below:</p>
 </div>
 </div>
 <div class="section" id="unprotect-fieldone-fieldtwo">
-<h2>unProtect(fieldOne,fieldTwo,....);<a class="headerlink" href="#unprotect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<h3>unProtect(fieldOne,fieldTwo,....);<a class="headerlink" href="#unprotect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>unProtect</strong> function takes a field from a protected state to an editable state.</p>
 <ul class="simple">
 <li>A single field can be un-protected by specifying the field name. In the example below &#8220;companyname&#8221;</li>
@@ -424,7 +447,7 @@ Each of these attributes are explained below:</p>
 </div>
 </div>
 <div class="section" id="changevar-field-value-fieldtype">
-<h2>changeVar(field,value,fieldType);<a class="headerlink" href="#changevar-field-value-fieldtype" title="Permalink to this headline">¶</a></h2>
+<h3>changeVar(field,value,fieldType);<a class="headerlink" href="#changevar-field-value-fieldtype" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>changeVar</strong> function changes the <strong>value</strong> of a specified <strong>field</strong>.</p>
 <ul class="simple">
 <li>In the example below the field <strong>&#8216;description&#8217;</strong> is changed to <strong>&#8216;Description Has Changed&#8217;</strong></li>
@@ -478,7 +501,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="fieldhtml-field-fielname">
-<h2>fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)<a class="headerlink" href="#fieldhtml-field-fielname" title="Permalink to this headline">¶</a></h2>
+<h3>fieldHTML(&#8216;field=&lt;fielName&gt;&#8217;)<a class="headerlink" href="#fieldhtml-field-fielname" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>fieldHTML</strong> function outputs the html which is used to render a field.</p>
 <ul class="simple">
 <li>The following example shows how to retrieve the html for the <strong>starttime</strong> field:</li>
@@ -492,7 +515,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="hideelement-fieldone-fieldtwo">
-<h2>hideElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#hideelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<h3>hideElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#hideelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>hideElement</strong> function hides the field(s) specified.</p>
 <ul class="simple">
 <li>The following example shows how to hide one field:</li>
@@ -508,7 +531,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="showelement-fieldone-fieldtwo">
-<h2>showElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#showelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<h3>showElement(fieldOne,fieldTwo,..);<a class="headerlink" href="#showelement-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>showElement</strong> function shows the field(s) specified.</p>
 <ul class="simple">
 <li>The following example shows how to make a single field visible:</li>
@@ -524,7 +547,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="nevershow-fieldone-fieldtwo">
-<h2>neverShow(fieldOne,fieldTwo,..);<a class="headerlink" href="#nevershow-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<h3>neverShow(fieldOne,fieldTwo,..);<a class="headerlink" href="#nevershow-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>neverShow</strong> function hides a specified field permanently. Even if the <strong>showElement</strong> function is called on fields they will never be diplayed.</p>
 <ul class="simple">
 <li>The following example shows how to permanently hide one field:</li>
@@ -540,7 +563,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="popupmsg-message-field">
-<h2>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h2>
+<h3>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>popUpMsg</strong> function shows a message below a specified field.</p>
 <ul class="simple">
 <li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;receipt&#8217;</strong> field.</li>
@@ -550,7 +573,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="changecontent-element-htmltext">
-<h2>changeContent(element,htmlText);<a class="headerlink" href="#changecontent-element-htmltext" title="Permalink to this headline">¶</a></h2>
+<h3>changeContent(element,htmlText);<a class="headerlink" href="#changecontent-element-htmltext" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>changeContent</strong> function changes the inner html for a specific element.</p>
 <ul class="simple">
 <li>The example below shows how to change the content of a <strong>div</strong>.</li>
@@ -567,7 +590,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="contentof-element">
-<h2>contentOf(element);<a class="headerlink" href="#contentof-element" title="Permalink to this headline">¶</a></h2>
+<h3>contentOf(element);<a class="headerlink" href="#contentof-element" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>contentOf</strong> function returns the inner text/html for a specific element.</p>
 <ul class="simple">
 <li>The example below shows how to return the text content of a <strong>div</strong>.</li>
@@ -613,7 +636,7 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 </div>
 </div>
 <div class="section" id="isblank-value">
-<h2>isBlank(value)<a class="headerlink" href="#isblank-value" title="Permalink to this headline">¶</a></h2>
+<h3>isBlank(value)<a class="headerlink" href="#isblank-value" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>isBlank</strong> function returns a boolean value (true/false) if the string value passed is empty. An
 example of its use is shown below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
@@ -625,7 +648,7 @@ example of its use is shown below:</p>
 </div>
 </div>
 <div class="section" id="editdate-date-format">
-<h2>editDate(date,format)<a class="headerlink" href="#editdate-date-format" title="Permalink to this headline">¶</a></h2>
+<h3>editDate(date,format)<a class="headerlink" href="#editdate-date-format" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>editDate</strong> function converts the <strong>date</strong> passed to it in the specfied format.
 If no dateformat is specified it uses the default format &#8216;Y&#8217;.</p>
 <ul class="simple">
@@ -665,8 +688,8 @@ If no dateformat is specified it uses the default format &#8216;Y&#8217;.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="validdate-date-format-returns-true-of-false-default-y">
-<h2>validDate(date,format) // returns true of false default=Y<a class="headerlink" href="#validdate-date-format-returns-true-of-false-default-y" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="validdate-date-format">
+<h3>validDate(date,format)<a class="headerlink" href="#validdate-date-format" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>validDate</strong> function returns a boolean value (true/false) if the date is valid.
 If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 <ul class="simple">
@@ -707,7 +730,7 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </div>
 </div>
 <div class="section" id="edittime-time">
-<h2>editTime(time);<a class="headerlink" href="#edittime-time" title="Permalink to this headline">¶</a></h2>
+<h3>editTime(time);<a class="headerlink" href="#edittime-time" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>editDate</strong> function converts the <strong>time</strong> passed to the specfied format.</p>
 <ul class="simple">
 <li>Examples of usage are shown below:</li>
@@ -723,7 +746,7 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </div>
 </div>
 <div class="section" id="validtime-time">
-<h2>validTime(time);<a class="headerlink" href="#validtime-time" title="Permalink to this headline">¶</a></h2>
+<h3>validTime(time);<a class="headerlink" href="#validtime-time" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>validTime</strong> function returns true or false if the <strong>time</strong> is valid.</p>
 <ul class="simple">
 <li>An example with a valid time is shown below:</li>
@@ -751,7 +774,7 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </div>
 </div>
 <div class="section" id="valueof-field">
-<h2>valueOf(field);<a class="headerlink" href="#valueof-field" title="Permalink to this headline">¶</a></h2>
+<h3>valueOf(field);<a class="headerlink" href="#valueof-field" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>valueOf</strong> function returns the value of a specified field. An example is shown below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
 
@@ -761,6 +784,7 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 <span class="cm">        result = &#39;myUsername&#39;;</span>
 <span class="cm">*/</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

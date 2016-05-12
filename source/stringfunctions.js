@@ -21,5 +21,5 @@ console.log( myString.sqlWrap() )
 /* Output will be "'a''bc''d'" */
 
 var myString = "string to be modified"
-console.log( myString.sstr(0,6) )
+console.log( myString.sst(0,6) )
 /* Output will be "to be modified" */

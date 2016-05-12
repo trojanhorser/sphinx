@@ -90,18 +90,16 @@ The **saveVar()** function saves the current state of a form and it is always ca
 
 - It can be used to save the entire form as shown below:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 28 - 31
-       :emphasize-lines: 3
+.. code-block:: javascript
+
+   saveddata=new saveVar('*form:form1');
 
 - It can also be used to save specific fields as shown below:
 
-.. literalinclude:: form_functions.html
-       :linenos:
-       :language: javascript
-       :lines: 33
+.. code-block:: javascript
+
+   saveddata=new saveVar('firstname');
+
 
 returnChangedVar();
 ~~~~~~~~~~~~~~~~~~~
@@ -183,11 +181,58 @@ This function displays the form if it was hidden. It accepts the form to display
 .. literalinclude:: forms_example.html
        :language: javascript
        :lines: 21
+ 
+	   
+closeForm(form);
+~~~~~~~~~~~~~~~
 
-closeForm();
-~~~~~~~~~~~~~~
+The **closeForm** function closes the form which is modal. An example of how it is used is show below:
 
-panel();
-~~~~~~~
-- output are panel
-- button panel
+.. code-block:: javascript
+
+   saveddata=new saveVar('firstname');
+
+clearForm(form);
+~~~~~~~~~~~~~~~
+
+The **clearForm** function clears all the fields on a the specified form:
+
+.. code-block:: javascript
+
+   clearForm('form1');
+
+Panels
+------
+
+Button Area
+~~~~~~~~~~~
+
+This is panel with a specific css style which used to highlight the are where buttons are located.
+An example of how the button is generated is shown below:
+
+.. code-block:: html
+   
+	<div class=buttonarea>
+	<span button=addRecord type=add onclick=addRecord()></span>
+	<span button=changeRecord type=change onclick=changeRecord()></span>
+	<span button=deleteRecord type=delete onclick=deleteRecord()></span>
+	</div>
+
+Output Area
+~~~~~~~~~~~
+
+This is panel with a specific css style which used to highlight the area where fields are located on a form.
+An example of how the button is generated is shown below:
+
+.. code-block:: html
+   
+	<div class=outputarea style="margin:50px; width:400px; height:100px">
+	<span button=exitbutton type=exit class="ximage" onclick='closeForm()'></span>
+	<span field=concde upper></span><br>
+	<span field=connam></span><br>
+	<span field=conadd></span><br>
+	<span field=conadd2></span><br>
+	</div>
+
+
+
