@@ -66,13 +66,22 @@ In this example the characters **"string"** and **"stripped"** strings are remov
 string.sqlWrap()
 ----------------------
 
-This **sqlWrap** function converts the string to into a format that can be interpreted by SQL.
+- This **sqlWrap** function converts the string to into a format that can be interpreted by SQL.
 
 .. code-block:: javascript
 	
 	var myString = "'abcd'"
 	console.log( myString.sqlWrap() )
-	/* Output will be "'a''bc''d'" */
+	/* Output will be "'''abcd'''" single quotes are escaped */
+
+	
+- The following example shows the output of a string:
+
+.. code-block:: javascript
+	
+	var myString = "abcd"
+	console.log( myString.sqlWrap() )
+	/* Output will be 'abcd' */
 
 string.sst()
 -------------
@@ -80,7 +89,7 @@ string.sst()
 The **sst()** (substring) function extracts the characters from a string based on start and end indices.
 The valid range for the start and end indices shuld be Greater than or Equal to One and Less than the length of the String.
 
--An example is shown below with valid range for both indices:
+- An example is shown below with valid range for both indices:
 
 .. code-block:: javascript
 
@@ -89,7 +98,7 @@ The valid range for the start and end indices shuld be Greater than or Equal to 
 	/* Value of myString is now "string" */
 
 
--An example is shown below with an invalid range for both indices:
+- An example is shown below with an invalid range for both indices:
 
 .. code-block:: javascript
 

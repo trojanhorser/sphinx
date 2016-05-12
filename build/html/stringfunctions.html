@@ -203,10 +203,20 @@
 </div>
 <div class="section" id="string-sqlwrap">
 <h2>string.sqlWrap()<a class="headerlink" href="#string-sqlwrap" title="Permalink to this headline">¶</a></h2>
-<p>This <strong>sqlWrap</strong> function converts the string to into a format that can be interpreted by SQL.</p>
+<ul class="simple">
+<li>This <strong>sqlWrap</strong> function converts the string to into a format that can be interpreted by SQL.</li>
+</ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;&#39;abcd&#39;&quot;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">sqlWrap</span><span class="p">()</span> <span class="p">)</span>
-<span class="cm">/* Output will be &quot;&#39;a&#39;&#39;bc&#39;&#39;d&#39;&quot; */</span>
+<span class="cm">/* Output will be &quot;&#39;&#39;&#39;abcd&#39;&#39;&#39;&quot; single quotes are escaped */</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The following example shows the output of a string:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">sqlWrap</span><span class="p">()</span> <span class="p">)</span>
+<span class="cm">/* Output will be &#39;abcd&#39; */</span>
 </pre></div>
 </div>
 </div>
@@ -214,13 +224,17 @@
 <h2>string.sst()<a class="headerlink" href="#string-sst" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>sst()</strong> (substring) function extracts the characters from a string based on start and end indices.
 The valid range for the start and end indices shuld be Greater than or Equal to One and Less than the length of the String.</p>
-<p>-An example is shown below with valid range for both indices:</p>
+<ul class="simple">
+<li>An example is shown below with valid range for both indices:</li>
+</ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;string to be modified&quot;</span>
 <span class="nx">alert</span><span class="p">(</span> <span class="nx">myString</span><span class="p">.</span><span class="nx">sst</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">);</span>
 <span class="cm">/* Value of myString is now &quot;string&quot; */</span>
 </pre></div>
 </div>
-<p>-An example is shown below with an invalid range for both indices:</p>
+<ul class="simple">
+<li>An example is shown below with an invalid range for both indices:</li>
+</ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="s2">&quot;string to be modified&quot;</span>
 <span class="nx">myString</span><span class="p">.</span><span class="nx">sst</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="cm">/* Value of myString is still &quot;string to be modified&quot; */</span>
