@@ -12,59 +12,96 @@ string.trim()
 
 This removes leading and trailing spaces from a string. An example is shown below:
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 1-3
+.. code-block:: javascript
+
+	var myString = " string with space  "
+	console.log( myString.trim() )
+	/* Output will be "string with space" */
 
 string.triml()
 ---------------
 
 This removes leading spaces from a string. An example is shown below:
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 1-3
+.. code-block:: javascript
+
+	.var myString = " string with space  "
+	console.log( myString.trimr() )
+	/* Output will be "string with space " with space removed from the left*/
 
 
 string.trimr()
 ---------------
 
-This removes trailing spaces from a string. An example is shown below:
+.. code-block:: javascript
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 11-13
+	var myString = " string to be stripped "
+	console.log( myString..trimr() )
+	/* Output will be " string with space" with space removed from the right*/
 
 
-string.strip()
----------------
+string.strip(stringOne , stringTwo, ......)
+-------------------------------------------------
 
-This removes characters specified as parameters from a string. An example is shown below:
+This **strip** function removes characters specified as parameters from a string. An example is shown below:
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 15-17
+
+In this example the characters **"t"** and **"b"** are removed:
+
+.. code-block:: javascript
+
+	var myString = "string to be stripped";
+	console.log( myString.strip("t","b") );
+	/* Output will be "sring o e sripped" */
+	
+	
+In this example the characters **"string"** and **"stripped"** strings are removed:
+
+.. code-block:: javascript
+
+	var myString = " string to be stripped ";
+	console.log( myString.strip("string","stripped") );
+	/* Output will be "to be" */
 
 string.sqlWrap()
 ----------------------
 
-This converts the string to into a format that can be interpreted by SQL.
+This **sqlWrap** function converts the string to into a format that can be interpreted by SQL.
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 19-21
+.. code-block:: javascript
+	
+	var myString = "'abcd'"
+	console.log( myString.sqlWrap() )
+	/* Output will be "'''abcd'''" single quotes are escaped */
+
+	
+The following example shows the output of a string:
+
+.. code-block:: javascript
+	
+	var myString = "abcd"
+	console.log( myString.sqlWrap() )
+	/* Output will be 'abcd' */
 
 string.sst()
 -------------
 
-The substring() method extracts the characters from a string based on start and end indices. An example is shown below:
+The **sst()** (substring) function extracts the characters from a string based on start and end indices.
+The valid range for the start and end indices shuld be Greater than or Equal to One and Less than the length of the String.
 
-.. literalinclude:: stringfunctions.js
-       :linenos:
-       :language: javascript
-       :lines: 23-25
+-An example is shown below with valid range for both indices:
+
+.. code-block:: javascript
+
+	var myString = "string to be modified"
+	alert( myString.sst(1,6) );
+	/* Value of myString is now "string" */
+
+
+-An example is shown below with an invalid range for both indices:
+
+.. code-block:: javascript
+
+	var myString = "string to be modified"
+	myString.sst(-1,100)
+	/* Value of myString is still "string to be modified" */

@@ -96,8 +96,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#sqlupdate-table-recordobject-updatecriteria">sqlUpdate(table, recordObject, updateCriteria)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqldelete-table-deletecriteria">sqlDelete(table, deleteCriteria)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqlupdateobj-element">sqlUpdateObj(element)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlvalueof">sqlValueOf()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlwrap">sqlWrap()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlvalueof-field">sqlValueOf(field)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
@@ -193,14 +192,16 @@ The <strong>$data.rcdcnt</strong> is also returned as shown in the example above
 </ol>
 <p>The example below creates and object using the <strong>sqlUpdateObj</strong> object which extracts fields from <strong>form1</strong> and inserts it into
 the <strong>users</strong> table:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>var tableName = &#39;users&#39;
-var insertObject = new sqlUpdateObj(&#39;*form:form1&#39;);
-        if (sqlInsert(&#39;ableName,insertObject)) {
-                alert(&#39;Record Added.&#39;);
-        } else {
-                alert(sqlerr);
-                return false;
-        }
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">insertObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sqlUpdateObj</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">sqlInsert</span><span class="p">(</span><span class="nx">tableName</span><span class="p">,</span><span class="nx">insertObject</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Record Added.&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -253,17 +254,99 @@ var insertObject = new sqlUpdateObj(&#39;*form:form1&#39;);
 </div>
 <div class="section" id="sqlupdateobj-element">
 <h2>sqlUpdateObj(element)<a class="headerlink" href="#sqlupdateobj-element" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>sqlUpdateObj</strong> is used to automatically generate an object with the fields of a form.
-This object can then be used to in update operations.</p>
+<p>The <strong>sqlUpdateObj</strong> is used to automatically generate an object from fields.
+The object can be generated from individual fields or an entrie form.</p>
 <ul class="simple">
-<li>sqlUpdateObj can accept more than one or more fields as shown below:</li>
+<li>The example below shows how the create an <strong>sqlUpdateObj</strong> from individual fields <strong>(fieldOne, fieldTwo)</strong>:</li>
 </ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fieldObject</span> <span class="o">=</span> <span class="nx">sqlUpdateObj</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="nx">fieldTwo</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of the fieldObject is below:</span>
+
+<span class="cm">        fieldObject{</span>
+<span class="cm">                fieldOne:&quot;value1&quot;,</span>
+<span class="cm">                fieldTwo:&quot;value2&quot;,</span>
+<span class="cm">        }</span>
+<span class="cm">*/</span>
+</pre></div>
 </div>
-<div class="section" id="sqlvalueof">
-<h2>sqlValueOf()<a class="headerlink" href="#sqlvalueof" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The example below shows how the create an <strong>sqlUpdateObj</strong> from a form:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fieldObject</span> <span class="o">=</span> <span class="nx">sqlUpdateObj</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of the fieldObject is below:</span>
+
+<span class="cm">        fieldObject{</span>
+<span class="cm">                fieldOne:&quot;value1&quot;,</span>
+<span class="cm">                fieldTwo:&quot;value2&quot;,</span>
+<span class="cm">                fieldThree:&quot;value3&quot;</span>
+<span class="cm">                ...</span>
+<span class="cm">                ..</span>
+<span class="cm">                .</span>
+<span class="cm">        }</span>
+<span class="cm">*/</span>
+</pre></div>
 </div>
-<div class="section" id="sqlwrap">
-<h2>sqlWrap()<a class="headerlink" href="#sqlwrap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A full example of how the <strong>sqlUpdateObj</strong> is used to save all the fields on a form is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">updobj</span><span class="o">=</span><span class="k">new</span> <span class="nx">sqlUpdateObj</span><span class="p">(</span><span class="s1">&#39;*form:form1&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">sqlInsert</span><span class="p">(</span><span class="s1">&#39;wsconsgn&#39;</span><span class="p">,</span><span class="nx">updobj</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Record Added.&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sqlvalueof-field">
+<h2>sqlValueOf(field)<a class="headerlink" href="#sqlvalueof-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlValueOf</strong> function formats a field in valid SQL format. For numeric fields the value is not modified.</p>
+<ul class="simple">
+<li>An example of how it parses a text field which has a value of <strong>&#8220;testing&#8221;</strong> is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">sqlValueOf</span><span class="p">(</span><span class="s1">&#39;textField&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result is &#39;testing&#39; which is a string value with single quites.</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>An example of how it parses a numeric field which has a value of <strong>100</strong> is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">sqlValueOf</span><span class="p">(</span><span class="s1">&#39;numericField&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result is 100 which is numeric.</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>An example of how it parses a date field which has a value of <strong>2015/09/11</strong> is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">sqlValueOf</span><span class="p">(</span><span class="s1">&#39;dateField&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result is 20150911 which is numeric .</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>An example of how it parses a time field which has a value of <strong>11:00</strong> is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">sqlValueOf</span><span class="p">(</span><span class="s1">&#39;timeField&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">        The value of result is 1100 which is numeric .</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </div>
 </div>
 

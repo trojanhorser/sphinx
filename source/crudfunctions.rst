@@ -46,14 +46,16 @@ the **users** table:
 
 .. code-block:: javascript
 	
-	var tableName = 'users'
+	var tableName = 'users';
+	
 	var insertObject = new sqlUpdateObj('*form:form1');
-		if (sqlInsert('ableName,insertObject)) {
-			alert('Record Added.');
-		} else {
-			alert(sqlerr);
-			return false;
-		}
+	
+	if (sqlInsert(tableName,insertObject)) {
+		alert('Record Added.');
+	} else {
+		alert(sqlerr);
+		return false;
+	}
 
 sqlUpdate(table, recordObject, updateCriteria)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,7 +120,7 @@ The object can be generated from individual fields or an entrie form.
 	var fieldObject = sqlUpdateObj('fieldOne',fieldTwo)
 	
 	/*
-		The value of the 
+		The value of the fieldObject is below:
 		
 		fieldObject{
 			fieldOne:"value1",
@@ -133,7 +135,7 @@ The object can be generated from individual fields or an entrie form.
 	var fieldObject = sqlUpdateObj('*form:form1')
 	
 	/*
-		The value of the 
+		The value of the fieldObject is below:
 		
 		fieldObject{
 			fieldOne:"value1",
@@ -144,6 +146,19 @@ The object can be generated from individual fields or an entrie form.
 			.
 		} 
 	*/
+	
+- A full example of how the **sqlUpdateObj** is used to save all the fields on a form is shown below:
+
+.. code-block:: javascript
+	
+	var updobj=new sqlUpdateObj('*form:form1');
+	
+	if (sqlInsert('wsconsgn',updobj)) {
+		alert('Record Added.');
+	} else {
+		  alert(sqlerr);
+		  return false;
+	}
 	
 sqlValueOf(field)
 ~~~~~~~~~~~~~~~~~
@@ -157,9 +172,8 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	var  result = sqlValueOf('textField');
 	
 	/*
-		The value of result is 'testing' which is a string value with single quites .
-	*
-	/
+		The value of result is 'testing' which is a string value with single quites.
+	*/
 
 - An example of how it parses a numeric field which has a value of **100** is shown below:
 
@@ -169,8 +183,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	
 	/*
 		The value of result is 100 which is numeric.
-	*
-	/
+	*/
 
 - An example of how it parses a date field which has a value of **2015/09/11** is shown below:
 
@@ -180,8 +193,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	
 	/*
 		The value of result is 20150911 which is numeric .
-	*
-	/
+	*/
 	
 - An example of how it parses a time field which has a value of **11:00** is shown below:
 
@@ -191,8 +203,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	
 	/*
 		The value of result is 1100 which is numeric .
-	*
-	/
+	*/
 
 
 
