@@ -16,7 +16,7 @@ The various button types and how they are rendered are listed below:
 accept
 ~~~~~~
 
-Accept button definiton is below:
+Accept button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -30,7 +30,7 @@ Accept button definiton is below:
 add
 ~~~~~~
 
-Add button definiton is below:
+Add button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -44,7 +44,7 @@ Add button definiton is below:
 apply
 ~~~~~~
 
-Apply button definiton is below:
+Apply button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -59,7 +59,7 @@ Apply button definiton is below:
 back
 ~~~~~~
 
-Back button definiton is below:
+Back button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -74,7 +74,7 @@ Back button definiton is below:
 cancel
 ~~~~~~
 
-Cancel button definiton is below:
+Cancel button html code example and how it is rendered is shown below:
 
 
 .. code-block:: html
@@ -89,13 +89,13 @@ Cancel button definiton is below:
 change
 ~~~~~~
 
-Change button definiton is below:
+Change button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
    <span button=changeButton type=change onclick=goBack()></span>
  
-.. image:: cancel.png
+.. image:: change.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
@@ -104,7 +104,7 @@ close
 ~~~~~~
 
 
-Close button definiton is below:
+Close button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -118,7 +118,7 @@ Close button definiton is below:
 delete
 ~~~~~~
 
-Delete button definiton is below:
+Delete button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -132,7 +132,7 @@ Delete button definiton is below:
 edit
 ~~~~~~
 
-Edit button definiton is below:
+Edit button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -147,7 +147,7 @@ Edit button definiton is below:
 exit
 ~~~~~~
 
-Exit button definiton is below:
+Exit button html code example and how it is rendered is shown below:
 
 
 .. code-block:: html
@@ -162,7 +162,7 @@ Exit button definiton is below:
 new
 ~~~~~~
 
-New button definiton is below:
+New button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -177,7 +177,7 @@ New button definiton is below:
 print
 ~~~~~~
 
-Print button definiton is below:
+Print button html code example and how it is rendered is shown below:
 
 
 .. code-block:: html
@@ -194,7 +194,7 @@ refresh
 ~~~~~~
 
 
-Refresh button definiton is below:
+Refresh button html code example and how it is rendered is shown below:
 
 
 .. code-block:: html
@@ -212,7 +212,7 @@ recycle
 ~~~~~~
 
 
-Recycle button definiton is below:
+Recycle button html code example and how it is rendered is shown below:
 
 
 .. code-block:: html
@@ -230,7 +230,7 @@ Recycle button definiton is below:
 save
 ~~~~~~
 
-Save button definiton is below:
+Save button html code example and how it is rendered is shown below:
 
 .. code-block:: html
 
@@ -258,6 +258,7 @@ This is the text which is displayed on the button. A buttons default text can be
 width
 ~~~~~~
 
+The **width** property sets the width of a button element.
 
 .. code-block:: html
 
@@ -267,6 +268,7 @@ width
 height
 ~~~~~~
 
+The **height** property sets the height of a button element.
 
 .. code-block:: html
 
