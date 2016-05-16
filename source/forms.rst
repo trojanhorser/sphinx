@@ -6,11 +6,6 @@
 Forms
 =====
 
-A webform, web form or HTML form on a web page allows a
-user to enter data that is sent to a server for processing.
-Forms can resemble paper or database forms because web users fill out the forms using checkboxes,
-radio buttons, or text fields. For example, forms can be used to enter shipping or
-
 Defining A Form
 ----------------
 
@@ -33,9 +28,15 @@ A diagram of the form structure is shown below:
 Parent Div Element
 ~~~~~~~~~~~~~~~~~~
 
-The parent **div** typically has the following attributes **id** which is the identifier,
-**style** which is normally set to **display:none** and **class** which is always set with a
-value of **"window"**. An example is shown below:
+The parent **div** is typically defined with the following attributes:
+
+	- **id** which is the identifier.
+
+	- **style** which is normally set to **display:none** and. 
+
+	- **class** which can be set with a value of "window" to create a modal form. 
+
+An example of a modal form is shown below:
 
 .. code-block:: html
 
@@ -108,8 +109,8 @@ Form Utility Methods
 --------------------
 The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:
 
-saveVar(field);
-~~~~~~~~~~
+saveVar(field)
+~~~~~~~~~~~~~~
 
 The **saveVar()** function saves the current state of a form.
 
@@ -128,15 +129,15 @@ The **saveVar()** function saves the current state of a form.
 saveVar Prototypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-consists of three(3) main prototypes which are described below:
+consists of prototypes which are described below:
 
-- returnChangedVar();
+- returnChangedVar()
 
 The **returnChangedVar** function returns all the form elements which have been changed after a the **saveVar()** function is called.
 
 - If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:
 
-.. code-block:: javascript:
+.. code-block:: javascript
 
 	changedData = saved.returnChangedVar();
 		
@@ -150,7 +151,7 @@ The **returnChangedVar** function returns all the form elements which have been 
 
 - If it is called with the **array** parameter it will return the array of fields which have been shown in the example below:
 
-.. code-block:: javascript:
+.. code-block:: javascript
 
 	changedData=saved.returnChangedVar('array');
 	
@@ -161,13 +162,13 @@ The **returnChangedVar** function returns all the form elements which have been 
 	}
 
 
-- restoreVar(fieldOne,fieldTwo);
+- restoreVar(fieldOne,fieldTwo)
 
 The **restoreVar** function restores the value of fields within a form if they have been modified.
 
 - If it is called without parameters it will restore the value of all fields in the current form:
 
-.. code-block:: javascript:
+.. code-block:: javascript
 	
 	function restoreChangedData() {
 		saved.restoreVar();
@@ -175,19 +176,19 @@ The **restoreVar** function restores the value of fields within a form if they h
 
 - It can also be called with one or more fields which require restoration as shown below:
 
-.. code-block:: javascript:
+.. code-block:: javascript
 	
 	function restoreChangedData() {
 		saved.restoreVar('fieldOne','fieldTwo');
 	}
 
-- hasChangedVar(fieldOne,fieldTwo...);
+- hasChangedVar(fieldOne,fieldTwo...)
 
 The **hasChangedVar** function returns a boolean value if any fields have been changed:
 
 - If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.
 
-.. code-block:: javascript:
+.. code-block:: javascript
 
 	if (saved.hasChangedVar()) {
 		alert('Yes');
@@ -195,21 +196,21 @@ The **hasChangedVar** function returns a boolean value if any fields have been c
 
 - It can also be called with with a single field to determine if it has changed.
 
-.. code-block:: javascript:
+.. code-block:: javascript
 
 	if (saved.hasChangedVar('fieldOne')) {
 		alert('Yes');
 	}
 
 
-savedValueOf(field);
+savedValueOf(field)
 ~~~~~~~~~~~~~~~~~~~
 
 The savedValueOf returns the original value of a field even when it is changed in form.
 
 The example below shows that when the field **userid** is changed it's original value can still be retrieved:
 
-.. code-block:: javascript:
+.. code-block:: javascript
 	
 	 /*Orignal value 100*/
 	 
@@ -226,17 +227,26 @@ The example below shows that when the field **userid** is changed it's original 
 	*/
 	
 	
-displayForm();
-~~~~~~~~~~~~~~
+displayForm(form,x,y)
+~~~~~~~~~~~~~~~~~~
 
-This function displays the form if it was hidden. It accepts the form to display as its parameter:
+This function displays the form if it was hidden. 
+It accepts the form to display as its parameter and the **x** and **y**, coordinates. If it is called without parameters it automatically 
+centers the form.
 
-.. literalinclude:: forms_example.html
-       :language: javascript
-       :lines: 21
- 
-	   
-closeForm(form);
+- Example below shows how to call **displayForm**.
+
+.. code-block:: javascript
+	
+	displayForm("form1");
+
+- Example below shows how to call **displayForm** wiht **X** and **Y** coordinates.
+
+.. code-block:: javascript
+	
+	displayForm('form1',80,100);
+
+closeForm(form)
 ~~~~~~~~~~~~~~~
 
 The **closeForm** function closes the form which is modal. An example of how it is used is show below:
@@ -245,7 +255,7 @@ The **closeForm** function closes the form which is modal. An example of how it 
 
    closeForm('form1');
 
-clearForm(form);
+clearForm(form)
 ~~~~~~~~~~~~~~~
 
 The **clearForm** function clears all the fields on a the specified form:

@@ -9,10 +9,13 @@ Javascript library dependency  to be included
 ---------------------------------------------
 In order  for data bound fields to be parsed the following librariese must be included:
 
-			.. literalinclude:: example.html
-					   :linenos:
-					   :language: html
-					   :lines: 6-9
+.. code-block:: html
+
+	<script type='text/JavaScript' src='../pcstools/standardjs.js'></script>
+	<script type='text/JavaScript' src='../pcstools/standardsq.js'></script>
+	<script type="text/JavaScript" src="startup.js"></script>
+	<script type="text/JavaScript" src="datadictionary.js"></script>
+
 
 Custom Attribute Description
 -----------------------------
@@ -24,89 +27,125 @@ These attributes are described in detail below:
 ~~~~~~
 
 The *ref* attribute is used to reference a field from the data dictionary.
-When a field is referenced it uses the attributes defined in the data dictionary to generate the html filed.
-The example below uses *bilno* as the referenced field:
+When a field is referenced it uses the attributes defined in the data dictionary to generate the html field.
 
-			.. literalinclude:: example.html
-								   :language: html
-								   :lines: 137
+- The example below uses *bilno* as the referenced field:
+
+.. code-block:: html
+
+	<span field=customfield ref=bilno label=Bill></span>
 
 
 **type**
-~~~~~~
+~~~~~~~~
 
-The *type* attribute determines the data type that the filed will accept. There are four data types; character,numeric, date and time.
+The *type* attribute determines the data type that the field will accept. There are four data types; character,numeric, date and time.
 Each of these attributes are explained below:
 
-		- *character* - The charater attribute allows all alphanumeric characters to be accept by the html field. An example is shown below:
+		- *character* - The charater attribute allows all alphanumeric characters to be accepted by the html field. An example is shown below:
+			
+			.. code-block:: html
 
-			.. literalinclude:: example.html
-									   :language: html
-									   :lines: 141
+				<span field=customfield type=char ></span>
 
 		- *numeric* - The numeric attribute allows only numeric values to accepted by the html field. It produces an alert when input is invalid. An example is shown below:
-
-			.. literalinclude:: example.html
-								   :language: html
-								   :lines: 139
+			
+			.. code-block:: html
+			
+				<span field=numericField type=numeric ></span>
 
 		- *date* - The date attribute formats the html field into three sepperate sections; **year**, **month** and **day**. The order of these sections will vary based on the format specified in the application. An example is shown below:
-
-			.. literalinclude:: example.html
-								   :language: html
-								   :lines: 143
+			
+			.. code-block:: html
+				
+				<span field=dateField type=date ></span><br>
 
 		- *time* - The time attribute formats the html field in two sections, **minutes** and **seconds**. An example is shown below:
-
-			.. literalinclude:: example.html
-								   :language: html
-								   :lines: 145
+			
+			.. code-block:: html
+				
+				<span field=timeField type=time></span>
 
 **length**
 ~~~~~~~~~~~~
 
 This length attribute specifies the maximum length of a field, according to the field type. If the length specified is greater than 80 then html text area will be rendered instead of an input field. Validation is also added if the user exceeds the maxiimum length of the field.
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 116
-
+		
+	.. code-block:: html
+	
+		<span field=firstName length=160></span>
+		
 
 **decimal**
 ~~~~~~~~~~~~
 
 The decimal place field is used to indicate the decimal place for numeric fields. An example is shown below:
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 118
+	
+	.. code-block:: html
+		
+		<span field=rcpamt  decimal=4 ></span>
 
 **editcode**
 ~~~~~~~~~~~~
 
-Specifies the format in which input may be accepted.
+Specifies the format of the input of numeric characters. Edit code consists of five(5) codes:
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 167
+	- Edit code **"0"** does not apply a format.
+		
+		.. code-block:: html
+		
+			<span field=var1 editcode=0 ></span>
+	
+	- Edit code **"J"** applies decimal place formatting based on the value of the **decimal** attribute. 
+	  For example if the decimal value is 4, The value **1230** would be formatted to **1230.0000**.
+		
+		.. code-block:: html
+		
+			<span field=var2 editcode=J ></span>
+		
+	- Edit code **"N"** shows a blank field if the numeric value is zero (0)
+		
+		.. code-block:: html
+		
+			<span field=var2 editcode=N ></span>
+	
+	
+	- Edit code **"Y"** this is used to format integers in the (yyyy/mm/dd) format. For example if 20151012 is inputted it would be formatted to **2015/10/12**.
+		
+		.. code-block:: html
+		
+			<span field=var3 editcode=Y ></span>
+	
+	- Edit code **"D"** this is used to format integers in the dd/mm/yyyy format. For example if 12102015 is inputted it would be formatted to **12/10/2015**.
+		
+		.. code-block:: html
+		
+			<span field=var4 editcode=D ></span>
+		
+	- Edit code **"M"** this is used to format integers in the mm/dd/yyyy format. For example if 10122015 is inputted it would be formatted to **10/12/2015**.
+		
+		.. code-block:: html
+		
+			<span field=var5 editcode=M ></span>
+		
 
 **fieldclass**
 ~~~~~~~~~~~~
 
 Specifies a stylesheet (CSS) class name to determine how the field is formatted.
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 143
+	.. code-block:: html
+	
+		<span field=chgdesc fieldclass=customStyle></span>
 
 **label**
 ~~~~~~~~~~
 
 Specifies the text for the label that will be displayed along with the field. Overrides the label text set in the data dictionary.
 
-	    .. literalinclude:: example.html
-								   :language: html
-								   :lines: 137
+	.. code-block:: html
+	
+	   <span field=customfield ref=bilno label=Bill></span>
 
 
 **nolabel**
@@ -114,79 +153,83 @@ Specifies the text for the label that will be displayed along with the field. Ov
 
 Instructs program not to show a label for the field.
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 139
+	.. code-block:: html
+	
+		<span field=customfield ref=bilno nolabel></span>
 
 
 **search**
 ~~~~~~~~~~~~
 
 Causes a search icon to appear beside the field that triggers the execution of a specified function.
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 165
+	
+	.. code-block:: html
+	
+		<span field=username search='find()'></span>
 
 
 **labelclass**
 ~~~~~~~~~~~~~~~
 
 Specifies a stylesheet (CSS) class name to determine how the field's label is formatted.
-
-	    .. literalinclude:: example.html
-								   :language: html
-								   :lines: 145
+	
+	.. code-block:: html
+	
+	    <span field=chgdesc labelclass=customStyle></span>
 
 **labelwidth**
 ~~~~~~~~~~~~~~~
 
-Specifies a custom width for the label, overriding any width that may have been set for the field's label in the DD.
+Specifies a custom width for the label, overriding any width that may have been set for the field's label in the data dictionary.
+	
+	.. code-block:: html
+	
+	    <span field=chgdesc labelwidth=90></span>
 
-	    .. literalinclude:: example.html
-								   :language: html
-								   :lines: 147
 
 **upper**
 ~~~~~~~~~~
 
 Causes the aphabetic characters displayed in a field to be capitalized. Also capitalizes characters entered by the user.
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 149
+	.. code-block:: html
+		
+		<span field=chgdesc upper></span>
 
 **output**
 ~~~~~~~~~~~~
 
 Displays the field's content as text in a disabled control (similar to readonly, but has a different appearance).
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 151
+	.. code-block:: html
+	
+		<span field=newbilno ref=bilno output></span>
 
 **textarea**
 ~~~~~~~~~~~~
 
 Represents the field as a free-text entry area with a vertical scrollbar. Additional attributes (rows and cols) can be specified as well.
-
-		.. literalinclude:: example.html
-									:language: html
-								    :lines: 153
+	
+	.. code-block:: html
+	
+		<span field=textAreaField textarea></span>
 
 **rows**
 ~~~~~~~~~
 
 Applies only to field with attribute 'textarea'. Specifies number of lines shown in the viewable area of the field at one time.
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 155
+	
+	.. code-block:: html
+		<span field=description rows=10></span>
 
 **cols**
 ~~~~~~~~~
 
 Applies only to field with attribute 'textarea'. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.
+
+.. code-block:: html
+
+	<span field=description cols=20></span>
 
 .. note:: the **rows** and **cols** attributes only apply to textarea fields and will be ignored for **date** and **time** fields.
 
@@ -195,51 +238,62 @@ Applies only to field with attribute 'textarea'. Specifies maximum number of cha
 ~~~~~~~~~~~~~~~~
 
 Causes a date field to be displayed without the default calendar icon and the associated date-picking functionality it offers. {Calendar not to be displayed for date field}
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 159
+	
+	.. code-block:: html
+	
+		<span field=date nocalendar></span>
 
 
 **select**
 ~~~~~~~~~~
 
 Field create as a select field. Use a string of ordered pairs to show the values/text.
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 161
-
+	
+	.. code-block:: html
+	
+		<span field=options select='1:One, 2:Two'></span>
 
 
 **readonly**
 ~~~~~~~~~~~~
 
 Prevents the field's content from being edited by the user.
-
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 161
-
+	
+	.. code-block:: html
+	
+		<span field=invnbr readonly></span>
+		
+		
 **editmask**
 ~~~~~~~~~~~~
 
 Specifies a prescribed data entry pattern that will be enforced when the user attempts to make entries in the field.
 
-	   .. literalinclude:: example.html
-								   :language: html
-								   :lines: 130
+
+- The example below will mask input 1111111 to (111)-11-11
+		
+	.. code-block:: html
+	
+		<span field=amount editmask='(   )  -   '></span>
+
+- If spaces need to added then the "&" character can be used:
+		
+	.. code-block:: html
+	
+		<span field=amount editmask='&&&(   )  -   '></span>
 
 
+		
 **required**
 ~~~~~~~~~~~~
 
 Marks a field for mandatory entry
+	
+	.. code-block:: html
+	
+		<span field=date required></span>
 
-		.. literalinclude:: example.html
-								   :language: html
-								   :lines: 163
-
+		
 Field Functions
 ----------------
 
@@ -282,6 +336,13 @@ is used as shown below:
 
    protect('companyname','companyaddress');
 
+-  The fields on a **form** can also be protected by passing the form name to the function. An 
+   example is shown below.
+ 
+.. code-block:: javascript
+
+   protect('form1');
+
 
 unProtect(fieldOne,fieldTwo,....);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,6 +361,13 @@ is used as shown below:
 .. code-block:: javascript
 
    unProtect('firsname','lastname');
+ 
+-  The fields on a **form** can also be un-protected by passing the form name to the function. An 
+   example is shown below.
+ 
+.. code-block:: javascript
+
+   unProtect('form1');
 
 
       

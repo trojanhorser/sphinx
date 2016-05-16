@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Checkbox And Radio Buttons &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Training" href="training.html"/>
+        <link rel="prev" title="Alerts/Notifications" href="alerts.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Checkbox And Radio Buttons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#checkvar-elementid-state">checkVar(elementId,state)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ischeckedvar-elementid">isCheckedVar(elementId)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Checkbox And Radio Buttons</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/checkboxandradiobuttons.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="checkbox-and-radio-buttons">
+<h1>Checkbox And Radio Buttons<a class="headerlink" href="#checkbox-and-radio-buttons" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="checkvar-elementid-state">
+<h2>checkVar(elementId,state)<a class="headerlink" href="#checkvar-elementid-state" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>checkVar</strong> function is used to change the state of a checkbox or radio button to <strong>checked</strong> or <strong>unchecked</strong>.
+It accepts two parameter <strong>elementId</strong> and <strong>state</strong>. If only the <strong>elementId</strong> is passed it will change
+the sate to <strong>checked</strong>. If the <strong>state</strong> is passed with the value of <strong>off</strong> or <strong>/*off</strong> the state will
+be changed to unchecked.</p>
+<ul class="simple">
+<li>The example below shows how changes the state of a checkbox or radio button to unchecked:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Checkbox</span>
+<span class="nx">checkVar</span><span class="p">(</span><span class="s2">&quot;checkBoxId&quot;</span><span class="p">);</span>
+
+<span class="c1">//Radio Button</span>
+<span class="nx">checkVar</span><span class="p">(</span><span class="s2">&quot;radioButtonId&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ischeckedvar-elementid">
+<h2>isCheckedVar(elementId)<a class="headerlink" href="#ischeckedvar-elementid" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>isCheckedVar</strong> function returns <strong>true</strong> if a radio button or checkbox is checked and false if they are unchecked.</p>
+<ul class="simple">
+<li>The example below shows how return the state of a checkbox (bikeCheckbox) and a radio button (genderCheckbox):</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bikeCheckbox&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;vehicle&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Bike&quot;</span> <span class="na">checked</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;genderCheckbox&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;gender&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">Male&quot;</span><span class="p">&gt;</span> Male<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>//Checkbox
+var value = isCheckVar(&quot;bikeCheckbox
+/*
+        Value is true
+*/
+
+//Radio Button
+value = checkVar(&quot;genderCheckbox&quot;);
+/*
+        Value is false
+*/
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="alerts.html" class="btn btn-neutral" title="Alerts/Notifications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -20,3 +20,4 @@ It several components which are outlined below:
    stringfunctions
    crudfunctions
    alerts
+   checkboxandradiobuttons

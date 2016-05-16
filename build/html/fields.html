@@ -158,17 +158,12 @@
 <div class="section" id="javascript-library-dependency-to-be-included">
 <h2>Javascript library dependency  to be included<a class="headerlink" href="#javascript-library-dependency-to-be-included" title="Permalink to this headline">¶</a></h2>
 <p>In order  for data bound fields to be parsed the following librariese must be included:</p>
-<blockquote>
-<div><div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/JavaScript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;../pcstools/standardjs.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/JavaScript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;../pcstools/standardjs.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/JavaScript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;../pcstools/standardsq.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/JavaScript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;startup.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/JavaScript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;datadictionary.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
-</td></tr></table></div>
-</div></blockquote>
+</div>
 </div>
 <div class="section" id="custom-attribute-description">
 <h2>Custom Attribute Description<a class="headerlink" href="#custom-attribute-description" title="Permalink to this headline">¶</a></h2>
@@ -178,44 +173,44 @@ These attributes are described in detail below:</p>
 <div class="section" id="ref">
 <h3><strong>ref</strong><a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h3>
 <p>The <em>ref</em> attribute is used to reference a field from the data dictionary.
-When a field is referenced it uses the attributes defined in the data dictionary to generate the html filed.
-The example below uses <em>bilno</em> as the referenced field:</p>
-<blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">label</span><span class="o">=</span><span class="s">Bill</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+When a field is referenced it uses the attributes defined in the data dictionary to generate the html field.</p>
+<ul class="simple">
+<li>The example below uses <em>bilno</em> as the referenced field:</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">label</span><span class="o">=</span><span class="s">Bill</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div></blockquote>
 </div>
 <div class="section" id="type">
 <h3><strong>type</strong><a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
-<p>The <em>type</em> attribute determines the data type that the filed will accept. There are four data types; character,numeric, date and time.
+<p>The <em>type</em> attribute determines the data type that the field will accept. There are four data types; character,numeric, date and time.
 Each of these attributes are explained below:</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><em>character</em> - The charater attribute allows all alphanumeric characters to be accept by the html field. An example is shown below:</p>
+<li><p class="first"><em>character</em> - The charater attribute allows all alphanumeric characters to be accepted by the html field. An example is shown below:</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">type</span><span class="o">=</span><span class="s">char</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p class="first"><em>numeric</em> - The numeric attribute allows only numeric values to accepted by the html field. It produces an alert when input is invalid. An example is shown below:</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">customfield</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">nolabel</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">numericField</span> <span class="na">type</span><span class="o">=</span><span class="s">numeric</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p class="first"><em>date</em> - The date attribute formats the html field into three sepperate sections; <strong>year</strong>, <strong>month</strong> and <strong>day</strong>. The order of these sections will vary based on the format specified in the application. An example is shown below:</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">fieldclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">dateField</span> <span class="na">type</span><span class="o">=</span><span class="s">date</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p class="first"><em>time</em> - The time attribute formats the html field in two sections, <strong>minutes</strong> and <strong>seconds</strong>. An example is shown below:</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelclass</span><span class="o">=</span><span class="s">customStyle</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">timeField</span> <span class="na">type</span><span class="o">=</span><span class="s">time</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -227,7 +222,7 @@ Each of these attributes are explained below:</p>
 <h3><strong>length</strong><a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
 <p>This length attribute specifies the maximum length of a field, according to the field type. If the length specified is greater than 80 then html text area will be rendered instead of an input field. Validation is also added if the user exceeds the maxiimum length of the field.</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">bilno</span> <span class="na">length</span><span class="o">=</span><span class="s">160</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">firstName</span> <span class="na">length</span><span class="o">=</span><span class="s">160</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -243,11 +238,53 @@ Each of these attributes are explained below:</p>
 </div>
 <div class="section" id="editcode">
 <h3><strong>editcode</strong><a class="headerlink" href="#editcode" title="Permalink to this headline">¶</a></h3>
-<p>Specifies the format in which input may be accepted.</p>
+<p>Specifies the format of the input of numeric characters. Edit code consists of five(5) codes:</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">name</span> <span class="na">editcode</span><span class="o">=</span><span class="s">J</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><ul>
+<li><p class="first">Edit code <strong>&#8220;0&#8221;</strong> does not apply a format.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var1</span> <span class="na">editcode</span><span class="o">=</span><span class="s">0</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit code <strong>&#8220;J&#8221;</strong> applies decimal place formatting based on the value of the <strong>decimal</strong> attribute.
+For example if the decimal value is 4, The value <strong>1230</strong> would be formatted to <strong>1230.0000</strong>.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var2</span> <span class="na">editcode</span><span class="o">=</span><span class="s">J</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit code <strong>&#8220;N&#8221;</strong> shows a blank field if the numeric value is zero (0)</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var2</span> <span class="na">editcode</span><span class="o">=</span><span class="s">N</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit code <strong>&#8220;Y&#8221;</strong> this is used to format integers in the (yyyy/mm/dd) format. For example if 20151012 is inputted it would be formatted to <strong>2015/10/12</strong>.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var3</span> <span class="na">editcode</span><span class="o">=</span><span class="s">Y</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit code <strong>&#8220;D&#8221;</strong> this is used to format integers in the dd/mm/yyyy format. For example if 12102015 is inputted it would be formatted to <strong>12/10/2015</strong>.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var4</span> <span class="na">editcode</span><span class="o">=</span><span class="s">D</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit code <strong>&#8220;M&#8221;</strong> this is used to format integers in the mm/dd/yyyy format. For example if 10122015 is inputted it would be formatted to <strong>10/12/2015</strong>.</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">var5</span> <span class="na">editcode</span><span class="o">=</span><span class="s">M</span> <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 </div>
 <div class="section" id="fieldclass">
@@ -297,7 +334,7 @@ Each of these attributes are explained below:</p>
 </div>
 <div class="section" id="labelwidth">
 <h3><strong>labelwidth</strong><a class="headerlink" href="#labelwidth" title="Permalink to this headline">¶</a></h3>
-<p>Specifies a custom width for the label, overriding any width that may have been set for the field&#8217;s label in the DD.</p>
+<p>Specifies a custom width for the label, overriding any width that may have been set for the field&#8217;s label in the data dictionary.</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">labelwidth</span><span class="o">=</span><span class="s">90</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
@@ -317,7 +354,7 @@ Each of these attributes are explained below:</p>
 <h3><strong>output</strong><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
 <p>Displays the field&#8217;s content as text in a disabled control (similar to readonly, but has a different appearance).</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">output</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">newbilno</span> <span class="na">ref</span><span class="o">=</span><span class="s">bilno</span> <span class="na">output</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -326,20 +363,23 @@ Each of these attributes are explained below:</p>
 <h3><strong>textarea</strong><a class="headerlink" href="#textarea" title="Permalink to this headline">¶</a></h3>
 <p>Represents the field as a free-text entry area with a vertical scrollbar. Additional attributes (rows and cols) can be specified as well.</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">textAreaField</span> <span class="na">textarea</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="rows">
 <h3><strong>rows</strong><a class="headerlink" href="#rows" title="Permalink to this headline">¶</a></h3>
 <p>Applies only to field with attribute &#8216;textarea&#8217;. Specifies number of lines shown in the viewable area of the field at one time.</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">chgdesc</span> <span class="na">rows</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div></blockquote>
+<div></div></blockquote>
 </div>
 <div class="section" id="cols">
 <h3><strong>cols</strong><a class="headerlink" href="#cols" title="Permalink to this headline">¶</a></h3>
 <p>Applies only to field with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">description</span> <span class="na">cols</span><span class="o">=</span><span class="s">20</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">the <strong>rows</strong> and <strong>cols</strong> attributes only apply to textarea fields and will be ignored for <strong>date</strong> and <strong>time</strong> fields.</p>
@@ -367,7 +407,7 @@ Each of these attributes are explained below:</p>
 <h3><strong>readonly</strong><a class="headerlink" href="#readonly" title="Permalink to this headline">¶</a></h3>
 <p>Prevents the field&#8217;s content from being edited by the user.</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">invnbr</span> <span class="na">readonly</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -375,11 +415,22 @@ Each of these attributes are explained below:</p>
 <div class="section" id="editmask">
 <h3><strong>editmask</strong><a class="headerlink" href="#editmask" title="Permalink to this headline">¶</a></h3>
 <p>Specifies a prescribed data entry pattern that will be enforced when the user attempts to make entries in the field.</p>
+<ul>
+<li><p class="first">The example below will mask input 1111111 to (111)-11-11</p>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">amount</span> <span class="na">editmask</span><span class="o">=</span><span class="s">&#39;&amp;&amp;&amp;&amp;(   )  -   &#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">amount</span> <span class="na">editmask</span><span class="o">=</span><span class="s">&#39;(   )  -   &#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
+</li>
+<li><p class="first">If spaces need to added then the &#8220;&amp;&#8221; character can be used:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">amount</span> <span class="na">editmask</span><span class="o">=</span><span class="s">&#39;&amp;&amp;&amp;(   )  -   &#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="required">
 <h3><strong>required</strong><a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
@@ -428,6 +479,13 @@ Each of these attributes are explained below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;companyname&#39;</span><span class="p">,</span><span class="s1">&#39;companyaddress&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li>The fields on a <strong>form</strong> can also be protected by passing the form name to the function. An
+example is shown below.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="unprotect-fieldone-fieldtwo">
 <h3>unProtect(fieldOne,fieldTwo,....);<a class="headerlink" href="#unprotect-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h3>
@@ -443,6 +501,13 @@ Each of these attributes are explained below:</p>
 <li>Multiple fields can also be un-protected by specifying multiple fields as shown below:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">unProtect</span><span class="p">(</span><span class="s1">&#39;firsname&#39;</span><span class="p">,</span><span class="s1">&#39;lastname&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The fields on a <strong>form</strong> can also be un-protected by passing the form name to the function. An
+example is shown below.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">unProtect</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

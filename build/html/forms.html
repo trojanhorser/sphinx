@@ -155,10 +155,6 @@
 </div>
 <div class="section" id="forms">
 <h1>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h1>
-<p>A webform, web form or HTML form on a web page allows a
-user to enter data that is sent to a server for processing.
-Forms can resemble paper or database forms because web users fill out the forms using checkboxes,
-radio buttons, or text fields. For example, forms can be used to enter shipping or</p>
 <div class="section" id="defining-a-form">
 <h2>Defining A Form<a class="headerlink" href="#defining-a-form" title="Permalink to this headline">¶</a></h2>
 <p>A form typically consists of three sections:</p>
@@ -171,9 +167,15 @@ radio buttons, or text fields. For example, forms can be used to enter shipping 
 <a class="reference internal image-reference" href="_images/form_structure.png"><img alt="alternate text" src="_images/form_structure.png" style="width: 400.0px; height: 500.0px;" /></a>
 <div class="section" id="parent-div-element">
 <h3>Parent Div Element<a class="headerlink" href="#parent-div-element" title="Permalink to this headline">¶</a></h3>
-<p>The parent <strong>div</strong> typically has the following attributes <strong>id</strong> which is the identifier,
-<strong>style</strong> which is normally set to <strong>display:none</strong> and <strong>class</strong> which is always set with a
-value of <strong>&#8220;window&#8221;</strong>. An example is shown below:</p>
+<p>The parent <strong>div</strong> is typically defined with the following attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>id</strong> which is the identifier.</li>
+<li><strong>style</strong> which is normally set to <strong>display:none</strong> and.</li>
+<li><strong>class</strong> which can be set with a value of &#8220;window&#8221; to create a modal form.</li>
+</ul>
+</div></blockquote>
+<p>An example of a modal form is shown below:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;divform1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;window&quot;</span><span class="p">&gt;</span>
   <span class="c">&lt;!--</span>
 <span class="c">        Form would be defined here</span>
@@ -240,7 +242,7 @@ of the form and example is shown below:</p>
 <h2>Form Utility Methods<a class="headerlink" href="#form-utility-methods" title="Permalink to this headline">¶</a></h2>
 <p>The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:</p>
 <div class="section" id="savevar-field">
-<h3>saveVar(field);<a class="headerlink" href="#savevar-field" title="Permalink to this headline">¶</a></h3>
+<h3>saveVar(field)<a class="headerlink" href="#savevar-field" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>saveVar()</strong> function saves the current state of a form.</p>
 <ul class="simple">
 <li>It can be used to save the entire form as shown below:</li>
@@ -257,114 +259,125 @@ of the form and example is shown below:</p>
 </div>
 <div class="section" id="savevar-prototypes">
 <h3>saveVar Prototypes<a class="headerlink" href="#savevar-prototypes" title="Permalink to this headline">¶</a></h3>
-<p>consists of three(3) main prototypes which are described below:</p>
+<p>consists of prototypes which are described below:</p>
 <ul class="simple">
-<li>returnChangedVar();</li>
+<li>returnChangedVar()</li>
 </ul>
 <p>The <strong>returnChangedVar</strong> function returns all the form elements which have been changed after a the <strong>saveVar()</strong> function is called.</p>
 <ul class="simple">
 <li>If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>changedData = saved.returnChangedVar();
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changedData</span> <span class="o">=</span> <span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
 
-for (field in changedData) {
+<span class="k">for</span> <span class="p">(</span><span class="nx">field</span> <span class="k">in</span> <span class="nx">changedData</span><span class="p">)</span> <span class="p">{</span>
 
-        if (field != &#39;addVar&#39; &amp;&amp; field != &#39;removeVar&#39;) {
-           alert(&#39;Field: &#39;+field+&#39; === Value: &#39;+valueOf(field)+&#39;
-           === Saved Value:&#39;+saved.savedValueOf(field));
-        }
-}
+        <span class="k">if</span> <span class="p">(</span><span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;addVar&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;removeVar&#39;</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">           === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>If it is called with the <strong>array</strong> parameter it will return the array of fields which have been shown in the example below:</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>changedData=saved.returnChangedVar(&#39;array&#39;);
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changedData</span><span class="o">=</span><span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
 
-for (index=0; index&lt;changedData.length; index++) {
-   field=changedData[p];
-   alert(&#39;OR...Field: &#39;+field+&#39; === Value: &#39;+valueOf(field)+&#39;
-   === Saved Value:&#39;+saved.savedValueOf(field));
-}
+<span class="k">for</span> <span class="p">(</span><span class="nx">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">index</span><span class="o">&lt;</span><span class="nx">changedData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">field</span><span class="o">=</span><span class="nx">changedData</span><span class="p">[</span><span class="nx">p</span><span class="p">];</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;OR...Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">   === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>restoreVar(fieldOne,fieldTwo);</li>
+<li>restoreVar(fieldOne,fieldTwo)</li>
 </ul>
 <p>The <strong>restoreVar</strong> function restores the value of fields within a form if they have been modified.</p>
 <ul class="simple">
 <li>If it is called without parameters it will restore the value of all fields in the current form:</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>function restoreChangedData() {
-        saved.restoreVar();
-}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>It can also be called with one or more fields which require restoration as shown below:</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>function restoreChangedData() {
-        saved.restoreVar(&#39;fieldOne&#39;,&#39;fieldTwo&#39;);
-}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">restoreChangedData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">saved</span><span class="p">.</span><span class="nx">restoreVar</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="s1">&#39;fieldTwo&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>hasChangedVar(fieldOne,fieldTwo...);</li>
+<li>hasChangedVar(fieldOne,fieldTwo...)</li>
 </ul>
 <p>The <strong>hasChangedVar</strong> function returns a boolean value if any fields have been changed:</p>
 <ul class="simple">
 <li>If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>if (saved.hasChangedVar()) {
-        alert(&#39;Yes&#39;);
-}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>It can also be called with with a single field to determine if it has changed.</li>
 </ul>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span>if (saved.hasChangedVar(&#39;fieldOne&#39;)) {
-        alert(&#39;Yes&#39;);
-}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">saved</span><span class="p">.</span><span class="nx">hasChangedVar</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="savedvalueof-field">
-<h3>savedValueOf(field);<a class="headerlink" href="#savedvalueof-field" title="Permalink to this headline">¶</a></h3>
+<h3>savedValueOf(field)<a class="headerlink" href="#savedvalueof-field" title="Permalink to this headline">¶</a></h3>
 <p>The savedValueOf returns the original value of a field even when it is changed in form.</p>
 <p>The example below shows that when the field <strong>userid</strong> is changed it&#8217;s original value can still be retrieved:</p>
-<div class="highlight-javascript:"><div class="highlight"><pre><span></span> /*Orignal value 100*/
+<div class="highlight-javascript"><div class="highlight"><pre><span></span> <span class="cm">/*Orignal value 100*/</span>
 
-new saved = saveVar(&#39;userid&#39;);
+<span class="k">new</span> <span class="nx">saved</span> <span class="o">=</span> <span class="nx">saveVar</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">);</span>
 
-/* Change userid to 200*/
+<span class="cm">/* Change userid to 200*/</span>
 
-changeVar(&#39;userid&#39;,200);
+<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
 
-alert( saveVar.savedValueOf(&#39;userid&#39;) );
+<span class="nx">alert</span><span class="p">(</span> <span class="nx">saveVar</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">)</span> <span class="p">);</span>
 
-/*
-        Output will be 100 which is the original value
-*/
+<span class="cm">/*</span>
+<span class="cm">        Output will be 100 which is the original value</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="displayform">
-<h3>displayForm();<a class="headerlink" href="#displayform" title="Permalink to this headline">¶</a></h3>
-<p>This function displays the form if it was hidden. It accepts the form to display as its parameter:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="nx">displayForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
+<div class="section" id="displayform-form-x-y">
+<h3>displayForm(form,x,y)<a class="headerlink" href="#displayform-form-x-y" title="Permalink to this headline">¶</a></h3>
+<p>This function displays the form if it was hidden.
+It accepts the form to display as its parameter and the <strong>x</strong> and <strong>y</strong>, coordinates. If it is called without parameters it automatically
+centers the form.</p>
+<ul class="simple">
+<li>Example below shows how to call <strong>displayForm</strong>.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">displayForm</span><span class="p">(</span><span class="s2">&quot;form1&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Example below shows how to call <strong>displayForm</strong> wiht <strong>X</strong> and <strong>Y</strong> coordinates.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">displayForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="closeform-form">
-<h3>closeForm(form);<a class="headerlink" href="#closeform-form" title="Permalink to this headline">¶</a></h3>
+<h3>closeForm(form)<a class="headerlink" href="#closeform-form" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>closeForm</strong> function closes the form which is modal. An example of how it is used is show below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">closeForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="clearform-form">
-<h3>clearForm(form);<a class="headerlink" href="#clearform-form" title="Permalink to this headline">¶</a></h3>
+<h3>clearForm(form)<a class="headerlink" href="#clearform-form" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>clearForm</strong> function clears all the fields on a the specified form:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">clearForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>

@@ -130,8 +130,7 @@ Examples of how to use the index are shown below:
 			.. literalinclude:: dataDictionary.js
 					   :language: javascript
 					   :lines: 758
-					   
-**5. Triggers** - [TO BE DONE]					   
+					   				   
 			
 After  setting the attributes of the **dbTableDef** object. The `applyDbTableDef <file:///P:/AdvantumAppLessons/documentation/JSDoc/StandardSQ/global.html#applyDbTableDef>`_ function must be run to apply to table configuration, an example is shown below: 
 			
@@ -143,8 +142,3 @@ After  setting the attributes of the **dbTableDef** object. The `applyDbTableDef
 					   :language: javascript
 					   :lines: 756-762
 					   :emphasize-lines: 7
-
-
-
-Generating a database from the datadictonary
---------------------------------------------
