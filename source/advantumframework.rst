@@ -22,3 +22,4 @@ It several components which are outlined below:
    alerts
    checkboxandradiobuttons
    globalvariable
+   time

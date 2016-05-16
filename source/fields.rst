@@ -524,7 +524,7 @@ The **changeContent** function changes the inner contents (html or text) of an e
    
 
 contentOf(element,type);
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **contentOf** function returns the inner text/html for a specific element. 
 

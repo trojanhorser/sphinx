@@ -228,7 +228,7 @@ The example below shows that when the field **userid** is changed it's original 
 	
 	
 displayForm(form,y,x)
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 This function displays the form if it was hidden. 
 It accepts the form to display as its parameter and the **x** and **y**, coordinates. If it is called without parameters it automatically 
