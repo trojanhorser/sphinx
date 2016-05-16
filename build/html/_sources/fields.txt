@@ -511,24 +511,6 @@ The **neverShow** function hides a specified element permanently. Even if the **
 	
    hideElement('fieldOne','divOne');
      
-
-popUpMsg(message,field);
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-The **popUpMsg** function shows a message below a specified field.
-
-- The following example shows how to display the **popUpMsg** for the **'fname'** field. 
-
-.. code-block:: javascript
-	
-    var firstname = valueOf('fname');
- 	
-    if (isBlank(firstname)) {
-		popUpMsg('This is a required field!','fname');
-		result = false;
-		break;
-    }     
-
 changeContent(element,htmlText);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -542,7 +524,7 @@ The **changeContent** function changes the inner contents (html or text) of an e
    
 
 contentOf(element,type);
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **contentOf** function returns the inner text/html for a specific element. 
 

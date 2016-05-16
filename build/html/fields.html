@@ -98,6 +98,8 @@
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
 <li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -639,22 +641,6 @@ For example is the default date is dd/mm/yyyy then a date in that format must be
 <li>The following example shows how to permanently hide multiple elements:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hideElement</span><span class="p">(</span><span class="s1">&#39;fieldOne&#39;</span><span class="p">,</span><span class="s1">&#39;divOne&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="popupmsg-message-field">
-<h3>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>popUpMsg</strong> function shows a message below a specified field.</p>
-<ul class="simple">
-<li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;fname&#8217;</strong> field.</li>
-</ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstname</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">firstname</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;This is a required field!&#39;</span><span class="p">,</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
-            <span class="nx">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-            <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 </div>

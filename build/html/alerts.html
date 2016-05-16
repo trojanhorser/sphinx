@@ -32,7 +32,7 @@
   
     <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
         <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
-        <link rel="next" title="Training" href="training.html"/>
+        <link rel="next" title="Checkbox And Radio Buttons" href="checkboxandradiobuttons.html"/>
         <link rel="prev" title="CRUD Functions" href="crudfunctions.html"/> 
 
   
@@ -91,7 +91,14 @@
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Alerts/Notifications</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Alerts/Notifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#popupmsg-message-field">popUpMsg(message,field);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#say-message-duration">say(message,duration);</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -146,8 +153,45 @@
             
   <div class="section" id="alerts-notifications">
 <h1>Alerts/Notifications<a class="headerlink" href="#alerts-notifications" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>popUpMsg(&#8216;Enter a Customer Code&#8217;,&#8217;concde&#8217;);</div></blockquote>
+<div class="section" id="popupmsg-message-field">
+<h2>popUpMsg(message,field);<a class="headerlink" href="#popupmsg-message-field" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>popUpMsg</strong> function shows a message below the specified field.</p>
+<ul class="simple">
+<li>The following example shows how to display the <strong>popUpMsg</strong> for the <strong>&#8216;fname&#8217;</strong> field.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstname</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">isBlank</span><span class="p">(</span><span class="nx">firstname</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">popUpMsg</span><span class="p">(</span><span class="s1">&#39;This is a required field!&#39;</span><span class="p">,</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
+            <span class="nx">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="say-message-duration">
+<h2>say(message,duration);<a class="headerlink" href="#say-message-duration" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>say</strong> function shows a <strong>message</strong> for a specified <strong>duration</strong> in seconds. A div element with an id of <strong>msgarea</strong>
+must be present on the page in order for the message to be displayed.</p>
+<ul class="simple">
+<li>The following example shows how to use the <strong>say()</strong> function to display the message <strong>Hello World</strong></li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Message area is created first--&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">msgarea</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">firstname</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">);</span>
+
+<span class="nx">say</span><span class="p">(</span><span class="s1">&#39;Hello Wold&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>HTML can also be displayed using the say function as shown below**</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">say</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;loading.gif&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -157,7 +201,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="checkboxandradiobuttons.html" class="btn btn-neutral float-right" title="Checkbox And Radio Buttons" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="crudfunctions.html" class="btn btn-neutral" title="CRUD Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
