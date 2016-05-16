@@ -225,7 +225,7 @@ Applies only to field with attribute 'textarea'. Specifies number of lines shown
 **cols**
 ~~~~~~~~~
 
-Applies only to field with attribute 'textarea'. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.
+Applies only to fields with attribute 'textarea'. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.
 
 .. code-block:: html
 
@@ -247,11 +247,24 @@ Causes a date field to be displayed without the default calendar icon and the as
 **select**
 ~~~~~~~~~~
 
-Field create as a select field. Use a string of ordered pairs to show the values/text.
-	
+Field **select** generates a html select field using key,value pairs in the format <key1>:<value1>,<key2>:<value2>,... . An example is shown below:
+
 	.. code-block:: html
 	
 		<span field=options select='1:One, 2:Two'></span>
+
+- A select can also be populated using an array and the **loadSelect** function. The **loadSelect** function accepts the **id** of
+  the select and the **array** which will be used to populate it. An example use the **loadSelect** function to populate a select is shown below:
+
+	.. code-block:: html
+		
+		<span id=selectWithArray field=options select></span>
+
+	.. code-block:: javascript
+		
+		selectArray=['key1:value1','key2:value2','key3:value3'];
+		loadSelect('selectWithArray',selectArray);
+
 
 
 **readonly**

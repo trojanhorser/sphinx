@@ -38,7 +38,7 @@ The **isCheckedVar** function returns **true** if a radio button or checkbox is 
 .. code-block:: javascript
 
 	//Checkbox
-	var value = isCheckVar("bikeCheckbox
+	var value = isCheckVar("bikeCheckbox");
 	/*
 		Value is true
 	*/

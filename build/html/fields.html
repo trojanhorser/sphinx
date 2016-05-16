@@ -97,6 +97,7 @@
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
 </ul>
 </li>
 </ul>
@@ -376,7 +377,7 @@ For example if the decimal value is 4, The value <strong>1230</strong> would be 
 </div>
 <div class="section" id="cols">
 <h3><strong>cols</strong><a class="headerlink" href="#cols" title="Permalink to this headline">¶</a></h3>
-<p>Applies only to field with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
+<p>Applies only to fields with attribute &#8216;textarea&#8217;. Specifies maximum number of characters the may be shown in each line of the viewable area of the field at one time.</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">description</span> <span class="na">cols</span><span class="o">=</span><span class="s">20</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -396,12 +397,26 @@ For example if the decimal value is 4, The value <strong>1230</strong> would be 
 </div>
 <div class="section" id="select">
 <h3><strong>select</strong><a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h3>
-<p>Field create as a select field. Use a string of ordered pairs to show the values/text.</p>
+<p>Field <strong>select</strong> generates a html select field using key,value pairs in the format &lt;key1&gt;:&lt;value1&gt;,&lt;key2&gt;:&lt;value2&gt;,... . An example is shown below:</p>
 <blockquote>
 <div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="o">=</span><span class="s">&#39;1:One, 2:Two&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
+<ul>
+<li><p class="first">A select can also be populated using an array and the <strong>loadSelect</strong> function. The <strong>loadSelect</strong> function accepts the <strong>id</strong> of
+the select and the <strong>array</strong> which will be used to populate it. An example use the <strong>loadSelect</strong> function to populate a select is shown below:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">selectWithArray</span> <span class="na">field</span><span class="o">=</span><span class="s">options</span> <span class="na">select</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">selectArray</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1:value1&#39;</span><span class="p">,</span><span class="s1">&#39;key2:value2&#39;</span><span class="p">,</span><span class="s1">&#39;key3:value3&#39;</span><span class="p">];</span>
+<span class="nx">loadSelect</span><span class="p">(</span><span class="s1">&#39;selectWithArray&#39;</span><span class="p">,</span><span class="nx">selectArray</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="readonly">
 <h3><strong>readonly</strong><a class="headerlink" href="#readonly" title="Permalink to this headline">¶</a></h3>
