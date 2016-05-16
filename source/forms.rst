@@ -227,7 +227,7 @@ The example below shows that when the field **userid** is changed it's original 
 	*/
 	
 	
-displayForm(form,x,y)
+displayForm(form,y,x)
 ~~~~~~~~~~~~~~~~~~
 
 This function displays the form if it was hidden. 

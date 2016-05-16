@@ -21,3 +21,4 @@ It several components which are outlined below:
    crudfunctions
    alerts
    checkboxandradiobuttons
+   globalvariable
