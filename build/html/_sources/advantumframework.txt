@@ -23,3 +23,4 @@ It several components which are outlined below:
    checkboxandradiobuttons
    globalvariable
    time
+   table
