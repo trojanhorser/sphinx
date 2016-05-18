@@ -7,14 +7,17 @@ CRUD Functions
 
 CRUD *(Create, Read, Update, Delete)* are a set of functions used to perform database operations. These functions and how they are used is described below:
 
-sqlSelect(sql, text, dataObject)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sqlSelect(sql, text, dataObject, useconn, sqlphppgm)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This function is used to retrieve records from a database. It accepts three parameters:
+This function is used to retrieve records from a database. It accepts five(5) parameters:
 
-1. The SQL Select text ( eg. *"select * from customers"* )
-2. The variable that data retrieved should be stored in
-3. and the amount of rows which should be returned.
+1. sql - The SQL Select text ( eg. *"select * from customers"* )
+2. text - The variable that data retrieved should be stored in
+3. dataObject - The amount of rows which should be returned.
+4. useconn - Connection object to be used to establish the connection.
+5. sqlphppgm - PHP file which will execute the query.
+
 
 - An example is shown below:
 
@@ -33,13 +36,15 @@ If an error occurs during the sql transaction the **sqlerr** global variable is 
 The **$data.rcdcnt** is also returned as shown in the example above.
 
 
-sqlInsert(table,recordObject)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sqlInsert(table,recordObject,useconn,sqlphppgm)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **sqlInsert** function adds a record to a specific table to the database. it accepts two parameters:
+The **sqlInsert** function adds a record to a specific table to the database. it accepts four parameters:
 
-1. The database table that will be modified.
-2. and a object with the fields that need to be inserted.
+1. table - The database table that will be modified.
+2. recordObject - The object with the fields that need to be inserted.
+3. useconn - Connection object to be used to establish the connection.
+4. sqlphppgm - PHP file which will execute the query.
 
 The example below creates and object using the **sqlUpdateObj** object which extracts fields from **form1** and inserts it into
 the **users** table:
@@ -57,14 +62,16 @@ the **users** table:
 		return false;
 	}
 
-sqlUpdate(table, recordObject, updateCriteria)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sqlUpdate(table, recordObject, updateCriteria,useconn,sqlphppgm)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **sqlUpdate** function updates records in a table based on a specific criteria. It accepts three parameters:
+The **sqlUpdate** function updates records in a table based on a specific criteria. It accepts five parameters:
 
-1. The database table that will be modified.
-2. The object with the fields that need to be updated.
-3. and the where criteria for the records which need to be updated.
+1. table - The database table that will be modified.
+2. recordObject - The object with the fields that need to be updated.
+3. updateCriteria - The where criteria for the records which need to be updated.
+4. useconn - Connection object to be used to establish the connection.
+5. sqlphppgm - PHP file which will execute the query.
 
 The example below updates the changed fields of a record in the **container** table.
 
@@ -83,14 +90,15 @@ The example below updates the changed fields of a record in the **container** ta
 		return false;
 	}
 	
-sqlDelete(table, deleteCriteria)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+sqlDelete(table, deleteCriteria,useconn,sqlphppgm)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 This removes records from a database table based on a specific criteria.
 
-1. The database table that will be modified.
-2. and the where criteria for the records which need to be deleted.
-
+1. table - The database table that will be modified.
+2. deleteCriteria - The where criteria for the records which need to be deleted.
+3. useconn - onnection object to be used to establish the connection.
+4. sqlphppgm - PHP file which will execute the query.
 
 The example below deletes a record in the **user** table based on the criteria specified:
 
@@ -106,6 +114,8 @@ The example below deletes a record in the **user** table based on the criteria s
 	}
 
 .. note:: All CRUD functions update the "sqlerr" global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.
+	      Also if the useconn parameter is not passed it will use the default connection which is in the **conn** global variable.
+
 
 sqlUpdateObj(element)
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -204,6 +214,7 @@ The **sqlValueOf** function formats a field in valid SQL format. For numeric fie
 	/*
 		The value of result is 1100 which is numeric .
 	*/
+
 
 
 

@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Training" href="training.html"/>
+        <link rel="prev" title="Date and Time Functions" href="time.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tabledef-object">tableDef Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table-functions">Table Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Table</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/table.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table">
+<h1>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h1>
+<p>Tables are used primarily to display data in rows and columns. The details of how to create a table
+are described below:</p>
+<div class="section" id="tabledef-object">
+<h2>tableDef Object<a class="headerlink" href="#tabledef-object" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The <strong>tableDef</strong> object is the definition of a display table. An example of how to initialize a table is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">customTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>A table consists of attributes which must be set to completely define a table, some of which are listed below:</p>
+<div class="section" id="tableid">
+<h3>tableid<a class="headerlink" href="#tableid" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <strong>tableid</strong> is unique identifer for the table. An example of how to set this attribute is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id">
+<h3>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>id</strong> attribute is used to define the unique identifiers for columns of the table. The data type of the id attribute is an array
+an array and its values are set using the array syntax. If a table id is not set one will be generated automatically. The example below shows how to define column id&#8217;s for a table:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;columnOne&#39;</span><span class="p">,</span><span class="s1">&#39;columnTwo&#39;</span><span class="p">,</span><span class="s1">&#39;columnThree&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="header">
+<h3>header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>header</strong> attribute is used to set the display text for columns. The data type of the <strong>header</strong> and its values
+are set using the array syntax. <strong>HTML</strong> can also be passed as a value for a header.</p>
+<ul class="simple">
+<li>The example below shows how to set the vlaues of headers with text only:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">header</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Header-1&#39;</span><span class="p">,</span><span class="s1">&#39;Header-2&#39;</span><span class="p">,</span><span class="s1">&#39;Header-3&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to set the vlaues of headers with text and html:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">header</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Header-2&#39;</span><span class="p">,</span><span class="s1">&#39;Header-2&#39;</span><span class="p">,</span><span class="s1">&#39;Select for All&lt;br&gt;&lt;input type=checkbox id=lll&gt;&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="width">
+<h3>width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>width</strong> attribute is used to define the <strong>width</strong> of columns in pixels. The data type of the width attribute is an array
+and its values are set using the array syntax. A column can be hidden with a width of zero (0).</p>
+<ul class="simple">
+<li>The example below shows how to set the values of the <strong>width</strong> attribute:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">width</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">190</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tableonclick">
+<h3>tableonclick<a class="headerlink" href="#tableonclick" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>tablenclick</strong> attribute is used set a <strong>function</strong> which will be executed when a user clicks the table.</p>
+<ul class="simple">
+<li>The example shows how to set the tableonclick attribute. It will execute the alert function when the table is clicked:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">tableonclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Table Has Been Clicked&#39;)&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="table-functions">
+<h2>Table Functions<a class="headerlink" href="#table-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="newrow-tableid">
+<h3>newRow(tableId)<a class="headerlink" href="#newrow-tableid" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>newRow</strong> function accepts the id of a table and adds a new row to the specified table.</p>
+<ul class="simple">
+<li>The example shows how to use the <strong>newRow</strong> function:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">addNewRow</span><span class="p">(){</span>
+        <span class="nx">newRow</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changecol-columid-value">
+<h3>changeCol(columId, value)<a class="headerlink" href="#changecol-columid-value" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>changeCol</strong> function accepts the <strong>id</strong> of a column and changes the <strong>value</strong> in the specified column.</p>
+<ul class="simple">
+<li>The example shows how to use the <strong>changeCol</strong> function:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">,</span><span class="s1">&#39;new value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="time.html" class="btn btn-neutral" title="Date and Time Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -91,15 +91,19 @@
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CRUD Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sqlselect-sql-text-dataobject">sqlSelect(sql, text, dataObject)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlinsert-table-recordobject">sqlInsert(table,recordObject)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqlupdate-table-recordobject-updatecriteria">sqlUpdate(table, recordObject, updateCriteria)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sqldelete-table-deletecriteria">sqlDelete(table, deleteCriteria)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlselect-sql-text-dataobject-useconn-sqlphppgm">sqlSelect(sql, text, dataObject, useconn, sqlphppgm)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlinsert-table-recordobject-useconn-sqlphppgm">sqlInsert(table,recordObject,useconn,sqlphppgm)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlupdate-table-recordobject-updatecriteria-useconn-sqlphppgm">sqlUpdate(table, recordObject, updateCriteria,useconn,sqlphppgm)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqldelete-table-deletecriteria-useconn-sqlphppgm">sqlDelete(table, deleteCriteria,useconn,sqlphppgm)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqlupdateobj-element">sqlUpdateObj(element)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqlvalueof-field">sqlValueOf(field)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html">Table</a></li>
 </ul>
 </li>
 </ul>
@@ -159,13 +163,15 @@
 <div class="section" id="crud-functions">
 <h1>CRUD Functions<a class="headerlink" href="#crud-functions" title="Permalink to this headline">¶</a></h1>
 <p>CRUD <em>(Create, Read, Update, Delete)</em> are a set of functions used to perform database operations. These functions and how they are used is described below:</p>
-<div class="section" id="sqlselect-sql-text-dataobject">
-<h2>sqlSelect(sql, text, dataObject)<a class="headerlink" href="#sqlselect-sql-text-dataobject" title="Permalink to this headline">¶</a></h2>
-<p>This function is used to retrieve records from a database. It accepts three parameters:</p>
+<div class="section" id="sqlselect-sql-text-dataobject-useconn-sqlphppgm">
+<h2>sqlSelect(sql, text, dataObject, useconn, sqlphppgm)<a class="headerlink" href="#sqlselect-sql-text-dataobject-useconn-sqlphppgm" title="Permalink to this headline">¶</a></h2>
+<p>This function is used to retrieve records from a database. It accepts five(5) parameters:</p>
 <ol class="arabic simple">
-<li>The SQL Select text ( eg. <em>&#8220;select * from customers&#8221;</em> )</li>
-<li>The variable that data retrieved should be stored in</li>
-<li>and the amount of rows which should be returned.</li>
+<li>sql - The SQL Select text ( eg. <em>&#8220;select * from customers&#8221;</em> )</li>
+<li>text - The variable that data retrieved should be stored in</li>
+<li>dataObject - The amount of rows which should be returned.</li>
+<li>useconn - Connection object to be used to establish the connection.</li>
+<li>sqlphppgm - PHP file which will execute the query.</li>
 </ol>
 <ul class="simple">
 <li>An example is shown below:</li>
@@ -183,12 +189,14 @@
 <p>If an error occurs during the sql transaction the <strong>sqlerr</strong> global variable is set with details of the error.
 The <strong>$data.rcdcnt</strong> is also returned as shown in the example above.</p>
 </div>
-<div class="section" id="sqlinsert-table-recordobject">
-<h2>sqlInsert(table,recordObject)<a class="headerlink" href="#sqlinsert-table-recordobject" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>sqlInsert</strong> function adds a record to a specific table to the database. it accepts two parameters:</p>
+<div class="section" id="sqlinsert-table-recordobject-useconn-sqlphppgm">
+<h2>sqlInsert(table,recordObject,useconn,sqlphppgm)<a class="headerlink" href="#sqlinsert-table-recordobject-useconn-sqlphppgm" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlInsert</strong> function adds a record to a specific table to the database. it accepts four parameters:</p>
 <ol class="arabic simple">
-<li>The database table that will be modified.</li>
-<li>and a object with the fields that need to be inserted.</li>
+<li>table - The database table that will be modified.</li>
+<li>recordObject - The object with the fields that need to be inserted.</li>
+<li>useconn - Connection object to be used to establish the connection.</li>
+<li>sqlphppgm - PHP file which will execute the query.</li>
 </ol>
 <p>The example below creates and object using the <strong>sqlUpdateObj</strong> object which extracts fields from <strong>form1</strong> and inserts it into
 the <strong>users</strong> table:</p>
@@ -205,13 +213,15 @@ the <strong>users</strong> table:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="sqlupdate-table-recordobject-updatecriteria">
-<h2>sqlUpdate(table, recordObject, updateCriteria)<a class="headerlink" href="#sqlupdate-table-recordobject-updatecriteria" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>sqlUpdate</strong> function updates records in a table based on a specific criteria. It accepts three parameters:</p>
+<div class="section" id="sqlupdate-table-recordobject-updatecriteria-useconn-sqlphppgm">
+<h2>sqlUpdate(table, recordObject, updateCriteria,useconn,sqlphppgm)<a class="headerlink" href="#sqlupdate-table-recordobject-updatecriteria-useconn-sqlphppgm" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>sqlUpdate</strong> function updates records in a table based on a specific criteria. It accepts five parameters:</p>
 <ol class="arabic simple">
-<li>The database table that will be modified.</li>
-<li>The object with the fields that need to be updated.</li>
-<li>and the where criteria for the records which need to be updated.</li>
+<li>table - The database table that will be modified.</li>
+<li>recordObject - The object with the fields that need to be updated.</li>
+<li>updateCriteria - The where criteria for the records which need to be updated.</li>
+<li>useconn - Connection object to be used to establish the connection.</li>
+<li>sqlphppgm - PHP file which will execute the query.</li>
 </ol>
 <p>The example below updates the changed fields of a record in the <strong>container</strong> table.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">updateObject</span> <span class="o">=</span> <span class="nx">saveddata</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
@@ -229,12 +239,14 @@ the <strong>users</strong> table:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="sqldelete-table-deletecriteria">
-<h2>sqlDelete(table, deleteCriteria)<a class="headerlink" href="#sqldelete-table-deletecriteria" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sqldelete-table-deletecriteria-useconn-sqlphppgm">
+<h2>sqlDelete(table, deleteCriteria,useconn,sqlphppgm)<a class="headerlink" href="#sqldelete-table-deletecriteria-useconn-sqlphppgm" title="Permalink to this headline">¶</a></h2>
 <p>This removes records from a database table based on a specific criteria.</p>
 <ol class="arabic simple">
-<li>The database table that will be modified.</li>
-<li>and the where criteria for the records which need to be deleted.</li>
+<li>table - The database table that will be modified.</li>
+<li>deleteCriteria - The where criteria for the records which need to be deleted.</li>
+<li>useconn - onnection object to be used to establish the connection.</li>
+<li>sqlphppgm - PHP file which will execute the query.</li>
 </ol>
 <p>The example below deletes a record in the <strong>user</strong> table based on the criteria specified:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span><span class="p">;</span>
@@ -249,7 +261,8 @@ the <strong>users</strong> table:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">All CRUD functions update the &#8220;sqlerr&#8221; global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.</p>
+<p class="last">All CRUD functions update the &#8220;sqlerr&#8221; global variable when if fails. This variable can be accessed and displayed to view the nature of the issue.
+Also if the useconn parameter is not passed it will use the default connection which is in the <strong>conn</strong> global variable.</p>
 </div>
 </div>
 <div class="section" id="sqlupdateobj-element">
