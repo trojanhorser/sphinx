@@ -89,6 +89,8 @@
 <li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html#savevar-prototypes">saveVar Prototypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html#other-form-methods">Other Form Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
@@ -159,32 +161,40 @@ are described below:</p>
 <div class="section" id="tabledef-object">
 <h2>tableDef Object<a class="headerlink" href="#tabledef-object" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>The <strong>tableDef</strong> object is the definition of a display table. An example of how to initialize a table is shown below:</li>
+<li>The <strong>tableDef</strong> object is a javascript class which contains attributes which are used to define a table. The attributes</li>
 </ul>
+<p>of the <strong>tableDef</strong> object are described below:</p>
+<div class="section" id="constructor">
+<h3>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h3>
+<p>The constructor is used to initialize the tableDef() object. An example is shown below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">customTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>A table consists of attributes which must be set to completely define a table, some of which are listed below:</p>
+</div>
 <div class="section" id="tableid">
 <h3>tableid<a class="headerlink" href="#tableid" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The <strong>tableid</strong> is unique identifer for the table. An example of how to set this attribute is shown below:</li>
+<li>The <strong>tableid</strong> attribute is unique identifier which is used to reference the table. An example of how it is set is shown below:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;tableId&#39;</span><span class="p">;</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the <strong>tableid</strong> property is not set an id is generated automatically.</p>
 </div>
 </div>
 <div class="section" id="id">
 <h3>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>id</strong> attribute is used to define the unique identifiers for columns of the table. The data type of the id attribute is an array
-an array and its values are set using the array syntax. If a table id is not set one will be generated automatically. The example below shows how to define column id&#8217;s for a table:</p>
+<p>The <strong>id</strong> attribute is used to define the unique identifiers for columns of the table. The data type of the id attribute
+is an array and its values are set using the array syntax.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;columnOne&#39;</span><span class="p">,</span><span class="s1">&#39;columnTwo&#39;</span><span class="p">,</span><span class="s1">&#39;columnThree&#39;</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="header">
 <h3>header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>header</strong> attribute is used to set the display text for columns. The data type of the <strong>header</strong> and its values
+<p>The <strong>header</strong> attribute is used to set the display text for column headers. The data type of the <strong>header</strong> is an array and its values
 are set using the array syntax. <strong>HTML</strong> can also be passed as a value for a header.</p>
 <ul class="simple">
 <li>The example below shows how to set the vlaues of headers with text only:</li>
@@ -201,24 +211,135 @@ are set using the array syntax. <strong>HTML</strong> can also be passed as a va
 </div>
 <div class="section" id="width">
 <h3>width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>width</strong> attribute is used to define the <strong>width</strong> of columns in pixels. The data type of the width attribute is an array
-and its values are set using the array syntax. A column can be hidden with a width of zero (0).</p>
+<p>The <strong>width</strong> attribute is used to define the <strong>width</strong> of columns in pixels. The data type of the width
+attribute is an array and its values are set using the array syntax. A column can be hidden with a width of zero (0).</p>
+<ul class="simple">
+<li>The example below shows how to set the width of a single column:</li>
+</ul>
 <ul class="simple">
 <li>The example below shows how to set the values of the <strong>width</strong> attribute:</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">width</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">190</span><span class="p">];</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="tableonclick">
 <h3>tableonclick<a class="headerlink" href="#tableonclick" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>tablenclick</strong> attribute is used set a <strong>function</strong> which will be executed when a user clicks the table.</p>
+<p>The <strong>tableonclick</strong> attribute is used to set a <strong>function</strong> which will be executed when a user clicks the table.</p>
 <ul class="simple">
-<li>The example shows how to set the tableonclick attribute. It will execute the alert function when the table is clicked:</li>
+<li>The example shows how to set the <strong>tableonclick</strong> attribute. It will execute the alert function when the table is clicked:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">customTable</span><span class="p">.</span><span class="nx">tableonclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Table Has Been Clicked&#39;)&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="style">
+<h3>style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>style</strong> attribute is used to apply css styles to the columns of a table. The data type of the style
+attribute is an array and its values are set using the array syntax.</p>
+<ul class="simple">
+<li>The example below shows how to set the style of a single column:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Set style of column one to underline text;</span>
+<span class="nx">customTable</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;text-decoration: underline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows how to set the style of multiple columns:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Set style of column one, two and three with various font weights</span>
+<span class="nx">customTable</span><span class="p">.</span><span class="nx">width</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;font-weight: normal;&#39;</span><span class="p">,</span><span class="s1">&#39;font-weight: bold;&#39;</span><span class="p">,</span><span class="s1">&#39;font-weight: 900;&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rowselectcolor">
+<h3>rowselectcolor<a class="headerlink" href="#rowselectcolor" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>rowselectcolor</strong> attribute defines the color of a row when it is in the selected state.</p>
+<ul class="simple">
+<li>The example below shows how to set rowselectcolor:</li>
+</ul>
+</div>
+<div class="section" id="tablewidth">
+<h3>tablewidth<a class="headerlink" href="#tablewidth" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>tablewidth</strong> property sets the width of the table in pixels.</p>
+<ul class="simple">
+<li>The example below shows how to set <strong>tablewidth</strong> property to 400 pixels:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tablewidth</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+
+<span class="nx">height</span>
+<span class="o">~~~~~~</span>
+
+<span class="nx">The</span> <span class="o">**</span><span class="nx">height</span><span class="o">**</span> <span class="nx">property</span> <span class="nx">is</span> <span class="nx">used</span> <span class="nx">to</span> <span class="nx">sets</span> <span class="nx">the</span> <span class="nx">height</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">table</span> <span class="k">in</span> <span class="nx">pixels</span><span class="p">.</span>
+
+<span class="o">-</span> <span class="nx">The</span> <span class="nx">example</span> <span class="nx">below</span> <span class="nx">shows</span> <span class="nx">how</span> <span class="nx">to</span> <span class="nx">set</span> <span class="o">**</span><span class="nx">height</span><span class="o">**</span> <span class="nx">property</span> <span class="nx">to</span> <span class="mi">200</span> <span class="nx">pixels</span><span class="o">:</span>
+
+<span class="p">..</span> <span class="nx">code</span><span class="o">-</span><span class="nx">block</span><span class="o">::</span> <span class="nx">javascript</span>
+
+        <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showheader">
+<h3>showheader<a class="headerlink" href="#showheader" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>showheader</strong> attribute is a boolean value, when set to <strong>true</strong> it displays the header of a table.
+When set to false it hides the header. The default value is true.</p>
+<ul class="simple">
+<li>The following example shows how to display the table header:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">showheader</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The following example shows how to hide the table header:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">showheader</span> <span class="o">=</span> <span class="nx">hide</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dbref">
+<h3>dbref<a class="headerlink" href="#dbref" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>dbref</strong> attribute is a boolean value. When set to <strong>true</strong>,
+the value of column <strong>headings</strong> and column <strong>size</strong> are taken from the data dictionary and don&#8217;t have
+to be explicitly defined.</p>
+<ul class="simple">
+<li>The example below shows how to use the <strong>dbref</strong> attribute. The values for column  and column width
+do not have to defined given that the dbref attribute is set to true:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Table definition</span>
+<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s1">&#39;select firstname,lastname,age,address from user&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="valuefunction">
+<h3>valuefunction<a class="headerlink" href="#valuefunction" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>valuefunction</strong> attribute accepts a function name as it&#8217;s value. It updates the specific column with the value returned
+from the function specified. The function must have a return type of <strong>number</strong> or <strong>string</strong>.</p>
+<ul>
+<li><p class="first">An example of how to use valuefunction is shown below. The function <strong>formatSalary</strong> will format the value in
+salary column to with a  dollar &#8220;$&#8221; sign (eg. if salary is 100 it would be changed to $100):</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s1">&#39;select salary from payment&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">formatSalary</span><span class="p">(){</span>
+        <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s2">&quot;salary&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="table-functions">
@@ -242,6 +363,308 @@ and its values are set using the array syntax. A column can be hidden with a wid
 <li>The example shows how to use the <strong>changeCol</strong> function:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">,</span><span class="s1">&#39;new value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="readclickedrow">
+<h3>readClickedRow()<a class="headerlink" href="#readclickedrow" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>readClickedRow</strong> function returns the index of the row selected. It also set the table cursor to the
+positon of the row selected. The <strong>tableonclick</strong> attribute must be set to a defined function
+for <strong>readClickedRow</strong> to be triggered.</p>
+<ul class="simple">
+<li>The example below retrieves the values for a row which was clicked. The example assumes that the  <strong>tableonclick</strong>
+attribute was set with <strong>getRowData</strong> function .</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getRowData</span><span class="p">()</span> <span class="p">{</span>
+
+ <span class="kd">var</span> <span class="nx">tableIndex</span> <span class="o">=</span> <span class="nx">readClickedRow</span><span class="p">();</span>
+
+ <span class="k">if</span> <span class="p">(</span><span class="nx">eof</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
+
+ <span class="kd">var</span> <span class="nx">columnOneValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">);</span>
+ <span class="kd">var</span> <span class="nx">columnTwoValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnTwo&#39;</span><span class="p">);</span>
+
+ <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;ColumnOne value is: &quot;</span> <span class="o">+</span> <span class="nx">columnOneValue</span> <span class="o">+</span> <span class="s2">&quot; ColumnTwo value is: &quot;</span> <span class="o">+</span> <span class="nx">columnTwoValue</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numvalueofcol-columnname">
+<h3>numValueOfCol(columnName)<a class="headerlink" href="#numvalueofcol-columnname" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>numValueOfCol</strong> function accepts the column name of a specified field. It returns the numeric value of the field
+specified.</p>
+<ul class="simple">
+<li>Example of what is returned for various field values are shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Retrieve value of a column called textField where textField=&#39;String With Only Characters&#39;</span>
+<span class="kd">var</span> <span class="nx">columnValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;textField&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">numValueOfCol</span><span class="p">(</span><span class="nx">columnValue</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">        value is 0</span>
+<span class="cm">*/</span>
+
+<span class="c1">//Retrieve value of a column called alphaNumericField where alphaNumericField=&#39;String With Letter And Numbers 1,2,3&#39;</span>
+<span class="kd">var</span> <span class="nx">columnValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;alpahNumericField&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">numValueOfCol</span><span class="p">(</span><span class="nx">columnValue</span><span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">        value is 123</span>
+<span class="cm">*/</span>
+
+<span class="c1">//Retrieve value of a column called numericField where numericField=&#39;123&#39;</span>
+<span class="kd">var</span> <span class="nx">columnValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;numericField&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">numValueOfCol</span><span class="p">(</span><span class="nx">columnValue</span><span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">        value is 123</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="readrow">
+<h3>readRow()<a class="headerlink" href="#readrow" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>readRow</strong> function traverses the rows of a table and allows the column of that row to be accessed.</p>
+<ul class="simple">
+<li>The following example shows how <strong>readRow</strong> is used to traverse the rows of a table and retrieve the values
+of columns <em>(columnOne and columnTwo)</em> in that row:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>function readAllRows(which) {
+
+        /Start at first row
+        posTabCursor(&#39;table1&#39;,0);
+
+        //Read first row
+        readRow();
+
+        while(!eof){
+                var columnOneValue = valueOfCol(&#39;columnOne&#39;);
+                var columnTwoValue = valueOfCol(&#39;columnTwo&#39;);
+
+                alert(&quot;columnOneValue is : &quot; + columnOneValue + &quot; columnTwoValue value is: &quot; + columTwoValue);
+
+                //Read remaining rows until last row is reached or eof
+                readRow();
+        }
+
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="postabcursor-tableid-rowindex">
+<h3>posTabCursor(tableId,rowIndex)<a class="headerlink" href="#postabcursor-tableid-rowindex" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>posTabCursor</strong> function accepts two paramaters <strong>tableId</strong> and <strong>rowIndex</strong>. It sets the row position of the table
+specified. The value <em>top can be passed as a **rowIndex*</em>  parameter to set the row position to the first row.</p>
+<ul class="simple">
+<li>An example below shows how the <strong>posTabCursor</strong> function is used to calculate the sum of the numeric column <strong>amount</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">calculateSum</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">totalAmount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="c1">//Or posTabCursor(&#39;table1&#39;,&#39;*top&#39;) could be used instead</span>
+
+        <span class="nx">readRow</span><span class="p">();</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">)</span> <span class="p">{</span>
+                 <span class="nx">totalAmount</span> <span class="o">+=</span> <span class="nx">numValueOfCol</span><span class="p">(</span><span class="s1">&#39;amount&#39;</span><span class="p">);</span>
+                 <span class="nx">readRow</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Total =&#39;</span><span class="o">+</span><span class="nx">totalAmount</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleterow">
+<h3>deleteRow()<a class="headerlink" href="#deleterow" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>deleteRow</strong> function is used to completely remove a row from a table.</p>
+<ul class="simple">
+<li>The example below is used to delete a row where <strong>columnOne</strong> has a value of <strong>delete</strong>.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">deleteRow</span><span class="p">()</span> <span class="p">{</span>
+
+         <span class="c1">//Position table at the first row</span>
+         <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+         <span class="nx">readRow</span><span class="p">();</span>
+
+         <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">columnOneValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">);</span>
+
+                <span class="c1">//If the value of columnOne is &quot;delete&quot; then delete the row</span>
+                <span class="k">if</span><span class="p">(</span><span class="nx">columnOneValue</span> <span class="o">==</span> <span class="s2">&quot;delete&quot;</span><span class="p">){</span>
+                        <span class="nx">deleteRow</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="nx">readRow</span><span class="p">();</span>
+         <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hiderow">
+<h3>hideRow()<a class="headerlink" href="#hiderow" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>hideRow</strong> function hides the current row.</p>
+<ul class="simple">
+<li>The following example shows how to hide all rows in table</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">hideAllRows</span><span class="p">()</span> <span class="p">{</span>
+
+         <span class="c1">//Position table at the first row</span>
+         <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+         <span class="nx">readRow</span><span class="p">();</span>
+
+         <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">){</span>
+                        <span class="c1">//Hide current row</span>
+                        <span class="nx">hideRow</span><span class="p">();</span>
+                        <span class="nx">readRow</span><span class="p">();</span>
+         <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showrow">
+<h3>showRow()<a class="headerlink" href="#showrow" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>showRow</strong> function shows the current row.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>The example below is used to show rows where <strong>columnOne</strong> has a value of <strong>show</strong>. The example</dt>
+<dd><p class="first last">assumes that the rows were previously hidden using <strong>hideRow()</strong></p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span> <span class="kd">function</span> <span class="nx">showRows</span><span class="p">()</span> <span class="p">{</span>
+
+         <span class="c1">//Position table at the first row</span>
+         <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+         <span class="nx">readRow</span><span class="p">();</span>
+
+         <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">columnOneValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">);</span>
+                <span class="c1">//If the value of columnOne is &quot;show&quot; then show the row</span>
+                <span class="k">if</span><span class="p">(</span><span class="nx">columnOneValue</span> <span class="o">==</span> <span class="s2">&quot;show&quot;</span><span class="p">){</span>
+                        <span class="nx">showRow</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="nx">readRow</span><span class="p">();</span>
+         <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="readcheckedrow-tableid-checkboxname">
+<h3>readCheckedRow(tableId,checkBoxName)<a class="headerlink" href="#readcheckedrow-tableid-checkboxname" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>readCheckedRow</strong> function accepts two parameters, the table id and the name of a  checkbox.
+It only reads the rows of a table which have been selected/checked by the user. A checkbox
+must be defined as an attribute in the table with a valid name.</p>
+<ul class="simple">
+<li>The following example shows how to get the <strong>checkedRows</strong> for a table with a checkbox
+with an id of <strong>tableCheckbox</strong>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getCheckedRows</span><span class="p">()</span> <span class="p">{</span>
+
+         <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+         <span class="nx">readCheckedRow</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="s1">&#39;tableCheckbox&#39;</span><span class="p">);</span>
+
+         <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">columnOneValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">);</span>
+                <span class="nx">readCheckedRow</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="s1">&#39;tableCheckbox&#39;</span><span class="p">);</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="nx">columnOneValue</span><span class="p">);</span>
+         <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ischeckedcol-checkboxname">
+<h3>isCheckedCol(checkBoxName)<a class="headerlink" href="#ischeckedcol-checkboxname" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>isCheckedCol</strong> function accepts the name of a checkbox and returns true if the checkbox
+is checked and false if it is not. It can be used as an alternative to <strong>readCheckedRow</strong>.</p>
+<ul class="simple">
+<li>The following example shows how to use the <strong>isCheckedCol</strong> function to retrieve rows which have been
+selected:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getCheckedRows</span><span class="p">()</span> <span class="p">{</span>
+
+ <span class="nx">posTabCursor</span><span class="p">(</span><span class="s1">&#39;table1&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+ <span class="nx">readRow</span><span class="p">();</span>
+
+ <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">eof</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isCheckedCol</span><span class="p">(</span><span class="s1">&#39;tableCheckbox&#39;</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="kd">var</span> <span class="nx">columnOneValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;columnOne&#39;</span><span class="p">);</span>
+                        <span class="nx">alert</span><span class="p">(</span><span class="nx">columnOneValue</span><span class="p">);</span>
+          <span class="p">}</span>
+
+                <span class="nx">readRow</span><span class="p">();</span>
+ <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="applytabledef-tabledefobject">
+<h3>applyTableDef(tableDefObject)<a class="headerlink" href="#applytabledef-tabledefobject" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>applyTableDef</strong> function accepts a tableDef object as a parameter and generates HTML based on the attribute
+values of the tableDef object. It is used with <strong>changeContent</strong> to render the table HTML to page.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>The following example shows the HTML which is returned by the applyTableDef function for the customTable</dt>
+<dd><p class="first last">object:</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">tableHTML</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="c1">//Table definition</span>
+<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;customTable&#39;</span><span class="p">;</span>
+
+<span class="c1">//Define column id&#39;s</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;columnOne&#39;</span><span class="p">,</span><span class="s1">&#39;columnTwo&#39;</span><span class="p">,</span><span class="s1">&#39;columnThree&#39;</span><span class="p">];</span>
+
+<span class="c1">//Define text for headers</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Column One&#39;</span><span class="p">,</span><span class="s1">&#39;Column Two&#39;</span><span class="p">,</span><span class="s1">&#39;Column 3&#39;</span><span class="p">];</span>
+
+<span class="c1">//Get HTML from applyTableDef function</span>
+<span class="nx">tableHTML</span> <span class="o">=</span> <span class="nx">applyTableDef</span><span class="p">(</span><span class="nx">table</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The value of <strong>tableHTML</strong> is shown below:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">SPAN</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;customTabletableheadwrap&quot;</span>  <span class="na">class</span><span class="o">=</span><span class="s">tableHeadwrap</span> <span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;customTablehead&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tableHead&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;undefined&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$ha0</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$ha1</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$ha2</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">width</span><span class="o">=</span><span class="s">15</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">BGCOLOR</span><span class="o">=</span><span class="s">#336699</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;columnOne&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">center</span><span class="p">&gt;</span>Column One<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;columnTwo&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">center</span><span class="p">&gt;</span>Column Two<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;columnThree&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">center</span><span class="p">&gt;</span>Column 3<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">emptycol</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">table</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">table</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">0</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">0</span> <span class="na">border</span><span class="o">=</span><span class="s">0</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$wrap</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tableWrap&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:200px;&quot;</span>
+<span class="na">onscroll</span><span class="o">=</span><span class="s">customTabletableheadwrap.scrollLeft=this.scrollLeft</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;customTable&quot;</span> <span class="na">STYLE</span><span class="o">=</span><span class="s">&quot;table-layout:fixed&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$hb0</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$hb1</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">col</span> <span class="na">id</span><span class="o">=</span><span class="s">customTable$hb2</span> <span class="na">width</span><span class="o">=</span><span class="s">132</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tbody</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tableBody&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The following example shows how the <strong>changeContent</strong> function is used to render the HTML of the
+<strong>tableHTML</strong> variable:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span> <span class="s1">&#39;tableDiv&#39;</span><span class="p">,</span> <span class="nx">tableHTML</span> <span class="p">);</span>
 </pre></div>
 </div>
 </div>

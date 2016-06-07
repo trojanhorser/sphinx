@@ -24,3 +24,4 @@ It several components which are outlined below:
    globalvariable
    time
    table
+   logging

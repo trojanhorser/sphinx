@@ -92,14 +92,24 @@
 <li class="toctree-l4"><a class="reference internal" href="#field-functions">Field Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#date-fields">Date Fields</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage">Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-entry-and-update">Date Entry and Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#time-fields">Time Fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html#other-form-methods">Other Form Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
 <li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
 </ul>
 </li>
 </ul>
@@ -540,7 +550,8 @@ example is shown below.</li>
 <ul class="simple">
 <li>The changeVar function also has the ability to detect which the <strong>field type</strong> and modify the data assigned to match the field type.
 In the example below the field <strong>&#8216;salary&#8217;</strong> which is numeric is assigned the value <strong>&#8216;$7k656&#8217;</strong>. The value <strong>&#8216;$7k656&#8217;</strong> will be changed
-to <strong>7656</strong> automatically by the change var function</li>
+to <strong>7656</strong> automatically by the changeVar function.</li>
+<li>The example below shows how changeVar would modify a numeric field. Notice that the non-numeric characters are stripped from the string.</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span><span class="s1">&#39;$7k656&#39;</span><span class="p">);</span>
 <span class="nx">newValue</span> <span class="o">=</span> <span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
@@ -551,13 +562,34 @@ to <strong>7656</strong> automatically by the change var function</li>
 </pre></div>
 </div>
 <ul class="simple">
-<li>The value of <strong>date fields</strong> can also be changed. This is done by passing in <strong>&#8216;*date&#8217;</strong> as the third parameter as shown below:</li>
+<li>changeVar and Date fields</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">,</span><span class="s1">&#39;*date&#39;</span><span class="p">);</span>
+<p>Like other fields, the value of a date field can be updated using the changeVar() function.
+In order to change the value, the format of the value being supplied must be specified.
+If format entered is YMD (same as the global date format), use ‘<a href="#id1"><span class="problematic" id="id2">*</span></a>date’. This tells the system to parse the supplied value as-is without performing any checks. Ideal for use when a variable is being passed has been taken directly from another date field.
+If format entered = global format (datefmt), do not use ‘<a href="#id3"><span class="problematic" id="id4">*</span></a>date’</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If format is not YMD or global format, the function will NOT produce an accurate result.</p>
+</div>
+<ul class="simple">
+<li>The following example assumes that <strong>datefmt</strong> is D (dd/mm/yyyy)</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="nx">myDate</span><span class="p">,</span> <span class="mi">05092016</span><span class="p">);</span>
+
 <span class="cm">/*</span>
-<span class="cm"> OR</span>
+<span class="cm">  value of myDate would be changed to &quot;05/09/2016&quot;</span>
 <span class="cm">*/</span>
-<span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The following example assumes that <strong>datefmt</strong> is Y (yyyy/mm/dd)</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeVar</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;20150901&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">  value of myDate would be changed to &quot;05/09/2016&quot;</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -920,6 +952,72 @@ If no date format is specified it uses the default format &#8216;Y&#8217;.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="date-fields">
+<h1>Date Fields<a class="headerlink" href="#date-fields" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Like other fields, the value of a date field can be updated using the changeVar() function. This function
+In order to change the value, the format of the value being supplied must be specified.
+- If format entered is YMD (same as the global date format), use ‘<a href="#id5"><span class="problematic" id="id6">*</span></a>date’. This tells the system to parse the supplied value as-is without performing any checks. Ideal for use when a variable is being passed has been taken directly from another date field.
+- If format entered = global format (datefmt), do not use ‘<a href="#id7"><span class="problematic" id="id8">*</span></a>date’</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If format is not YMD or global format, the function will NOT produce an accurate result.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>changeVar(myDate, 05182016, ‘*date’);
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p>Date and time fields are stored as integer values
+The first part of the date (4 digits) represents the year, followed by the month (2 digits) and the day (2 digits). E.g. “20160524” would represent 24-May-2016, which is broken down as:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Year - 2016</li>
+<li>Month - 05</li>
+<li>Day - 24</li>
+<li>Dates are displayed based on the editcode attribute assigned to the field, or in the absence of this attribute, the global variable datefmt.</li>
+<li>Date Formats</li>
+</ul>
+</div></blockquote>
+<p>The following date formats (shown with their respective codes) are supported:
+-       dd/mm/yyyy (datefmt ‘d’)
+-       mm/dd/yyyy (datefmt ‘m’) [verify the ‘m’ code]
+-       yyyy/mm/dd (datefmt ‘y’)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">that these codes would have to be set for the datefmt global variable, as the editcode attribute, even if set for a field, is ignored for date fields.</p>
+</div>
+</div>
+<div class="section" id="date-entry-and-update">
+<h2>Date Entry and Update<a class="headerlink" href="#date-entry-and-update" title="Permalink to this headline">¶</a></h2>
+<p>For data entry, date fields on forms are divided into three separate fields, corresponding to Year, Month and Day.</p>
+<div class="section" id="editmask-for-date">
+<h3>EditMask For Date<a class="headerlink" href="#editmask-for-date" title="Permalink to this headline">¶</a></h3>
+<p>The editmask attribute can be used to guide/force the correct entry format.</p>
+<p>The following editmask setting would typically be used for a date field:
+“  /  /    ”</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">each space included in the edit mask constitutes a character that the user is expected to enter - for the example above, there are two (2) spaces followed by a slash, followed by 2 more spaces, another slash and finally four (4) spaces for the year. This mask could accommodate a date format of mm/dd/yyyy or dd/mm/yyyy.</p>
+</div>
+<ul class="simple">
+<li>Calendar</li>
+</ul>
+<p>By default, a date entry field is accompanied by a calendar option. However, the option is hidden if the field is set as read-only or protected.
+Otherwise, the field’s nocalendar attribute can be used to prevent this option from being presented.</p>
+</div>
+</div>
+</div>
+<div class="section" id="time-fields">
+<h1>Time Fields<a class="headerlink" href="#time-fields" title="Permalink to this headline">¶</a></h1>
+<p>Time values are represented by specific integers between 0 and 2359. Within this range, each hour of the day is represented by a multiple of 100 (e.g. 500 = 5:00 am, the fifth hour of a 24-hour day). Similarly, each minute is represented by an integer value of between 0 and 59 (e.g. 18 = 18 minutes past the hour).
+When the integer values for Hours and Minutes are added together, the result looks like this:
+500 + 18 = 518 , which represents a time of 5:18 am (standard format)  or 0518 hrs (military format)
+Similarly, the integer value “2105” represents the 21st hour plus 5 minutes: 9:05 pm or 2105 hrs.
+The editcode attribute of the time field is ignored, but the global variable <strong>timefmt</strong> may be set to either “s” for standard time or “m” for military time.</p>
 </div>
 
 

@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Database Logging &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Training" href="training.html"/>
+        <link rel="prev" title="Table" href="table.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#date-fields">Date Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#time-fields">Time Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html#other-form-methods">Other Form Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Database Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maintainlogfile-program">MAINTAINLOGFILE Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-log-file-screen">Creating Log File Screen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-log-table">Adding A Log Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Database Logging</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/logging.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="database-logging">
+<h1>Database Logging<a class="headerlink" href="#database-logging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Database logging is an integral feature of the <strong>Advantum Software Development Framework</strong>. All database actions which
+alter the contents of tables are captured automatically by the logging framework.</p>
+</div>
+<div class="section" id="maintainlogfile-program">
+<h2>MAINTAINLOGFILE Program<a class="headerlink" href="#maintainlogfile-program" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>MAINTAINLOGFILE</strong> is used to configure the table(s) and actions which will be logged for each table. Actions which can be
+logged for each table are:</p>
+<ol class="arabic simple">
+<li>Addition - This is when a record is added to a table.</li>
+<li>Change - This when a record is updated.</li>
+<li>Delete - This is when a record is removed from the table.</li>
+</ol>
+<ul class="simple">
+<li>The diagram below shows an image of the <strong>MAINTAINLOGFILE</strong> table.</li>
+</ul>
+<img alt="_images/MaintainLog.png" src="_images/MaintainLog.png" />
+<p>It consists of seven(7) main sections which are described below:</p>
+<ol class="arabic simple">
+<li>File to Log - This represents the table(s) which will be logged.</li>
+<li>Description - This is a user friendly description of the table.</li>
+<li>Log Addition - If this option is selected all records which will be <strong>added</strong> will be logged.</li>
+<li>Log Change - If this option is selected all records which have been <strong>changed</strong>  will be logged.</li>
+<li>Log Delete - If this option is selected all records which have been <strong>deleted</strong> will be logged.</li>
+<li>Create New Entries - <a href="#id1"><span class="problematic" id="id2">*</span></a>Allow for the addition and configuration of tables for logging.</li>
+<li>Refresh - Restores the application to its default state.</li>
+</ol>
+</div>
+<div class="section" id="creating-log-file-screen">
+<h2>Creating Log File Screen<a class="headerlink" href="#creating-log-file-screen" title="Permalink to this headline">¶</a></h2>
+<p>When The <strong>Create New Entries</strong> button is clicked it will show the <strong>Creating Log File Screen</strong> which is shown below:</p>
+<img alt="_images/CreatingNewLogEntries.png" src="_images/CreatingNewLogEntries.png" />
+<p>It consists of the ten(10) sections which are described below:</p>
+<ol class="arabic">
+<li><p class="first"><strong>File to Log</strong> - This a search field which allows database tables to be selected. It launches a window showing a list of
+all tables when the mouse cursor is place in the field. An example is shown below:</p>
+<img alt="_images/tableList.png" src="_images/tableList.png" />
+</li>
+<li><p class="first"><strong>Table Description</strong> - This is a description of the table to be logged.</p>
+</li>
+<li><p class="first"><strong>Accept Button</strong> - This allows the changes made to be saved.</p>
+</li>
+<li><p class="first"><strong>Cancel Button</strong> - Returns the user to the <strong>MAINTAINLOGIFILE</strong> application.</p>
+</li>
+<li><p class="first"><strong>Add To Key Field To List</strong> - Adds fields that will always be logged. By default the primary key of the table is added.</p>
+</li>
+<li><p class="first"><strong>Key Field</strong> - This is the name of the filed(s) which are to be logged.</p>
+</li>
+<li><p class="first"><strong>Description</strong> - This is the field description.</p>
+</li>
+<li><p class="first"><strong>Log Delete</strong> - If this option is checked all delete operations on the table will be logged.</p>
+</li>
+<li><p class="first"><strong>Log Change</strong> - If this option is checked all update operations on the table will be logged.</p>
+</li>
+<li><p class="first"><strong>Log Add</strong> - If this option is checked all insert operations on the table will be logged.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="adding-a-log-table">
+<h2>Adding A Log Table<a class="headerlink" href="#adding-a-log-table" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-one-add-a-table">
+<h3>Step One - Add a table<a class="headerlink" href="#step-one-add-a-table" title="Permalink to this headline">¶</a></h3>
+<p>To add a table, click in the <strong>File to Log</strong> field and choose a table. As shown below:</p>
+<img alt="_images/tableList.png" src="_images/tableList.png" />
+</div>
+<div class="section" id="step-two-add-additional-columns">
+<h3>Step Two - Add additional columns<a class="headerlink" href="#step-two-add-additional-columns" title="Permalink to this headline">¶</a></h3>
+<p>By default the primary keys for the table are added as shown below:</p>
+<img alt="_images/tableSelected.png" src="_images/tableSelected.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Other columns can be added to the primary key list. These columns would become mandatory for logging and are selected</p>
+</div>
+<p>by default when the reporting tool is launched.</p>
+<p>To add a table, click in the <strong>File to Log</strong> field and choose a table.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="table.html" class="btn btn-neutral" title="Table" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

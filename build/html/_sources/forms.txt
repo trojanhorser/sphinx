@@ -32,9 +32,9 @@ The parent **div** is typically defined with the following attributes:
 
 	- **id** which is the identifier.
 
-	- **style** which is normally set to **display:none** and. 
+	- **style** which is normally set to **display:none** and.
 
-	- **class** which can be set with a value of "window" to create a modal form. 
+	- **class** which can be set with a value of "window" to create a modal form.
 
 An example of a modal form is shown below:
 
@@ -66,7 +66,7 @@ A optional **title** can be added to the form. It is defined using a **div** wit
 **class** which must have the value **"titleBar"** an example is shown below:
 
 .. code-block:: html
-	
+
 	<div id=titlebar1 class="titleBar"></div>
 
 
@@ -104,7 +104,7 @@ Fields are used for both input and output and are defined within the form elemen
 	</form>
 	</div>
 	</div>
-	
+
 Form Utility Methods
 --------------------
 The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:
@@ -112,7 +112,7 @@ The form utilizes several custom javascript functions to facilitate form manipul
 saveVar(field)
 ~~~~~~~~~~~~~~
 
-The **saveVar()** function saves the current state of a form.
+The **saveVar()** constructor is used to save the HTML variables (fields) in a saveVar object.
 
 - It can be used to save the entire form as shown below:
 
@@ -125,24 +125,24 @@ The **saveVar()** function saves the current state of a form.
 .. code-block:: javascript
 
    var saveddata=new saveVar('firstname');
-   
+
 saveVar Prototypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------
 
-consists of prototypes which are described below:
+The **saveVar** object consists of prototypes which are described below:
 
-- returnChangedVar()
+returnChangedVar()
+-----------------
 
-The **returnChangedVar** function returns all the form elements which have been changed after a the **saveVar()** function is called.
+The **returnChangedVar** function returns all returns the changed fields within a **saveVar** object.
 
 - If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:
 
 .. code-block:: javascript
 
 	changedData = saved.returnChangedVar();
-		
+
 	for (field in changedData) {
-			
 		if (field != 'addVar' && field != 'removeVar') {
 		   alert('Field: '+field+' === Value: '+valueOf(field)+'
 		   === Saved Value:'+saved.savedValueOf(field));
@@ -154,22 +154,22 @@ The **returnChangedVar** function returns all the form elements which have been 
 .. code-block:: javascript
 
 	changedData=saved.returnChangedVar('array');
-	
+
 	for (index=0; index<changedData.length; index++) {
 	   field=changedData[p];
 	   alert('OR...Field: '+field+' === Value: '+valueOf(field)+'
 	   === Saved Value:'+saved.savedValueOf(field));
 	}
 
+restoreVar(fieldOne,fieldTwo)
+-----------------------------
 
-- restoreVar(fieldOne,fieldTwo)
-
-The **restoreVar** function restores the value of fields within a form if they have been modified.
+The **restoreVar** function restores the saved value of fields in savedVar to the corresponding fields..
 
 - If it is called without parameters it will restore the value of all fields in the current form:
 
 .. code-block:: javascript
-	
+
 	function restoreChangedData() {
 		saved.restoreVar();
 	}
@@ -177,14 +177,15 @@ The **restoreVar** function restores the value of fields within a form if they h
 - It can also be called with one or more fields which require restoration as shown below:
 
 .. code-block:: javascript
-	
+
 	function restoreChangedData() {
 		saved.restoreVar('fieldOne','fieldTwo');
 	}
 
-- hasChangedVar(fieldOne,fieldTwo...)
+hasChangedVar(fieldOne,fieldTwo...)
+-----------------------------------
 
-The **hasChangedVar** function returns a boolean value if any fields have been changed:
+The **hasChangedVar** function scans all saved fields and checks if any have changed. If so, it returns true.:
 
 - If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.
 
@@ -204,46 +205,48 @@ The **hasChangedVar** function returns a boolean value if any fields have been c
 
 
 savedValueOf(field)
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 The savedValueOf returns the original value of a field even when it is changed in form.
 
 The example below shows that when the field **userid** is changed it's original value can still be retrieved:
 
 .. code-block:: javascript
-	
+
 	 /*Orignal value 100*/
-	 
+
 	new saved = saveVar('userid');
-	
+
 	/* Change userid to 200*/
-	
-	changeVar('userid',200); 
+
+	changeVar('userid',200);
 
 	alert( saveVar.savedValueOf('userid') );
-	
+
 	/*
 		Output will be 100 which is the original value
 	*/
-	
-	
+
+Other Form Methods
+==================
+
 displayForm(form,y,x)
 ~~~~~~~~~~~~~~~~~~~~~
 
-This function displays the form if it was hidden. 
-It accepts the form to display as its parameter and the **x** and **y**, coordinates. If it is called without parameters it automatically 
+This function displays the form if it was hidden.
+It accepts the form to display as its parameter and the **x** and **y**, coordinates. If it is called without parameters it automatically
 centers the form.
 
 - Example below shows how to call **displayForm**.
 
 .. code-block:: javascript
-	
+
 	displayForm("form1");
 
 - Example below shows how to call **displayForm** wiht **X** and **Y** coordinates.
 
 .. code-block:: javascript
-	
+
 	displayForm('form1',80,100);
 
 closeForm(form)
@@ -274,7 +277,7 @@ This is panel with a specific css style which used to highlight the are where bu
 An example of how the button is generated is shown below:
 
 .. code-block:: html
-   
+
 	<div class=buttonarea>
 	<span button=addRecord type=add onclick=addRecord()></span>
 	<span button=changeRecord type=change onclick=changeRecord()></span>
@@ -288,7 +291,7 @@ This is panel with a specific css style which used to highlight the area where f
 An example of how the button is generated is shown below:
 
 .. code-block:: html
-   
+
 	<div class=outputarea style="margin:50px; width:400px; height:100px">
 	<span button=exitbutton type=exit class="ximage" onclick='closeForm()'></span>
 	<span field=concde upper></span><br>
@@ -296,6 +299,3 @@ An example of how the button is generated is shown below:
 	<span field=conadd></span><br>
 	<span field=conadd2></span><br>
 	</div>
-
-
-

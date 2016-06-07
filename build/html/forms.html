@@ -87,10 +87,20 @@
 <li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#date-fields">Date Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#time-fields">Time Fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Forms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#defining-a-form">Defining A Form</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#form-utility-methods">Form Utility Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#savevar-prototypes">saveVar Prototypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returnchangedvar">returnChangedVar()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restorevar-fieldone-fieldtwo">restoreVar(fieldOne,fieldTwo)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#haschangedvar-fieldone-fieldtwo">hasChangedVar(fieldOne,fieldTwo...)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#savedvalueof-field">savedValueOf(field)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-form-methods">Other Form Methods</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#panels">Panels</a></li>
 </ul>
 </li>
@@ -100,6 +110,8 @@
 <li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging</a></li>
 </ul>
 </li>
 </ul>
@@ -246,7 +258,7 @@ of the form and example is shown below:</p>
 <p>The form utilizes several custom javascript functions to facilitate form manipulation, these functions are described below:</p>
 <div class="section" id="savevar-field">
 <h3>saveVar(field)<a class="headerlink" href="#savevar-field" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>saveVar()</strong> function saves the current state of a form.</p>
+<p>The <strong>saveVar()</strong> constructor is used to save the HTML variables (fields) in a saveVar object.</p>
 <ul class="simple">
 <li>It can be used to save the entire form as shown below:</li>
 </ul>
@@ -260,20 +272,20 @@ of the form and example is shown below:</p>
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="savevar-prototypes">
-<h3>saveVar Prototypes<a class="headerlink" href="#savevar-prototypes" title="Permalink to this headline">¶</a></h3>
-<p>consists of prototypes which are described below:</p>
-<ul class="simple">
-<li>returnChangedVar()</li>
-</ul>
-<p>The <strong>returnChangedVar</strong> function returns all the form elements which have been changed after a the <strong>saveVar()</strong> function is called.</p>
+<h2>saveVar Prototypes<a class="headerlink" href="#savevar-prototypes" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>saveVar</strong> object consists of prototypes which are described below:</p>
+</div>
+<div class="section" id="returnchangedvar">
+<h2>returnChangedVar()<a class="headerlink" href="#returnchangedvar" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>returnChangedVar</strong> function returns all returns the changed fields within a <strong>saveVar</strong> object.</p>
 <ul class="simple">
 <li>If it is called without any parameters it will return a list of the fields which have been changed, as shown in the example below:</li>
 </ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changedData</span> <span class="o">=</span> <span class="nx">saved</span><span class="p">.</span><span class="nx">returnChangedVar</span><span class="p">();</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="nx">field</span> <span class="k">in</span> <span class="nx">changedData</span><span class="p">)</span> <span class="p">{</span>
-
         <span class="k">if</span> <span class="p">(</span><span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;addVar&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span> <span class="o">!=</span> <span class="s1">&#39;removeVar&#39;</span><span class="p">)</span> <span class="p">{</span>
            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Field: &#39;</span><span class="o">+</span><span class="nx">field</span><span class="o">+</span><span class="s1">&#39; === Value: &#39;</span><span class="o">+</span><span class="nx">valueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span>
 <span class="s1">           === Saved Value:&#39;</span><span class="o">+</span><span class="nx">saved</span><span class="p">.</span><span class="nx">savedValueOf</span><span class="p">(</span><span class="nx">field</span><span class="p">));</span>
@@ -293,10 +305,10 @@ of the form and example is shown below:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>restoreVar(fieldOne,fieldTwo)</li>
-</ul>
-<p>The <strong>restoreVar</strong> function restores the value of fields within a form if they have been modified.</p>
+</div>
+<div class="section" id="restorevar-fieldone-fieldtwo">
+<h2>restoreVar(fieldOne,fieldTwo)<a class="headerlink" href="#restorevar-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>restoreVar</strong> function restores the saved value of fields in savedVar to the corresponding fields..</p>
 <ul class="simple">
 <li>If it is called without parameters it will restore the value of all fields in the current form:</li>
 </ul>
@@ -313,10 +325,10 @@ of the form and example is shown below:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>hasChangedVar(fieldOne,fieldTwo...)</li>
-</ul>
-<p>The <strong>hasChangedVar</strong> function returns a boolean value if any fields have been changed:</p>
+</div>
+<div class="section" id="haschangedvar-fieldone-fieldtwo">
+<h2>hasChangedVar(fieldOne,fieldTwo...)<a class="headerlink" href="#haschangedvar-fieldone-fieldtwo" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>hasChangedVar</strong> function scans all saved fields and checks if any have changed. If so, it returns true.:</p>
 <ul class="simple">
 <li>If it is called without parameters it scans the entire form and returns true or false if any of the fields have been altered.</li>
 </ul>
@@ -335,7 +347,7 @@ of the form and example is shown below:</p>
 </div>
 </div>
 <div class="section" id="savedvalueof-field">
-<h3>savedValueOf(field)<a class="headerlink" href="#savedvalueof-field" title="Permalink to this headline">¶</a></h3>
+<h2>savedValueOf(field)<a class="headerlink" href="#savedvalueof-field" title="Permalink to this headline">¶</a></h2>
 <p>The savedValueOf returns the original value of a field even when it is changed in form.</p>
 <p>The example below shows that when the field <strong>userid</strong> is changed it&#8217;s original value can still be retrieved:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span> <span class="cm">/*Orignal value 100*/</span>
@@ -354,8 +366,9 @@ of the form and example is shown below:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="displayform-form-y-x">
-<h3>displayForm(form,y,x)<a class="headerlink" href="#displayform-form-y-x" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="other-form-methods">
+<h1>Other Form Methods<a class="headerlink" href="#other-form-methods" title="Permalink to this headline">¶</a></h1>
 <p>This function displays the form if it was hidden.
 It accepts the form to display as its parameter and the <strong>x</strong> and <strong>y</strong>, coordinates. If it is called without parameters it automatically
 centers the form.</p>
@@ -371,21 +384,13 @@ centers the form.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">displayForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="closeform-form">
-<h3>closeForm(form)<a class="headerlink" href="#closeform-form" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>closeForm</strong> function closes the form which is modal. An example of how it is used is show below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">closeForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="clearform-form">
-<h3>clearForm(form)<a class="headerlink" href="#clearform-form" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>clearForm</strong> function clears all the fields on a the specified form:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">clearForm</span><span class="p">(</span><span class="s1">&#39;form1&#39;</span><span class="p">);</span>
 </pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="panels">
 <h2>Panels<a class="headerlink" href="#panels" title="Permalink to this headline">¶</a></h2>
