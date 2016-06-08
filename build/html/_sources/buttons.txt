@@ -7,7 +7,7 @@ Buttons
 
 The advantum software development framework consists of many predefined buttons. Buttons are defined by creating
 a **span** html element with a button **attribute** and **type**. Only the style of the button is changed with the type attribute,
-fucntionality is added with custom javascript functions.   
+fucntionality is added with custom javascript functions.
 
 Button Types
 ------------
@@ -27,7 +27,7 @@ Accept button html code example and how it is rendered is shown below:
    :height: 100px
    :width: 200 px
    :scale: 50 %
- 
+
 add
 ~~~~~~
 
@@ -41,7 +41,7 @@ Add button html code example and how it is rendered is shown below:
    :height: 100px
    :width: 200 px
    :scale: 50 %
-     
+
 apply
 ~~~~~~
 
@@ -81,12 +81,12 @@ Cancel button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=cancelButton type=cancel onclick=goBack()></span>
-   
+
 .. image:: cancel.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
-   
+
 change
 ~~~~~~
 
@@ -95,12 +95,12 @@ Change button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=changeButton type=change onclick=goBack()></span>
- 
+
 .. image:: change.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
-  
+
 close
 ~~~~~~
 
@@ -138,7 +138,7 @@ Edit button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=editRecord type=edit onclick=editRecord()></span>
-   
+
 .. image:: edit.png
 	:height: 100px
 	:width: 200 px
@@ -159,7 +159,7 @@ Exit button html code example and how it is rendered is shown below:
 	:height: 100px
 	:width: 100px
 	:scale: 50 %
-	
+
 new
 ~~~~~~
 
@@ -171,7 +171,7 @@ New button html code example and how it is rendered is shown below:
 
 .. image:: new.png
 	:height: 400px
-	:width: 400 px
+	:width: 400px
 	:scale: 50 %
 
 
@@ -201,7 +201,7 @@ Refresh button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=refreshButton type=refresh onclick=reference()></span>
- 
+
 .. image:: refresh.png
 	:height: 100px
 	:width: 200 px
@@ -219,8 +219,8 @@ Recycle button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=recycleButton type=recycle onclick=recycle()></span>
-   
-    
+
+
 .. image:: delete.png
 	:height: 100px
 	:width: 200 px
@@ -236,7 +236,7 @@ Save button html code example and how it is rendered is shown below:
 .. code-block:: html
 
    <span button=saveButton type=save onclick=save()></span>
-   
+
 .. image:: save.png
 	:height: 100px
 	:width: 200 px
@@ -246,7 +246,7 @@ Save button html code example and how it is rendered is shown below:
 
 Other Button Attributes
 -----------------------
-	
+
 text
 ~~~~~~
 

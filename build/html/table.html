@@ -32,7 +32,7 @@
   
     <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
         <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
-        <link rel="next" title="Training" href="training.html"/>
+        <link rel="next" title="Database Logging" href="logging.html"/>
         <link rel="prev" title="Date and Time Functions" href="time.html"/> 
 
   
@@ -87,9 +87,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#date-fields">Date Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#time-fields">Time Fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="forms.html#savevar-prototypes">saveVar Prototypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="forms.html#other-form-methods">Other Form Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
@@ -102,6 +103,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#table-functions">Table Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
 </ul>
 </li>
 </ul>
@@ -220,6 +222,13 @@ attribute is an array and its values are set using the array syntax. A column ca
 <li>The example below shows how to set the values of the <strong>width</strong> attribute:</li>
 </ul>
 </div>
+<div class="section" id="height">
+<h3>height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>height</strong> attribute is used to define the height of the table in pixels.</p>
+<ul class="simple">
+<li>The example below sets the height of the <strong>customTable</strong> to 500 pixels</li>
+</ul>
+</div>
 <div class="section" id="tableonclick">
 <h3>tableonclick<a class="headerlink" href="#tableonclick" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>tableonclick</strong> attribute is used to set a <strong>function</strong> which will be executed when a user clicks the table.</p>
@@ -302,6 +311,42 @@ When set to false it hides the header. The default value is true.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="sqlselect">
+<h3>sqlselect<a class="headerlink" href="#sqlselect" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>sqlselect</strong> attribute is used to bind the table to an sql statement. The result or data obtained from the executed
+sql will be used to populate the table.</p>
+<ul class="simple">
+<li>The following example shows how to bind an sql statement to a table:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">showheader</span> <span class="o">=</span> <span class="nx">hide</span><span class="p">;</span>
+<span class="c1">//Sql statement to retrive user information from the user table.</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s1">&#39;select firstname,lastname,age,address from user&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the name of the headings are not set (as in the example above) the default values
+will be the name of the columns of the table in the database. However if the <strong>dbref</strong>
+attribute is set the column headings of the data dictionary will be displayed.</p>
+</div>
+</div>
+<div class="section" id="sqlrcdcnt">
+<h3>sqlrcdcnt<a class="headerlink" href="#sqlrcdcnt" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>sqlrcdcnt</strong> attribute is used to set the amount of records retrieved from the executed select statement.</p>
+<ul class="simple">
+<li>An example of how to set the the <strong>sqlrcdcnt</strong> to 10 is shown below:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Table definition</span>
+<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s1">&#39;select firstname,lastname,age,address from user&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlrcdcnt</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="dbref">
 <h3>dbref<a class="headerlink" href="#dbref" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>dbref</strong> attribute is a boolean value. When set to <strong>true</strong>,
@@ -339,11 +384,35 @@ salary column to with a  dollar &#8220;$&#8221; sign (eg. if salary is 100 it wo
 </div>
 </div></blockquote>
 </li>
+<li><p class="first">Alternatively the sql statements can be modified to include the value function as a column. This is done by prefixing the function name
+with the <strong>&#64;value:</strong> string. The example below shows include the value function in the sql string.</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">table</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s1">&#39;select @value:formatSalary from payment&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">formatSalary</span><span class="p">(){</span>
+        <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s2">&quot;salary&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
 </ul>
 </div>
 </div>
 <div class="section" id="table-functions">
 <h2>Table Functions<a class="headerlink" href="#table-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="column-columnid">
+<h3>column(columnId)<a class="headerlink" href="#column-columnid" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>column</strong> function is used access specific table column elements. Attributes of these columns can also be set as shown in the
+examples below:</p>
+<p>The example below sets the <strong>width</strong> of <strong>columnOne</strong> to 400 pixels and also sets the style attribute.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
 <div class="section" id="newrow-tableid">
 <h3>newRow(tableId)<a class="headerlink" href="#newrow-tableid" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>newRow</strong> function accepts the id of a table and adds a new row to the specified table.</p>
@@ -678,7 +747,7 @@ values of the tableDef object. It is used with <strong>changeContent</strong> to
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="logging.html" class="btn btn-neutral float-right" title="Database Logging" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="time.html" class="btn btn-neutral" title="Date and Time Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

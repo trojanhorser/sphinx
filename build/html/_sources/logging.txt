@@ -85,6 +85,17 @@ By default the primary keys for the table are added as shown below:
 .. image:: tableSelected.png
 
 .. note:: Other columns can be added to the primary key list. These columns would become mandatory for logging and are selected
-by default when the reporting tool is launched.
+          by default when the reporting tool is launched.
 
-To add a table, click in the **File to Log** field and choose a table.
+Step Three - Accept the changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click the **Accept Button** to apply the changes. 
+
+Viewing The Logs
+----------------
+
+The PRINTABLELOG Program
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To **PRINTABLELOG** program allows logs to be viewed. The image below shows the **PRINTTABLELOG** program.

@@ -81,6 +81,16 @@ attribute is an array and its values are set using the array syntax. A column ca
   //Set width of column 0,1 and 2
 	customTable.width=[180,100,190];
 
+height
+~~~~~~
+
+The **height** attribute is used to define the height of the table in pixels.
+
+- The example below sets the height of the **customTable** to 500 pixels 
+.. code-block:: javascript
+	//Set width of column 0 to 500px
+	customTable.height=500;
+
 tableonclick
 ~~~~~~~~~~~~
 
@@ -175,6 +185,42 @@ When set to false it hides the header. The default value is true.
 		table.tableid = 'table1';
 		table.showheader = hide;
 
+sqlselect
+~~~~~~~~~
+
+The **sqlselect** attribute is used to bind the table to an sql statement. The result or data obtained from the executed 
+sql will be used to populate the table.
+
+- The following example shows how to bind an sql statement to a table:
+
+.. code-block:: javascript
+
+		var table = new tableDef();
+		table.tableid = 'table1';
+		table.showheader = hide;
+		//Sql statement to retrive user information from the user table.
+		table.sqlselect = 'select firstname,lastname,age,address from user';
+		
+.. note:: If the name of the headings are not set (as in the example above) the default values
+		  will be the name of the columns of the table in the database. However if the **dbref**
+		  attribute is set the column headings of the data dictionary will be displayed.
+		  
+		  
+sqlrcdcnt
+~~~~~~~~~~
+
+The **sqlrcdcnt** attribute is used to set the amount of records retrieved from the executed select statement.
+
+- An example of how to set the the **sqlrcdcnt** to 10 is shown below:
+
+.. code-block:: javascript
+
+		//Table definition
+		var table = new tableDef();
+		table.tableid = 'table1';
+		table.dbref = true;
+		table.sqlselect = 'select firstname,lastname,age,address from user';
+		table.sqlrcdcnt = 10; 
 
 dbref
 ~~~~~
@@ -213,11 +259,39 @@ from the function specified. The function must have a return type of **number** 
 		function formatSalary(){
 			"$" + valueOfCol("salary");
 		}
+		
+- Alternatively the sql statements can be modified to include the value function as a column. This is done by prefixing the function name
+  with the **@value:** string. The example below shows include the value function in the sql string.
+  
+	.. code-block:: javascript
 
+		var table = new tableDef();
+		table.tableid = 'table1';
+		table.dbref = true;
+		
+		table.sqlselect = 'select @value:formatSalary from payment';
+
+		function formatSalary(){
+			"$" + valueOfCol("salary");
+		}
+	
 
 Table Functions
 ---------------
 
+column(columnId)
+~~~~~~~~~~~~~~~~
+
+The **column** function is used access specific table column elements. Attributes of these columns can also be set as shown in the
+examples below:
+
+The example below sets the **width** of **columnOne** to 400 pixels and also sets the style attribute.
+
+	.. code-block:: javascript
+			table.column('columnOne').width=400;
+			table.column('columnOne').style='border:2px solid red';
+			
+			
 newRow(tableId)
 ~~~~~~~~~~~~~~~
 
