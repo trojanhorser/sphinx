@@ -623,3 +623,92 @@ The value of **tableHTML** is shown below:
 .. code-block:: javascript
 
 		changeContent( 'tableDiv', tableHTML );
+
+Sorting A Table
+---------------
+
+sortSqlSelectResult
+~~~~~~~~~~~~~~~~~~~
+
+The  **sortSqlSelectResult** function sorts the data of a table in 
+**ascending** or **descending** order. The sort order is defined by the  
+**sortorder** global varibale *(see global varibales for more details on
+the sortorder global varibale)*.
+
+- The example below shows how to use the **sortSqlSelectResult** function:
+
+.. code-block:: javascript
+	
+	var table=new tableDef();
+	table.tableid='table1';
+	table.dbref=true;
+	
+	var sqlStatement="select firstname,lastname,address from user";
+	
+	//Fetch the first twenty records from the user table
+	if (!sqlSelect(sqlStatement,'$records',20)) {
+		alert(sqlerr);
+		return false;
+	}
+	
+	//Sort records by firstname column
+	sortSqlSelectResult($records,'firstname');
+	
+	//Set the table with the sorted $records
+	setSqlSelectResult(table, $records);
+	
+	//Change content of the div which contains the table with 
+	changeContent('tableContainerDiv',applyTableDef(table));
+
+Adding Custom HTML Fields To A Table
+-------------------------------------
+
+Custom html fields can be added to columns of a table in two main ways:
+
+1. Including the HTML for the element in sql query. 
+2. Or Ad an alias column to sql query and perform post processing on the
+   sql results to add the HTML element.
+   
+- This example shows how a checkbox column can be added to a table by embeding HTML in the sql 
+  statement. When the table is rendered a checkbox will be displayed in the **select** column: 
+
+.. code-block:: javascript
+
+	var table = new tableDef();
+	table.tableid = 'table1';
+	table.dbref = true;
+	
+	var sqlStatement="select '<input type=checkbox name=selectCheckBox>' select,firstname,lastname,address from user";
+	
+	/***
+		Code to generate table here
+	**/
+	
+- This example shows how a checkbox column can be added to a table by performing
+  post processing on the sql result.
+   
+.. code-block:: javascript
+
+	var table = new tableDef();
+	table.tableid = 'table1';
+	table.dbref = true;
+	
+	var sqlStatement="select '<input type=checkbox name=selectCheckBox>' select,firstname,lastname,address from user";
+	
+	if (!sqlSelect(sqlStatement,'$records',20)) {
+    	alert(sqlerr);
+		return false;
+	}
+	
+	for (i=0; i<$records.rcdcnt; i++) {
+		$records.select[i]='<input type=checkbox name=selectCheckBox>';
+	}
+	
+	/***
+		Code to generate table here
+	**/
+
+	
+
+	
+	

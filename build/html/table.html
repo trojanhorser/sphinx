@@ -101,6 +101,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Table</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tabledef-object">tableDef Object</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#table-functions">Table Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sorting-a-table">Sorting A Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-custom-html-fields-to-a-table">Adding Custom HTML Fields To A Table</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
@@ -736,6 +738,89 @@ values of the tableDef object. It is used with <strong>changeContent</strong> to
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">changeContent</span><span class="p">(</span> <span class="s1">&#39;tableDiv&#39;</span><span class="p">,</span> <span class="nx">tableHTML</span> <span class="p">);</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="sorting-a-table">
+<h2>Sorting A Table<a class="headerlink" href="#sorting-a-table" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sortsqlselectresult">
+<h3>sortSqlSelectResult<a class="headerlink" href="#sortsqlselectresult" title="Permalink to this headline">¶</a></h3>
+<p>The  <strong>sortSqlSelectResult</strong> function sorts the data of a table in
+<strong>ascending</strong> or <strong>descending</strong> order. The sort order is defined by the
+<strong>sortorder</strong> global varibale <em>(see global varibales for more details on
+the sortorder global varibale)</em>.</p>
+<ul class="simple">
+<li>The example below shows how to use the <strong>sortSqlSelectResult</strong> function:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span><span class="o">=</span><span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span><span class="o">=</span><span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">sqlStatement</span><span class="o">=</span><span class="s2">&quot;select firstname,lastname,address from user&quot;</span><span class="p">;</span>
+
+<span class="c1">//Fetch the first twenty records from the user table</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqlStatement</span><span class="p">,</span><span class="s1">&#39;$records&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//Sort records by firstname column</span>
+<span class="nx">sortSqlSelectResult</span><span class="p">(</span><span class="nx">$records</span><span class="p">,</span><span class="s1">&#39;firstname&#39;</span><span class="p">);</span>
+
+<span class="c1">//Set the table with the sorted $records</span>
+<span class="nx">setSqlSelectResult</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">$records</span><span class="p">);</span>
+
+<span class="c1">//Change content of the div which contains the table with</span>
+<span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;tableContainerDiv&#39;</span><span class="p">,</span><span class="nx">applyTableDef</span><span class="p">(</span><span class="nx">table</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-custom-html-fields-to-a-table">
+<h2>Adding Custom HTML Fields To A Table<a class="headerlink" href="#adding-custom-html-fields-to-a-table" title="Permalink to this headline">¶</a></h2>
+<p>Custom html fields can be added to columns of a table in two main ways:</p>
+<ol class="arabic simple">
+<li>Including the HTML for the element in sql query.</li>
+<li>Or Ad an alias column to sql query and perform post processing on the
+sql results to add the HTML element.</li>
+</ol>
+<ul class="simple">
+<li>This example shows how a checkbox column can be added to a table by embeding HTML in the sql
+statement. When the table is rendered a checkbox will be displayed in the <strong>select</strong> column:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">sqlStatement</span><span class="o">=</span><span class="s2">&quot;select &#39;&lt;input type=checkbox name=selectCheckBox&gt;&#39; select,firstname,lastname,address from user&quot;</span><span class="p">;</span>
+
+<span class="cm">/***</span>
+<span class="cm">        Code to generate table here</span>
+<span class="cm">**/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>This example shows how a checkbox column can be added to a table by performing
+post processing on the sql result.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;table1&#39;</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">sqlStatement</span><span class="o">=</span><span class="s2">&quot;select &#39;&lt;input type=checkbox name=selectCheckBox&gt;&#39; select,firstname,lastname,address from user&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqlStatement</span><span class="p">,</span><span class="s1">&#39;$records&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span> <span class="p">{</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">$records</span><span class="p">.</span><span class="nx">rcdcnt</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$records</span><span class="p">.</span><span class="nx">select</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;&lt;input type=checkbox name=selectCheckBox&gt;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/***</span>
+<span class="cm">        Code to generate table here</span>
+<span class="cm">**/</span>
+</pre></div>
 </div>
 </div>
 </div>

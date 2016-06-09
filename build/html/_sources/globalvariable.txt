@@ -61,3 +61,15 @@ currentrow
 
 The **currentrow** variable represents the last row which has been added to a table. This variable is defined
 in the **standardjs.js** library.
+
+sortorder
+~~~~~~~~~
+
+The **sortorder** global varibale is used to determine the sort 
+order of a specific column within a table. It can have two 
+possible values **ascend** and **descend**. It is used with the 
+**sortSqlSelectResult** function.
+
+.. note:: The sortSqlSelectResult function is explained in the tables
+		  section.
+		  
