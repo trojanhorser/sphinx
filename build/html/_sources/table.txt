@@ -704,11 +704,244 @@ Custom html fields can be added to columns of a table in two main ways:
 		$records.select[i]='<input type=checkbox name=selectCheckBox>';
 	}
 	
-	/***
+	/**
 		Code to generate table here
 	**/
+	
+Lookup Tables
+-------------
 
-	
+A **lookup** is implemented as a combination of a search field, a lookup table and a function allows the user to search
+for a record in that table.
 
+Lookup Field
+~~~~~~~~~~~~
+
+The lookup field allows the user to either type their value directy into the field or do a dynamic search. The
+user will search through a lookup table of possible entries and choose the appropriate on. And the list can also be 
+filtered by enetring part of the information. 
+
+- The example below shows how lookup field is defined
+
+Table Definition 
+~~~~~~~~~~~~~~~~
+
+A lookup table is defined using the **tableDef** object with a table type of *lookup*. It also accepts the values
+for the fields that must be displayed and the field(s) that must be populated with the record chosen by the user. 
+
+A typical lookup table requires that the following attributes be specified:
+
+- **returnfld** - This is an array which specifies the fields of the selcted record that will be used by the program.
+
+- **returninto** - This is an array which specifies which form fields will be used to display the returned fields.
+
+- **lookupfldlen** - This specifies the length of the lookup field in pixels.
+
+- **lookuphtml** - This specifies the HTML which is diplayed above the lookup table.
+
+- The example below shows how a lookup table is defined:
+
+.. code-block:: javascript
+
+	var lookUpTable = new tableDef('lookup');//table type of lookup is passed to the constructor 
+	lookUpTable.dbref = true;
+	lookUpTable.returnfld = ['companyid','companyname']; 
+	lookUpTable.returninto = ['companysearch','companyname'];
+	lookUpTable.lookupfldlen = 20;
+	lookUpTable.top = 'center';
+	lookUpTable.lookuphtml = '<span style="color:red">Only Active Customers will be displayed</span><br>';
+	lookUpTable.sqlselect="select companyid, companyname from wsconsgn order by companyname";
+
+There are two approaches to creating the SQL select :
+
+1. A normal sql statement cna be used *(as shown in the example above)*, however it must contain the values
+specified in the **returnfld**.
+
+2. A sql statement can be modified to contain any SQL conditional operator eg. **(LIKE, NOT, IN)**  
+along with the **lookupfld** keyword. The program looks for that keyword and replaces with value from the lookup field.
+
+- In the example below the like sql conditional operator is used:
+    
+.. code-block:: javascript
+
+	lookUpTable.sqlselect = "select companyid, companyname from wsconsgn 
+							 where companyname like 'lookupfld%' order by companyname";
+
+colprefix 
+---------
+
+**colprefix** is used to ensure the uniqueness of column names across table instances. 
+If the column prefix is not used, conflicts may occur between tables that have column names which 
+are identical. Assigning column prefix property of the tabledef object effectively changes the column id's asscoiated with each table column with a prefix. 
+The prefix is applied as **[colprefix#columnname]**.
+
+- The example below shows two tables **employee** and **employeedetails**. Both tables  
+  have the column employeeid. This will cause a conflict and will not provide a result when the
+  column **id** is referenced.
+
+    
+.. code-block:: javascript
+ 
+  var employeeTable = new tableDef();
+  employeeTable.tableid = 'employeeTableId';
+  employeeTable.dbref = true;
+  employeeTable.sqlselect = "select id, firstname, lastname from employee";
+
+  var employeeHistoryTable = new tableDef();
+  employeeHistoryTable.tableid = 'employeeHistoryTableId';
+  employeeHistoryTable.dbref = true;
+  employeeTable.sqlselect = "select id, updated from employeehistory";
+
+  /**
+  	Values would be not be returned for employeeTableId and employeeHistoryTableId
+	since there is no way to differenciate the columns.
+  **/
+  var employeeTableId = valueOfCol('id');  
+  var employeeHistoryTableId = valueOfCol('id'); 
+ 
+  
+- The example below shows two tables **employee** and **employeedetails**. Both tables  
+  have the column employeeid. This time however colprefix is used to differenciate the id 
+  columns.
+
+    
+.. code-block:: javascript
+
+  var employeeTable = new tableDef();
+  employeeTable.tableid = 'employeeTableId';
+  employeeTable.colprefix = 'employee1'
+  employeeTable.dbref = true;
+  employeeTable.sqlselect = "select id, firstname, lastname from employee";
+
+  var employeeHistoryTable = new tableDef();
+  employeeHistoryTable.tableid = 'employeeTableId';
+  employeeTable.colprefix = 'employee2'
+  employeeHistoryTable.dbref = true;
+  employeeTable.sqlselect = "select id, updated from employeehistory";
+
+  /**
+  	Values would be returned for employeeTableId and employeeHistoryTableId
+  **/
+  var employeeTableId = valueOfCol('employee1#id');  
+  var employeeHistoryTableId = valueOfCol('employee2#id'); 
+  
+Tables And Input Fields
+-----------------------
+
+HTML input fields can be added to tables. 
+
+Int('columnOne','columnTwo','columnThree','column..........' )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **Int** function accepts a variable argument list of column names. 
+When the function is invoked it initializes the columns in a global variable 
+**$tabldata** which is of type sqlSelectResult. The HTML of individual columns of the
+**$tabldata** object can then be replaced with the HTML for input fields.
+
+- The example below shows how the **table** object is initialized with the **Int** function
+  and how the HTML for input fields are addes to the table.
+
+.. code-block:: javascript
 	
+	//Define table
+	var table = new tableDef();
+	table.dbref = true;
+	table.tableonclick = "displayData()";
 	
+	//Initialize columns for **table** object
+	Int('inputFieldOneColumn','inputFieldTwoColumn');
+	
+	//Create HTML for input fields
+	var inputFieldOneHTML = "<input type=text size=10 maxlength=20 name=inputFieldOne value='Enter Text Field One'>";
+	var inputFieldTwoHTML = "<input type=text size=10 maxlength=20 name=inputFieldTwo value='Enter Text Field Two'>";
+	
+	//Add HTML input fields to table
+	for (i=0; i<$data.rcdcnt; i++) {
+		addSqlSelectRow($tabldata);
+		$tabldata['inputFieldOne'][i]=inputFieldOneHTML;
+		$tabldata['inputFieldTwo'][i]=inputFieldTwoHTML"
+	}
+	
+	setSqlSelectResult(tabl,$tabldata);
+	changeContent('tabldata', applyTableDef(tabl));
+
+Referencing Input Fields In A Table By Name
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to retrieve a value from an input field in a table the input field name must be used.
+
+- The example below shows how the input field **name** can be used to retried the value:
+
+.. code-block:: javascript
+   
+   //Use input field name 'inputFieldOne'
+   alert(valueOfCol('inputFieldOne'));
+   //'Enter Text Field One' will be displayed
+
+Referencing Input Fields In A Table By ID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to reference a input field by id the following steps should be taken:
+	1. A **pointer** must be created with a unique value for each row.
+	2. A hidden field must be created with the pointer as the **id**.
+	3. Input fields must be given a unique id based on the value of the pointer.
+	4. The input field must then be referenced by the **id** using **valueOfCol**.
+
+- The example below shows how to reference an input field by id:
+
+.. code-block:: javascript
+    
+	packagehtml="<input type=text size=10 maxlength=20 id=#ID value='$VAL'>";
+	descriptionhtml="<input type=text size=30 maxlength=30 id=#ID value='$VAL'>";
+
+    tabl=new tableDef();
+	tabl.dbref=true;
+	tabl.tableonclick="displayData()";
+	sqltxt='select paccde, pacdes from wspack';
+
+	if (!sqlSelect(sqltxt,'$data')) {
+		alert(sqlerr);
+		return false;
+	}
+
+	$tabldata=new sqlSelectResult('package','description','image','pointer');
+
+	for (i=0; i<$data.rcdcnt; i++) {
+		addSqlSelectRow($tabldata);
+		
+		//Set ID of packagedata field with index (i)
+		$tabldata['package'][i]=(packagehtml.split('$VAL').join($data.paccde[i])).replace("#ID","packagedata" + i);
+		
+		//Set ID of descriptiondata field with index (i)
+		$tabldata['description'][i]=(descriptionhtml.split('$VAL').join($data.pacdes[i])).replace("#ID","descriptiondata" + i);
+		
+		$tabldata['image'][i]="<img src='../image/print.ico'>";
+		
+		//Create pointer - index is the same as the for loop
+		$tabldata['pointer'][i] = i;
+	}
+	
+	//Hide pointer column 
+	tabl.column('pointer').width=0;
+
+	setSqlSelectResult(tabl,$tabldata);
+	changeContent('tabldata', applyTableDef(tabl));
+  }
+
+  function displayData() {
+	n=readClickedRow();
+	if (eof) {return}
+	
+	//Retrieve value of pointer
+	var pointerValue = valueOfCol('pointer');
+	
+	//User pointer to retrive the value of a field
+	alert(valueOf('packagedata'+pointerValue));
+ }
+
+
+
+
+
+
+

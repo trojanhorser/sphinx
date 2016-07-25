@@ -103,6 +103,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#table-functions">Table Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sorting-a-table">Sorting A Table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adding-custom-html-fields-to-a-table">Adding Custom HTML Fields To A Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lookup-tables">Lookup Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#colprefix">colprefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tables-and-input-fields">Tables And Input Fields</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
@@ -817,10 +820,228 @@ post processing on the sql result.</li>
         <span class="nx">$records</span><span class="p">.</span><span class="nx">select</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;&lt;input type=checkbox name=selectCheckBox&gt;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cm">/***</span>
+<span class="cm">/**</span>
 <span class="cm">        Code to generate table here</span>
 <span class="cm">**/</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="lookup-tables">
+<h2>Lookup Tables<a class="headerlink" href="#lookup-tables" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>lookup</strong> is implemented as a combination of a search field, a lookup table and a function allows the user to search
+for a record in that table.</p>
+<div class="section" id="lookup-field">
+<h3>Lookup Field<a class="headerlink" href="#lookup-field" title="Permalink to this headline">¶</a></h3>
+<p>The lookup field allows the user to either type their value directy into the field or do a dynamic search. The
+user will search through a lookup table of possible entries and choose the appropriate on. And the list can also be
+filtered by enetring part of the information.</p>
+<ul class="simple">
+<li>The example below shows how lookup field is defined</li>
+</ul>
+</div>
+<div class="section" id="table-definition">
+<h3>Table Definition<a class="headerlink" href="#table-definition" title="Permalink to this headline">¶</a></h3>
+<p>A lookup table is defined using the <strong>tableDef</strong> object with a table type of <em>lookup</em>. It also accepts the values
+for the fields that must be displayed and the field(s) that must be populated with the record chosen by the user.</p>
+<p>A typical lookup table requires that the following attributes be specified:</p>
+<ul class="simple">
+<li><strong>returnfld</strong> - This is an array which specifies the fields of the selcted record that will be used by the program.</li>
+<li><strong>returninto</strong> - This is an array which specifies which form fields will be used to display the returned fields.</li>
+<li><strong>lookupfldlen</strong> - This specifies the length of the lookup field in pixels.</li>
+<li><strong>lookuphtml</strong> - This specifies the HTML which is diplayed above the lookup table.</li>
+<li>The example below shows how a lookup table is defined:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">lookUpTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">(</span><span class="s1">&#39;lookup&#39;</span><span class="p">);</span><span class="c1">//table type of lookup is passed to the constructor</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">returnfld</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;companyid&#39;</span><span class="p">,</span><span class="s1">&#39;companyname&#39;</span><span class="p">];</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">returninto</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;companysearch&#39;</span><span class="p">,</span><span class="s1">&#39;companyname&#39;</span><span class="p">];</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">lookupfldlen</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="s1">&#39;center&#39;</span><span class="p">;</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">lookuphtml</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;color:red&quot;&gt;Only Active Customers will be displayed&lt;/span&gt;&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">sqlselect</span><span class="o">=</span><span class="s2">&quot;select companyid, companyname from wsconsgn order by companyname&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>There are two approaches to creating the SQL select :</p>
+<p>1. A normal sql statement cna be used <em>(as shown in the example above)</em>, however it must contain the values
+specified in the <strong>returnfld</strong>.</p>
+<p>2. A sql statement can be modified to contain any SQL conditional operator eg. <strong>(LIKE, NOT, IN)</strong>
+along with the <strong>lookupfld</strong> keyword. The program looks for that keyword and replaces with value from the lookup field.</p>
+<ul class="simple">
+<li>In the example below the like sql conditional operator is used:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">lookUpTable</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s2">&quot;select companyid, companyname from wsconsgn</span>
+<span class="s2">                                                 where companyname like &#39;lookupfld%&#39; order by companyname&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="colprefix">
+<h2>colprefix<a class="headerlink" href="#colprefix" title="Permalink to this headline">¶</a></h2>
+<p><strong>colprefix</strong> is used to ensure the uniqueness of column names across table instances.
+If the column prefix is not used, conflicts may occur between tables that have column names which
+are identical. Assigning column prefix property of the tabledef object effectively changes the column id&#8217;s asscoiated with each table column with a prefix.
+The prefix is applied as <strong>[colprefix#columnname]</strong>.</p>
+<ul class="simple">
+<li>The example below shows two tables <strong>employee</strong> and <strong>employeedetails</strong>. Both tables
+have the column employeeid. This will cause a conflict and will not provide a result when the
+column <strong>id</strong> is referenced.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">employeeTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;employeeTableId&#39;</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s2">&quot;select id, firstname, lastname from employee&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">employeeHistoryTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">employeeHistoryTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;employeeHistoryTableId&#39;</span><span class="p">;</span>
+<span class="nx">employeeHistoryTable</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s2">&quot;select id, updated from employeehistory&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm">      Values would be not be returned for employeeTableId and employeeHistoryTableId</span>
+<span class="cm">      since there is no way to differenciate the columns.</span>
+<span class="cm">**/</span>
+<span class="kd">var</span> <span class="nx">employeeTableId</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">employeeHistoryTableId</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The example below shows two tables <strong>employee</strong> and <strong>employeedetails</strong>. Both tables
+have the column employeeid. This time however colprefix is used to differenciate the id
+columns.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">employeeTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;employeeTableId&#39;</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">colprefix</span> <span class="o">=</span> <span class="s1">&#39;employee1&#39;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s2">&quot;select id, firstname, lastname from employee&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">employeeHistoryTable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+<span class="nx">employeeHistoryTable</span><span class="p">.</span><span class="nx">tableid</span> <span class="o">=</span> <span class="s1">&#39;employeeTableId&#39;</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">colprefix</span> <span class="o">=</span> <span class="s1">&#39;employee2&#39;</span>
+<span class="nx">employeeHistoryTable</span><span class="p">.</span><span class="nx">dbref</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">employeeTable</span><span class="p">.</span><span class="nx">sqlselect</span> <span class="o">=</span> <span class="s2">&quot;select id, updated from employeehistory&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm">      Values would be returned for employeeTableId and employeeHistoryTableId</span>
+<span class="cm">**/</span>
+<span class="kd">var</span> <span class="nx">employeeTableId</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;employee1#id&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">employeeHistoryTableId</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;employee2#id&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tables-and-input-fields">
+<h2>Tables And Input Fields<a class="headerlink" href="#tables-and-input-fields" title="Permalink to this headline">¶</a></h2>
+<p>HTML input fields can be added to tables.</p>
+<div class="section" id="int-columnone-columntwo-columnthree-column">
+<h3>Int(&#8216;columnOne&#8217;,&#8217;columnTwo&#8217;,&#8217;columnThree&#8217;,&#8217;column..........&#8217; )<a class="headerlink" href="#int-columnone-columntwo-columnthree-column" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Int</strong> function accepts a variable argument list of column names.
+When the function is invoked it initializes the columns in a global variable
+<strong>$tabldata</strong> which is of type sqlSelectResult. The HTML of individual columns of the
+<strong>$tabldata</strong> object can then be replaced with the HTML for input fields.</p>
+<ul class="simple">
+<li>The example below shows how the <strong>table</strong> object is initialized with the <strong>Int</strong> function
+and how the HTML for input fields are addes to the table.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>//Define table
+var table = new tableDef();
+table.dbref = true;
+table.tableonclick = &quot;displayData()&quot;;
+
+//Initialize columns for **table** object
+Int(&#39;inputFieldOneColumn&#39;,&#39;inputFieldTwoColumn&#39;);
+
+//Create HTML for input fields
+var inputFieldOneHTML = &quot;&lt;input type=text size=10 maxlength=20 name=inputFieldOne value=&#39;Enter Text Field One&#39;&gt;&quot;;
+var inputFieldTwoHTML = &quot;&lt;input type=text size=10 maxlength=20 name=inputFieldTwo value=&#39;Enter Text Field Two&#39;&gt;&quot;;
+
+//Add HTML input fields to table
+for (i=0; i&lt;$data.rcdcnt; i++) {
+        addSqlSelectRow($tabldata);
+        $tabldata[&#39;inputFieldOne&#39;][i]=inputFieldOneHTML;
+        $tabldata[&#39;inputFieldTwo&#39;][i]=inputFieldTwoHTML&quot;
+}
+
+setSqlSelectResult(tabl,$tabldata);
+changeContent(&#39;tabldata&#39;, applyTableDef(tabl));
+</pre></div>
+</div>
+</div>
+<div class="section" id="referencing-input-fields-in-a-table-by-name">
+<h3>Referencing Input Fields In A Table By Name<a class="headerlink" href="#referencing-input-fields-in-a-table-by-name" title="Permalink to this headline">¶</a></h3>
+<p>In order to retrieve a value from an input field in a table the input field name must be used.</p>
+<ul class="simple">
+<li>The example below shows how the input field <strong>name</strong> can be used to retried the value:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Use input field name &#39;inputFieldOne&#39;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;inputFieldOne&#39;</span><span class="p">));</span>
+<span class="c1">//&#39;Enter Text Field One&#39; will be displayed</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="referencing-input-fields-in-a-table-by-id">
+<h3>Referencing Input Fields In A Table By ID<a class="headerlink" href="#referencing-input-fields-in-a-table-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>In order to reference a input field by id the following steps should be taken:</dt>
+<dd><ol class="first last arabic simple">
+<li>A <strong>pointer</strong> must be created with a unique value for each row.</li>
+<li>A hidden field must be created with the pointer as the <strong>id</strong>.</li>
+<li>Input fields must be given a unique id based on the value of the pointer.</li>
+<li>The input field must then be referenced by the <strong>id</strong> using <strong>valueOfCol</strong>.</li>
+</ol>
+</dd>
+</dl>
+<ul class="simple">
+<li>The example below shows how to reference an input field by id:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>       <span class="nx">packagehtml</span><span class="o">=</span><span class="s2">&quot;&lt;input type=text size=10 maxlength=20 id=#ID value=&#39;$VAL&#39;&gt;&quot;</span><span class="p">;</span>
+       <span class="nx">descriptionhtml</span><span class="o">=</span><span class="s2">&quot;&lt;input type=text size=30 maxlength=30 id=#ID value=&#39;$VAL&#39;&gt;&quot;</span><span class="p">;</span>
+
+   <span class="nx">tabl</span><span class="o">=</span><span class="k">new</span> <span class="nx">tableDef</span><span class="p">();</span>
+       <span class="nx">tabl</span><span class="p">.</span><span class="nx">dbref</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+       <span class="nx">tabl</span><span class="p">.</span><span class="nx">tableonclick</span><span class="o">=</span><span class="s2">&quot;displayData()&quot;</span><span class="p">;</span>
+       <span class="nx">sqltxt</span><span class="o">=</span><span class="s1">&#39;select paccde, pacdes from wspack&#39;</span><span class="p">;</span>
+
+       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">sqlSelect</span><span class="p">(</span><span class="nx">sqltxt</span><span class="p">,</span><span class="s1">&#39;$data&#39;</span><span class="p">))</span> <span class="p">{</span>
+               <span class="nx">alert</span><span class="p">(</span><span class="nx">sqlerr</span><span class="p">);</span>
+               <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+       <span class="p">}</span>
+
+       <span class="nx">$tabldata</span><span class="o">=</span><span class="k">new</span> <span class="nx">sqlSelectResult</span><span class="p">(</span><span class="s1">&#39;package&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;pointer&#39;</span><span class="p">);</span>
+
+       <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">$data</span><span class="p">.</span><span class="nx">rcdcnt</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+               <span class="nx">addSqlSelectRow</span><span class="p">(</span><span class="nx">$tabldata</span><span class="p">);</span>
+
+               <span class="c1">//Set ID of packagedata field with index (i)</span>
+               <span class="nx">$tabldata</span><span class="p">[</span><span class="s1">&#39;package&#39;</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="nx">packagehtml</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;$VAL&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">$data</span><span class="p">.</span><span class="nx">paccde</span><span class="p">[</span><span class="nx">i</span><span class="p">])).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;#ID&quot;</span><span class="p">,</span><span class="s2">&quot;packagedata&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+
+               <span class="c1">//Set ID of descriptiondata field with index (i)</span>
+               <span class="nx">$tabldata</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="nx">descriptionhtml</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;$VAL&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">$data</span><span class="p">.</span><span class="nx">pacdes</span><span class="p">[</span><span class="nx">i</span><span class="p">])).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;#ID&quot;</span><span class="p">,</span><span class="s2">&quot;descriptiondata&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+
+               <span class="nx">$tabldata</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;&lt;img src=&#39;../image/print.ico&#39;&gt;&quot;</span><span class="p">;</span>
+
+               <span class="c1">//Create pointer - index is the same as the for loop</span>
+               <span class="nx">$tabldata</span><span class="p">[</span><span class="s1">&#39;pointer&#39;</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+       <span class="p">}</span>
+
+       <span class="c1">//Hide pointer column</span>
+       <span class="nx">tabl</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="s1">&#39;pointer&#39;</span><span class="p">).</span><span class="nx">width</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+       <span class="nx">setSqlSelectResult</span><span class="p">(</span><span class="nx">tabl</span><span class="p">,</span><span class="nx">$tabldata</span><span class="p">);</span>
+       <span class="nx">changeContent</span><span class="p">(</span><span class="s1">&#39;tabldata&#39;</span><span class="p">,</span> <span class="nx">applyTableDef</span><span class="p">(</span><span class="nx">tabl</span><span class="p">));</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">displayData</span><span class="p">()</span> <span class="p">{</span>
+       <span class="nx">n</span><span class="o">=</span><span class="nx">readClickedRow</span><span class="p">();</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">eof</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span><span class="p">}</span>
+
+       <span class="c1">//Retrieve value of pointer</span>
+       <span class="kd">var</span> <span class="nx">pointerValue</span> <span class="o">=</span> <span class="nx">valueOfCol</span><span class="p">(</span><span class="s1">&#39;pointer&#39;</span><span class="p">);</span>
+
+       <span class="c1">//User pointer to retrive the value of a field</span>
+       <span class="nx">alert</span><span class="p">(</span><span class="nx">valueOf</span><span class="p">(</span><span class="s1">&#39;packagedata&#39;</span><span class="o">+</span><span class="nx">pointerValue</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

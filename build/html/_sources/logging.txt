@@ -99,3 +99,27 @@ The PRINTABLELOG Program
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To **PRINTABLELOG** program allows logs to be viewed. The image below shows the **PRINTTABLELOG** program.
+
+.. image:: prinTableLog.png
+
+It consists of the six(6) sections which are described below:
+
+1. **Table** - This allows a table to be selected for which logging information is to be viewed. When a table is selected it shows the table columns which will be reported on by default and also allows additional columns to be selected. 
+
+- The image below shows that the columns for **Customer Master** are displayed: 
+
+.. image:: tableFilterSelected.png
+
+2. **Logging Type** - This allows the log report to be fileterd by the action which created the log. The actions include **Add**, **Update** and **Delete**. 
+
+3. **From Date** - This allows the start date to be specified for which logs are to be viewed.
+
+4. **To Date** -  This allows the end date to be specified for which logs are to be viewed.
+
+.. note:: If no dates are entered all log data will be retrieved.
+
+5. **User** - This allows logs to be filtered by the user which created the log.
+
+6. **Submit** - The submit button executes a search for logs based on the filter criteria specified. A report screen will be shown with the results from the search as shown below:
+
+.. image:: reportScreen.png
