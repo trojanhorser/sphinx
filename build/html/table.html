@@ -108,7 +108,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#tables-and-input-fields">Tables And Input Fields</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#build-tables-with-in-cell-editing-capability">Build Tables with In-Cell Editing Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lesson-10-select-list-and-picklist">Lesson 10 – Select List and PickList</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions:</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reporting.html#advanced-reports">Advanced Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -1042,6 +1049,57 @@ changeContent(&#39;tabldata&#39;, applyTableDef(tabl));
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="build-tables-with-in-cell-editing-capability">
+<h1>Build Tables with In-Cell Editing Capability<a class="headerlink" href="#build-tables-with-in-cell-editing-capability" title="Permalink to this headline">¶</a></h1>
+<p>sqlSelectResult object</p>
+<p>addSqlSelectRow()</p>
+<p>setSqlSelectResult()</p>
+<ul class="simple">
+<li>Dynamically build HTML for controls in each table cell.</li>
+<li>Use placeholders in HTML text to indicate where field IDs will be inserted.</li>
+<li>Implement a “pointer” column to store an integer value that is unique for each row.</li>
+<li>Use changeCol() to insert the markup into the table cell.</li>
+</ul>
+</div>
+<div class="section" id="lesson-10-select-list-and-picklist">
+<h1>Lesson 10 – Select List and PickList<a class="headerlink" href="#lesson-10-select-list-and-picklist" title="Permalink to this headline">¶</a></h1>
+<p>Building a Select List that populates from a database:
+selectList object:</p>
+<ul class="simple">
+<li>sqlselect</li>
+<li>default value</li>
+<li>nulltext</li>
+</ul>
+<div class="section" id="functions">
+<h2>Functions:<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="applyselectlist-selectlist-object-fieldname">
+<h3>applySelectList(selectList object, fieldName)<a class="headerlink" href="#applyselectlist-selectlist-object-fieldname" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="applyselectlist-selectlist-object-fieldname-sqlselectresult">
+<h3>applySelectList(selectList object, fieldName, sqlSelectResult)<a class="headerlink" href="#applyselectlist-selectlist-object-fieldname-sqlselectresult" title="Permalink to this headline">¶</a></h3>
+<p>Building a picklist and using it to select records.</p>
+<p>pickList Object</p>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>returncol</li>
+<li>filteron</li>
+<li>filtertext</li>
+<li>returninto</li>
+<li>title</li>
+<li>onaccept</li>
+<li>sqlselect</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Functions:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>displayPicklist(picklist object)</li>
+</ul>
 </div>
 </div>
 </div>

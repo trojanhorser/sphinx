@@ -25,3 +25,4 @@ It several components which are outlined below:
    time
    table
    logging
+   reporting

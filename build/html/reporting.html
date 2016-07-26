@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reporting &mdash; Advantum Technical Documentation 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Advantum Technical Documentation 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Advantum Web Software Development Framework" href="advantumframework.html"/>
+        <link rel="next" title="Training" href="training.html"/>
+        <link rel="prev" title="Database Logging" href="logging.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Advantum Technical Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="advantumframework.html">Advantum Web Software Development Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="advantumframework.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="datadictionary.html">Data Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#date-fields">Date Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#time-fields">Time Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html#other-form-methods">Other Form Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringfunctions.html">String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crudfunctions.html">CRUD Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alerts.html">Alerts/Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkboxandradiobuttons.html">Checkbox And Radio Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="globalvariable.html">Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html">Date and Time Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html#build-tables-with-in-cell-editing-capability">Build Tables with In-Cell Editing Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table.html#lesson-10-select-list-and-picklist">Lesson 10 – Select List and PickList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Database Logging</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Reporting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-basic-report">Creating A Basic Report</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-reports">Advanced Reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reporttabledef">reportTableDef</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporttabledef-attributes">reportTableDef Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#report-variables">Report Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reportdef-attributes">reportDef Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reportbreak">reportBreak</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standardsandconventions.html">Software Development Standards And Conventions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Advantum Technical Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="advantumframework.html">Advantum Web Software Development Framework</a> &raquo;</li>
+      
+    <li>Reporting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/reporting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="reporting">
+<h1>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h1>
+<p>The reporting API faciliates the creation of reports in many different formats including pdf, csv ect.</p>
+<div class="section" id="creating-a-basic-report">
+<h2>Creating A Basic Report<a class="headerlink" href="#creating-a-basic-report" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reportdef">
+<h3>reportDef<a class="headerlink" href="#reportdef" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>reportDef</strong> object is used to initialize a report.</p>
+<p>The example below shows how to define a reportDef object.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usereport-reportdef">
+<h3>useReport(reportDef)<a class="headerlink" href="#usereport-reportdef" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>useReport</strong> function accepts a <strong>reportDef</strong> object as its parameter.
+The report object that is passed represents the report object which will
+be used by the program.</p>
+<p>The example below shows how to useReport function is used:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="printout-htmlstring">
+<h3>printOut(HtmlString)<a class="headerlink" href="#printout-htmlstring" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>printOut</strong> function accepts a <strong>HtmlString</strong> as it&#8217;s parameter as HTML. It is used to
+specify the output of the report indicated by the <strong>useReport()</strong> function.
+The output is in HTML format.</p>
+<p>An example of how the <strong>printOut()</strong> function is used:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>An example of how the <strong>printOut()</strong> function can be called mutilple times in order to generat:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;More Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="createreport">
+<h3>createReport()<a class="headerlink" href="#createreport" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>createReport</strong> fucntion builds the report based on the  value specified in the <strong>printOut()</strong>
+function. It returns a boolean value to indicate if the report has been created or not.</p>
+<p>The example below shows how the</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;More Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+
+<span class="c1">//Create report fucntion</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">createReport</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Report has been created&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="viewreport">
+<h3>viewReport()<a class="headerlink" href="#viewreport" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>viewReport()</strong> function displays the report created in pdf format.</p>
+<p>The example below shows how the <strong>viewReport</strong> function is used.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;More Report Information&lt;/h1&gt;&quot;</span><span class="p">);</span>
+
+<span class="c1">//Create report fucntion</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">createReport</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">viewReport</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-reports">
+<h1>Advanced Reports<a class="headerlink" href="#advanced-reports" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reporttabledef">
+<h2>reportTableDef<a class="headerlink" href="#reporttabledef" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>reportTableDef</strong> object is used to define the details section of a report.</p>
+</div>
+<div class="section" id="reporttabledef-attributes">
+<h2>reportTableDef Attributes<a class="headerlink" href="#reporttabledef-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fixedwidth">
+<h3>fixedwidth<a class="headerlink" href="#fixedwidth" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>fixedwith</strong> atttribute indicates that the report details will be constrained to a default width. If it is not
+specified the rows in the details section of the report will have a width based ont the contents.</p>
+</div>
+<div class="section" id="rowsperpage">
+<h3>rowsperpage<a class="headerlink" href="#rowsperpage" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>rowsperpage</strong> attribute specifies to amount of rows which will be displayed on a page before the report
+breaks.</p>
+</div>
+</div>
+<div class="section" id="report-variables">
+<h2>Report Variables<a class="headerlink" href="#report-variables" title="Permalink to this headline">¶</a></h2>
+<p>Reports consist of many default variables which are prefixed with the &#64; symbol. The description for each
+variable is given below:</p>
+<div class="section" id="date">
+<h3>&#64;date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h3>
+<p>Shows the current date.</p>
+<ul class="simple">
+<li>The example below shows how to use the current &#64;date report variable</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Current Date @date&lt;/h1&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="page">
+<h3>&#64;page<a class="headerlink" href="#page" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The example below shows how to use the current &#64;page report variable</li>
+</ul>
+<p>Shows the current page number.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">report</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">reportDef</span><span class="p">();</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Current Page @page&lt;/h1&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dynamic-variables">
+<h3>Dynamic Variables<a class="headerlink" href="#dynamic-variables" title="Permalink to this headline">¶</a></h3>
+<p>Dynamic variables can be created using the following format &lt;&#64;:variableName&#64;&gt;. The <strong>variableName</strong> represents a
+global variable which can be used:</p>
+<ul class="simple">
+<li>The example below shows how to use the &lt;&#64;:globalVariable&#64;&gt; contained in the report:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">globalVariable</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">;</span>
+<span class="nx">useReport</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="nx">printOut</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;&lt;@:globalVariable@&gt;&lt;/h1&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reportdef-attributes">
+<h2>reportDef Attributes<a class="headerlink" href="#reportdef-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reporttable">
+<h3>reporttable<a class="headerlink" href="#reporttable" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>reporttable</strong>, this accepts a <strong>reportTableDef</strong> object. as it&#8217;s parameter.</p>
+</div>
+</div>
+<div class="section" id="reportbreak">
+<h2>reportBreak<a class="headerlink" href="#reportbreak" title="Permalink to this headline">¶</a></h2>
+<p>A page break is a marker that tells the program that a new page should be started based on a specific condition.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="logging.html" class="btn btn-neutral" title="Database Logging" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Denis Bell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

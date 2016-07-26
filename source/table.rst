@@ -942,6 +942,60 @@ In order to reference a input field by id the following steps should be taken:
 
 
 
+Build Tables with In-Cell Editing Capability
+===========================================
+
+sqlSelectResult object
+
+addSqlSelectRow()
+
+setSqlSelectResult()
+
+- Dynamically build HTML for controls in each table cell.
+- Use placeholders in HTML text to indicate where field IDs will be inserted.
+- Implement a “pointer” column to store an integer value that is unique for each row.
+- Use changeCol() to insert the markup into the table cell.
+
+Lesson 10 – Select List and PickList
+=====================================
+
+Building a Select List that populates from a database:
+selectList object:
+
+Attributes:
+~~~~~~~~~
+- sqlselect
+- default value
+- nulltext
+
+Functions:
+----------
+
+applySelectList(selectList object, fieldName)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+applySelectList(selectList object, fieldName, sqlSelectResult)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Building a picklist and using it to select records.
+
+pickList Object
+
+Attributes:
+~~~~~~~~~~~
+  
+- returncol
+- filteron
+- filtertext
+- returninto
+- title
+- onaccept
+- sqlselect
+
+Functions:
+~~~~~~~~~~
+ 
+- displayPicklist(picklist object)
 
 
 
